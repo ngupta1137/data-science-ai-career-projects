@@ -28,6 +28,7 @@ Correct means: the right value for answerable questions, a refusal for unanswera
 - End-to-end correct: **0.481**, 95% interval 0.352 to 0.630.
 - Always-abstain policy: 0.296.
 - Reader given the gold documents (exact match): 0.947.
+- Confidence as a detector of answerable versus unanswerable (AUC, 0.5 is chance): 0.379.
 
 | Question type | n | Gold doc in top 3 | End-to-end correct |
 |---|---|---|---|

@@ -87,6 +87,7 @@
     ],
     "always_abstain_correct": 0.2962962962962963,
     "reader_given_gold_context_exact_match": 0.9473684210526315,
+    "confidence_auc_answerable_vs_unanswerable": 0.37911184210526316,
     "taxonomy": {
       "answered_unanswerable": 15,
       "correct": 25,

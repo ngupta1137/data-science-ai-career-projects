@@ -71,6 +71,7 @@ Correct means: the right value for answerable questions, a refusal for unanswera
 - End-to-end correct: **{e2e["correct"]:.3f}**, 95% interval {_ci(e2e["ci95"])}.
 - Always-abstain policy: {e2e["always_abstain_correct"]:.3f}.
 - Reader given the gold documents (exact match): {e2e["reader_given_gold_context_exact_match"]:.3f}.
+- Confidence as a detector of answerable versus unanswerable (AUC, 0.5 is chance): {e2e["confidence_auc_answerable_vs_unanswerable"]:.3f}.
 
 | Question type | n | Gold doc in top {sel["context_documents"]} | End-to-end correct |
 |---|---|---|---|
@@ -123,7 +124,7 @@ Of {n_unans} unanswerable test questions, the system correctly refused {refusal}
 An answer given to an unanswerable question looks the same as a correct one to the reader of the answer. In this run the most frequent failure is **{worst}** ({tax.get(worst, 0)} questions). The reader alone, given the right documents, scores {e2e["reader_given_gold_context_exact_match"]:.3f}, so the losses are upstream of reading.
 
 ## Where not to trust it
-Refusal is the weakest part. The confidence signal is word overlap between the question and one sentence. A question that names a real policy but asks about something it does not state overlaps as much as a real question. See the taxonomy and `results/error_analysis.json`.
+Refusal is the weakest part. The confidence AUC is {e2e["confidence_auc_answerable_vs_unanswerable"]:.3f} (0.5 is chance), so no threshold can fix it. The confidence signal is word overlap between the question and one sentence. A question that names a real policy but asks about something it does not state overlaps as much as a real question. See the taxonomy and `results/error_analysis.json`.
 
 ## Not done
 No language model reader or judge. No dense neural retriever. No real documents. No latency or cost measurement.

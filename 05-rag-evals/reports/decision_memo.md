@@ -18,7 +18,7 @@ Of 16 unanswerable test questions, the system correctly refused 1. Passing the g
 An answer given to an unanswerable question looks the same as a correct one to the reader of the answer. In this run the most frequent failure is **answered_unanswerable** (15 questions). The reader alone, given the right documents, scores 0.947, so the losses are upstream of reading.
 
 ## Where not to trust it
-Refusal is the weakest part. The confidence signal is word overlap between the question and one sentence. A question that names a real policy but asks about something it does not state overlaps as much as a real question. See the taxonomy and `results/error_analysis.json`.
+Refusal is the weakest part. The confidence AUC is 0.379 (0.5 is chance), so no threshold can fix it. The confidence signal is word overlap between the question and one sentence. A question that names a real policy but asks about something it does not state overlaps as much as a real question. See the taxonomy and `results/error_analysis.json`.
 
 ## Not done
 No language model reader or judge. No dense neural retriever. No real documents. No latency or cost measurement.

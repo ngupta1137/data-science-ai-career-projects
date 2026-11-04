@@ -25,7 +25,7 @@ Generated, committed, and checksummed. See `data/DATA_CARD.md`. 41 documents and
 Measured on the test questions and written to `results/metrics.json` under `traps`: tuning the abstention threshold on test, never abstaining, and scoring answerable questions only.
 
 ## Read the result carefully
-The gate compares the pipeline to always refusing. It is a low bar. The decision memo reports how many unanswerable questions the pipeline actually refused, and in the committed run that is almost none. The lesson of this project is that word overlap is a weak signal for "no answer", and the error analysis shows which questions fool it.
+The gate compares the pipeline to always refusing. It is a low bar. The decision memo reports how many unanswerable questions the pipeline actually refused, and in the committed run that is almost none. Before the final design I checked four overlap-based signals on dev questions only; all had AUC at or below chance for separating answerable from unanswerable, so I did not keep tuning them (the test AUC is in the model card). The lesson of this project is that word overlap is a weak signal for "no answer", and the error analysis shows which questions fool it.
 
 ## Not done
 - **No language model.** Generating answers and judging them with a model is designed, not built, and not claimed.

@@ -26,6 +26,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import sklearn
+from sklearn.metrics import roc_auc_score
 
 from . import config, data
 from .metrics import bootstrap_ci, ndcg_at_k, recall_at_k, reciprocal_rank
@@ -233,6 +234,11 @@ def run(
             gold_em.append(float(normalize_answer(r["answer"]) == normalize_answer(q["answer"])))
     gold_context_em = float(np.mean(gold_em))
 
+    # Can the confidence signal separate answerable from unanswerable at all? 0.5 is chance.
+    conf_auc = float(
+        roc_auc_score(1 - unans, [o["confidence"] if o["answer"] else 0.0 for o in test_out])
+    )
+
     # Taxonomy and by-type tables.
     cats = [failure_category(o, threshold) for o in test_out]
     taxonomy = dict(sorted(Counter(cats).items()))
@@ -330,6 +336,7 @@ def run(
             "ci95": [e2e_ci[0], e2e_ci[1]],
             "always_abstain_correct": always_abstain,
             "reader_given_gold_context_exact_match": gold_context_em,
+            "confidence_auc_answerable_vs_unanswerable": conf_auc,
             "taxonomy": taxonomy,
         },
         "gate": {
