@@ -23,8 +23,8 @@ End-to-end projects for people building a career in data science and AI. Each pr
 
 | # | Project | Skill it teaches | Status |
 |---|---|---|---|
-| 01 | [House price regression](projects/01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Code and tests written. Metrics not yet generated |
-| 02 | Fraud detection | Imbalanced classification, PR-AUC, cost-based thresholds, calibration | Planned |
+| 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Code and tests written. Metrics not yet generated |
+| 02 | [Fraud detection](02-fraud-detection) | Imbalanced classification, PR-AUC, calibration, cost-based decisions, time-based splits | Code and tests written. Metrics not yet generated |
 | 03 | Demand forecasting | Time-based splits, backtesting, MASE | Planned |
 | 04 | Text classification | TF-IDF baseline versus transformer, confusion analysis | Planned |
 | 05 | RAG with evals | Retrieval recall@k, MRR, failure taxonomy | Planned |
@@ -37,13 +37,18 @@ Roadmap, not part of the claim above: experiment analysis (power, CUPED, peeking
 git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
 cd data-science-ai-career-projects
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
-python tools/run_tests.py              # fast tests, no network needed
-python tools/check_release.py --ci     # structure, metadata, style
+make check                             # lint, layout gate, tests (no network needed)
 ```
 
+Individual steps: `make lint`, `make gate`, `make test`.
+
 Each project folder has its own README with the commands to download data, train, and evaluate. Library versions are pinned in `requirements.txt` to the versions the code was tested on.
+
+## Repository layout
+
+One folder per project, the same shape every time. See [docs/repo-layout.md](docs/repo-layout.md) for the full tree and the rules the release gate enforces.
 
 ## Responsible use
 

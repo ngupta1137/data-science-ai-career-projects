@@ -10,7 +10,7 @@ Contributions are welcome if they raise the bar. A change is accepted when it me
 - The data card states the source, the terms, and what was not checked.
 - A leakage risk is named and tested for.
 - No em dashes. Plain, direct language.
-- `python tools/check_release.py --ci` and `python tools/run_tests.py` pass.
+- `make check` passes (ruff lint and format, layout gate, tests).
 
 ## Reporting a wrong result
 

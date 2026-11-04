@@ -7,6 +7,6 @@ venv/
 .DS_Store
 
 # Third-party raw data is never committed. Scripts download it.
-projects/*/data/raw/
-projects/*/data/cache/
+*/data/raw/
+*/data/cache/
 *.joblib

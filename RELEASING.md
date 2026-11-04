@@ -11,7 +11,7 @@ One concept DOI for this repository. One version DOI per release.
 ## Per-release checklist
 
 1. Replace `LICENSE` with the full official CC-BY-4.0 text. The release gate fails until this is done.
-2. Run `python tools/run_tests.py` and `python tools/check_release.py`. Both must pass.
+2. Run `make check` and `python tools/check_release.py` (the release mode). Both must pass.
 3. For each project in the release, run its pipeline and commit `results/`. Set its `STATUS` file to `released`.
 4. Update `CHANGELOG.md`.
 5. Tag and create the GitHub release (`v0.1.0` and so on). Zenodo archives it.

@@ -1,0 +1,28 @@
+# Tooling configuration only. This repository is not a single installable package:
+# each numbered folder is a self-contained project with its own package.
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+extend-exclude = [".venv", "venv", "*/data/raw", "*/data/cache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "RUF"]
+ignore = [
+    "RUF001",  # ambiguous unicode in strings: none used on purpose
+    "E501",  # long prose strings and comments; ruff format still wraps all code
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["house_price", "fraud_detection"]
+
+[tool.ruff.lint.per-file-ignores]
+"*/tests/*" = ["B011"]
+
+[tool.pytest.ini_options]
+# One pytest run from the repo root. Package names are unique per project, so the
+# project folders can share one import path. importlib mode lets test files in
+# different projects share a base name.
+addopts = "-q --import-mode=importlib"
+testpaths = ["01-house-price-regression/tests", "02-fraud-detection/tests"]
+pythonpath = ["01-house-price-regression", "02-fraud-detection"]
