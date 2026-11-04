@@ -1,0 +1,12 @@
+LICENSE_TEXT_PENDING
+
+This file must contain the full, unmodified legal text of the Creative Commons
+Attribution 4.0 International license (CC-BY-4.0), covering documentation,
+reports, and any data authored in this repository.
+
+The text could not be fetched when the repository was scaffolded, and it is not
+reproduced from memory because a license file must be exact.
+
+To finish: copy the official text from
+https://creativecommons.org/licenses/by/4.0/legalcode.txt into this file,
+replacing everything here. tools/check_release.py fails while this marker is present.

@@ -1,0 +1,21 @@
+{
+  "title": "Data Science and AI Career Projects",
+  "upload_type": "software",
+  "description": "End-to-end data science and AI projects with code, data access scripts, tests, committed metrics, evals, and error analysis, so a self-learner can reproduce every reported number. Each project includes a baseline, leakage checks, error analysis by segment, a model card, and a decision memo.",
+  "creators": [
+    {
+      "name": "Gupta, Nitin",
+      "orcid": "0009-0003-2501-7378"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "keywords": [
+    "data science",
+    "machine learning",
+    "model evaluation",
+    "error analysis",
+    "reproducibility",
+    "education"
+  ]
+}

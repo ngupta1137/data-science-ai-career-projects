@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+type: software
+title: "Data Science and AI Career Projects"
+abstract: "End-to-end data science and AI projects with code, data access scripts, tests, committed metrics, evals, and error analysis, so a self-learner can reproduce every reported number."
+authors:
+  - family-names: "Gupta"
+    given-names: "Nitin"
+    orcid: "https://orcid.org/0009-0003-2501-7378"
+repository-code: "https://github.com/ngupta1137/data-science-ai-career-projects"
+license: CC-BY-4.0
+keywords:
+  - data science
+  - machine learning
+  - model evaluation
+  - error analysis
+  - reproducibility
+# The Zenodo concept DOI is added here after the first release.
+# Run: python tools/check_release.py --post
