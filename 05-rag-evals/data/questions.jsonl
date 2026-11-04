@@ -1,0 +1,110 @@
+{"answer": "16 weeks", "gold_docs": ["policy_parental_leave"], "id": "q001", "question": "How long is the paid leave under the Parental Leave Policy?", "split": "dev", "type": "lexical"}
+{"answer": "16 weeks", "gold_docs": ["policy_parental_leave"], "id": "q002", "question": "What is the length of paid leave in the Parental Leave Policy?", "split": "test", "type": "lexical"}
+{"answer": "$1,200", "gold_docs": ["policy_remote_stipend"], "id": "q003", "question": "What is the yearly amount in the Remote Work Stipend Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$1,200", "gold_docs": ["policy_remote_stipend"], "id": "q004", "question": "How much does the Remote Work Stipend Policy provide each year?", "split": "test", "type": "lexical"}
+{"answer": "$75", "gold_docs": ["policy_travel_per_diem"], "id": "q005", "question": "What is the daily amount under the Travel Per Diem Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$75", "gold_docs": ["policy_travel_per_diem"], "id": "q006", "question": "How much does the Travel Per Diem Policy pay per day?", "split": "test", "type": "lexical"}
+{"answer": "30 days", "gold_docs": ["policy_expense_deadline"], "id": "q007", "question": "What is the submission window in the Expense Report Deadline Policy?", "split": "dev", "type": "lexical"}
+{"answer": "30 days", "gold_docs": ["policy_expense_deadline"], "id": "q008", "question": "How long do employees have to submit expense reports under the Expense Report Deadline Policy?", "split": "test", "type": "lexical"}
+{"answer": "36 months", "gold_docs": ["policy_laptop_refresh"], "id": "q009", "question": "How often are laptops replaced under the Laptop Refresh Policy?", "split": "dev", "type": "lexical"}
+{"answer": "36 months", "gold_docs": ["policy_laptop_refresh"], "id": "q010", "question": "What is the replacement cycle in the Laptop Refresh Policy?", "split": "test", "type": "lexical"}
+{"answer": "$2,000", "gold_docs": ["policy_training_budget"], "id": "q011", "question": "What is the yearly amount in the Annual Training Budget Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$2,000", "gold_docs": ["policy_training_budget"], "id": "q012", "question": "How much does the Annual Training Budget Policy give each employee per year?", "split": "test", "type": "lexical"}
+{"answer": "$300", "gold_docs": ["policy_oncall_allowance"], "id": "q013", "question": "What is the weekly payment in the On-Call Allowance Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$300", "gold_docs": ["policy_oncall_allowance"], "id": "q014", "question": "How much does the On-Call Allowance Policy pay for each week?", "split": "test", "type": "lexical"}
+{"answer": "24 hours", "gold_docs": ["policy_badge_replacement"], "id": "q015", "question": "What is the reporting window in the Security Badge Replacement Policy?", "split": "dev", "type": "lexical"}
+{"answer": "24 hours", "gold_docs": ["policy_badge_replacement"], "id": "q016", "question": "How quickly must a lost badge be reported under the Security Badge Replacement Policy?", "split": "test", "type": "lexical"}
+{"answer": "1 business day", "gold_docs": ["policy_visitor_access"], "id": "q017", "question": "How early must visitors be registered under the Visitor Access Policy?", "split": "dev", "type": "lexical"}
+{"answer": "1 business day", "gold_docs": ["policy_visitor_access"], "id": "q018", "question": "What is the advance registration time in the Visitor Access Policy?", "split": "test", "type": "lexical"}
+{"answer": "90 days", "gold_docs": ["policy_password_rotation"], "id": "q019", "question": "How often must passwords be changed under the Password Rotation Policy?", "split": "dev", "type": "lexical"}
+{"answer": "90 days", "gold_docs": ["policy_password_rotation"], "id": "q020", "question": "What is the rotation interval in the Password Rotation Policy?", "split": "test", "type": "lexical"}
+{"answer": "7 years", "gold_docs": ["policy_data_retention"], "id": "q021", "question": "How long are customer records kept under the Data Retention Policy?", "split": "dev", "type": "lexical"}
+{"answer": "7 years", "gold_docs": ["policy_data_retention"], "id": "q022", "question": "What is the retention period in the Data Retention Policy?", "split": "test", "type": "lexical"}
+{"answer": "4 hours", "gold_docs": ["policy_incident_reporting"], "id": "q023", "question": "How quickly must incidents be reported under the Incident Reporting Policy?", "split": "dev", "type": "lexical"}
+{"answer": "4 hours", "gold_docs": ["policy_incident_reporting"], "id": "q024", "question": "What is the reporting deadline in the Incident Reporting Policy?", "split": "test", "type": "lexical"}
+{"answer": "$3,000", "gold_docs": ["policy_referral_bonus"], "id": "q025", "question": "What is the bonus amount in the Referral Bonus Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$3,000", "gold_docs": ["policy_referral_bonus"], "id": "q026", "question": "How much does the Referral Bonus Policy pay for a successful referral?", "split": "test", "type": "lexical"}
+{"answer": "$10,000", "gold_docs": ["policy_relocation_assistance"], "id": "q027", "question": "What is the reimbursement limit in the Relocation Assistance Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$10,000", "gold_docs": ["policy_relocation_assistance"], "id": "q028", "question": "How much does the Relocation Assistance Policy reimburse at most?", "split": "test", "type": "lexical"}
+{"answer": "$5,250", "gold_docs": ["policy_tuition_reimbursement"], "id": "q029", "question": "What is the yearly limit in the Tuition Reimbursement Policy?", "split": "dev", "type": "lexical"}
+{"answer": "$5,250", "gold_docs": ["policy_tuition_reimbursement"], "id": "q030", "question": "How much does the Tuition Reimbursement Policy cover per year?", "split": "test", "type": "lexical"}
+{"answer": "5 days", "gold_docs": ["policy_bereavement_leave"], "id": "q031", "question": "How long is paid leave under the Bereavement Leave Policy?", "split": "dev", "type": "lexical"}
+{"answer": "5 days", "gold_docs": ["policy_bereavement_leave"], "id": "q032", "question": "What is the length of leave in the Bereavement Leave Policy?", "split": "test", "type": "lexical"}
+{"answer": "16 weeks", "gold_docs": ["policy_parental_leave"], "id": "q033", "question": "How much newborn time off does a new parent get?", "split": "dev", "type": "paraphrase"}
+{"answer": "16 weeks", "gold_docs": ["policy_parental_leave"], "id": "q034", "question": "How many weeks can a new mother or father stay home with full pay?", "split": "test", "type": "paraphrase"}
+{"answer": "$1,200", "gold_docs": ["policy_remote_stipend"], "id": "q035", "question": "How big is the work-from-home allowance each year?", "split": "dev", "type": "paraphrase"}
+{"answer": "$1,200", "gold_docs": ["policy_remote_stipend"], "id": "q036", "question": "How much money for a home desk setup does the company give annually?", "split": "test", "type": "paraphrase"}
+{"answer": "$75", "gold_docs": ["policy_travel_per_diem"], "id": "q037", "question": "How much daily travel meal money do staff get on a trip?", "split": "dev", "type": "paraphrase"}
+{"answer": "$75", "gold_docs": ["policy_travel_per_diem"], "id": "q038", "question": "What does the company give for food each day when someone sleeps away on business?", "split": "test", "type": "paraphrase"}
+{"answer": "30 days", "gold_docs": ["policy_expense_deadline"], "id": "q039", "question": "What is the reimbursement filing cutoff?", "split": "dev", "type": "paraphrase"}
+{"answer": "30 days", "gold_docs": ["policy_expense_deadline"], "id": "q040", "question": "How many days after buying something can someone still ask to be paid back?", "split": "test", "type": "paraphrase"}
+{"answer": "36 months", "gold_docs": ["policy_laptop_refresh"], "id": "q041", "question": "What is the computer upgrade schedule?", "split": "dev", "type": "paraphrase"}
+{"answer": "36 months", "gold_docs": ["policy_laptop_refresh"], "id": "q042", "question": "How many months does a work machine stay with an employee before it is swapped?", "split": "test", "type": "paraphrase"}
+{"answer": "$2,000", "gold_docs": ["policy_training_budget"], "id": "q043", "question": "How much learning money does each person get?", "split": "dev", "type": "paraphrase"}
+{"answer": "$2,000", "gold_docs": ["policy_training_budget"], "id": "q044", "question": "What can a worker spend yearly on classes and industry events?", "split": "test", "type": "paraphrase"}
+{"answer": "$300", "gold_docs": ["policy_oncall_allowance"], "id": "q045", "question": "How much is pager pay for a week?", "split": "dev", "type": "paraphrase"}
+{"answer": "$300", "gold_docs": ["policy_oncall_allowance"], "id": "q046", "question": "What extra money do engineers earn for being reachable at night for seven days?", "split": "test", "type": "paraphrase"}
+{"answer": "24 hours", "gold_docs": ["policy_badge_replacement"], "id": "q047", "question": "How fast must a lost access card be reported?", "split": "dev", "type": "paraphrase"}
+{"answer": "24 hours", "gold_docs": ["policy_badge_replacement"], "id": "q048", "question": "How many hours do I have to tell someone that I can no longer find my door pass?", "split": "test", "type": "paraphrase"}
+{"answer": "1 business day", "gold_docs": ["policy_visitor_access"], "id": "q049", "question": "How far ahead must guest check-in be arranged?", "split": "dev", "type": "paraphrase"}
+{"answer": "1 business day", "gold_docs": ["policy_visitor_access"], "id": "q050", "question": "How much notice do I need to give before a friend can come into the building?", "split": "test", "type": "paraphrase"}
+{"answer": "90 days", "gold_docs": ["policy_password_rotation"], "id": "q051", "question": "How often is the credential refresh due?", "split": "dev", "type": "paraphrase"}
+{"answer": "90 days", "gold_docs": ["policy_password_rotation"], "id": "q052", "question": "After how many days must I pick a new login secret for work systems?", "split": "test", "type": "paraphrase"}
+{"answer": "7 years", "gold_docs": ["policy_data_retention"], "id": "q053", "question": "How long we hold client files after they leave?", "split": "dev", "type": "paraphrase"}
+{"answer": "7 years", "gold_docs": ["policy_data_retention"], "id": "q054", "question": "For how many years does the firm keep what it knows about a former customer?", "split": "test", "type": "paraphrase"}
+{"answer": "4 hours", "gold_docs": ["policy_incident_reporting"], "id": "q055", "question": "What is the breach notification window?", "split": "dev", "type": "paraphrase"}
+{"answer": "4 hours", "gold_docs": ["policy_incident_reporting"], "id": "q056", "question": "Within how many hours must I raise the alarm after I spot something suspicious?", "split": "test", "type": "paraphrase"}
+{"answer": "$3,000", "gold_docs": ["policy_referral_bonus"], "id": "q057", "question": "How large is the recruiting tip reward?", "split": "dev", "type": "paraphrase"}
+{"answer": "$3,000", "gold_docs": ["policy_referral_bonus"], "id": "q058", "question": "How much do I get paid for bringing in a friend who gets hired?", "split": "test", "type": "paraphrase"}
+{"answer": "$10,000", "gold_docs": ["policy_relocation_assistance"], "id": "q059", "question": "How much moving costs help is available?", "split": "dev", "type": "paraphrase"}
+{"answer": "$10,000", "gold_docs": ["policy_relocation_assistance"], "id": "q060", "question": "What is the most the firm will repay if I move cities for the job?", "split": "test", "type": "paraphrase"}
+{"answer": "$5,250", "gold_docs": ["policy_tuition_reimbursement"], "id": "q061", "question": "How much school fee payback can I claim in a year?", "split": "dev", "type": "paraphrase"}
+{"answer": "$5,250", "gold_docs": ["policy_tuition_reimbursement"], "id": "q062", "question": "What is the most the firm repays annually for my university classes?", "split": "test", "type": "paraphrase"}
+{"answer": "5 days", "gold_docs": ["policy_bereavement_leave"], "id": "q063", "question": "How much time off after a family death is allowed?", "split": "dev", "type": "paraphrase"}
+{"answer": "5 days", "gold_docs": ["policy_bereavement_leave"], "id": "q064", "question": "How many days off with pay do I get when a close relative passes away?", "split": "test", "type": "paraphrase"}
+{"answer": "60 days", "gold_docs": ["policy_remote_stipend"], "id": "q065", "question": "How soon after buying equipment must a remote employee file the stipend claim?", "split": "dev", "type": "numeric_detail"}
+{"answer": "$2,500", "gold_docs": ["policy_expense_deadline"], "id": "q066", "question": "Above what amount does an expense report need director approval?", "split": "test", "type": "numeric_detail"}
+{"answer": "$25", "gold_docs": ["policy_badge_replacement"], "id": "q067", "question": "What is the fee charged for a replacement security badge?", "split": "dev", "type": "numeric_detail"}
+{"answer": "8 hours", "gold_docs": ["policy_visitor_access"], "id": "q068", "question": "What is the longest a visitor may stay on site during one visit?", "split": "test", "type": "numeric_detail"}
+{"answer": "6 months", "gold_docs": ["policy_referral_bonus"], "id": "q069", "question": "How long must a referred candidate stay employed before the bonus is paid?", "split": "dev", "type": "numeric_detail"}
+{"answer": "16 weeks", "gold_docs": ["policy_parental_leave"], "id": "q070", "question": "What is the current length of paid leave under the Parental Leave Policy?", "split": "dev", "type": "stale_version"}
+{"answer": "$1,200", "gold_docs": ["policy_remote_stipend"], "id": "q071", "question": "What is the current yearly amount in the Remote Work Stipend Policy?", "split": "test", "type": "stale_version"}
+{"answer": "$75", "gold_docs": ["policy_travel_per_diem"], "id": "q072", "question": "What is the current daily amount under the Travel Per Diem Policy?", "split": "dev", "type": "stale_version"}
+{"answer": "36 months", "gold_docs": ["policy_laptop_refresh"], "id": "q073", "question": "What is the current replacement cycle in the Laptop Refresh Policy?", "split": "test", "type": "stale_version"}
+{"answer": "$300", "gold_docs": ["policy_oncall_allowance"], "id": "q074", "question": "What is the current weekly payment in the On-Call Allowance Policy?", "split": "dev", "type": "stale_version"}
+{"answer": "90 days", "gold_docs": ["policy_password_rotation"], "id": "q075", "question": "What is the current rotation interval in the Password Rotation Policy?", "split": "test", "type": "stale_version"}
+{"answer": "7 years", "gold_docs": ["policy_data_retention"], "id": "q076", "question": "What is the current retention period in the Data Retention Policy?", "split": "dev", "type": "stale_version"}
+{"answer": "$3,000", "gold_docs": ["policy_referral_bonus"], "id": "q077", "question": "What is the current bonus amount in the Referral Bonus Policy?", "split": "test", "type": "stale_version"}
+{"answer": "$5,250", "gold_docs": ["policy_tuition_reimbursement"], "id": "q078", "question": "What is the current yearly limit in the Tuition Reimbursement Policy?", "split": "dev", "type": "stale_version"}
+{"answer": null, "gold_docs": [], "id": "q079", "question": "How many times can an employee use the Parental Leave Policy over a career?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q080", "question": "Which vendors are approved for buying remote work equipment?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q081", "question": "Does the Travel Per Diem Policy cover alcohol purchases?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q082", "question": "Which app is used to file expense reports?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q083", "question": "Which laptop models does the company issue?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q084", "question": "Which conferences are pre-approved under the Annual Training Budget Policy?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q085", "question": "How many engineers are on the on-call rotation each week?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q086", "question": "Where is the badge office located?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q087", "question": "Do visitors need to wear a lanyard on site?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q088", "question": "How many characters must a company password contain?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q089", "question": "Who approves deleting customer records early under the Data Retention Policy?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q090", "question": "Which phone number reaches the security response team?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q091", "question": "Can contractors receive a bonus under the Referral Bonus Policy?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q092", "question": "Which moving companies are on the preferred list under the Relocation Assistance Policy?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q093", "question": "Which grades are required to qualify under the Tuition Reimbursement Policy?", "split": "dev", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q094", "question": "Is Bereavement Leave available after the loss of a pet?", "split": "test", "type": "unanswerable_attribute"}
+{"answer": null, "gold_docs": [], "id": "q095", "question": "What time does the cafeteria open?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q096", "question": "Where can I park a bicycle at the main office?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q097", "question": "Which floor is the finance team on?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q098", "question": "What is the dress code on Fridays?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q099", "question": "How do I book a meeting room?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q100", "question": "Who is the chief executive of Northwind Logistics?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q101", "question": "What is the guest Wi-Fi network called?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q102", "question": "Which public holidays does the company observe?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q103", "question": "What is the dental plan deductible?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q104", "question": "How many vacation days do new hires get?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q105", "question": "What is the company stock ticker symbol?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q106", "question": "Where is the nearest warehouse to the head office?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q107", "question": "How do I join the running club?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q108", "question": "What is the lunch-and-learn schedule this month?", "split": "test", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q109", "question": "Does the office have a nursing room?", "split": "dev", "type": "unanswerable_offtopic"}
+{"answer": null, "gold_docs": [], "id": "q110", "question": "What is the name of the employee shuttle service?", "split": "test", "type": "unanswerable_offtopic"}

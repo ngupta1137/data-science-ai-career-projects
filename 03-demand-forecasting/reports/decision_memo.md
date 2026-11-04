@@ -1,0 +1,4 @@
+NOT_YET_GENERATED
+
+This file is rendered by `python -m demand_forecast.report` from `results/`.
+Run `python -m demand_forecast.download_data`, `python -m demand_forecast.train`, then `python -m demand_forecast.report`.

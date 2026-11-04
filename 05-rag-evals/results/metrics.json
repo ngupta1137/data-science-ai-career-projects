@@ -1,0 +1,132 @@
+{
+  "project": "05-rag-evals",
+  "data_source": "generated_teaching_corpus",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "data": {
+    "documents": 41,
+    "questions": 110,
+    "dev_questions": 56,
+    "test_questions": 54,
+    "test_answerable": 38,
+    "sha256": "9e1b46a9fc029413f8f8e96f64f75a2b8d029245283973b04d4307828607dd53"
+  },
+  "selection": {
+    "bm25": {
+      "k1": 0.9,
+      "b": 0.4
+    },
+    "lsa_dims": 20,
+    "context_documents": 3,
+    "abstention_threshold": 0.0,
+    "selected_by": "dev MRR on answerable questions; threshold by dev end-to-end correctness"
+  },
+  "retrieval": {
+    "bm25": {
+      "dev_mrr": 0.6564733737871784,
+      "test_recall_at_1": 0.7105263157894737,
+      "test_recall_at_3": 0.7894736842105263,
+      "test_mrr": 0.7659911841006024,
+      "test_ndcg_at_5": 0.7761127070978485
+    },
+    "tfidf": {
+      "dev_mrr": 0.5943205960094005,
+      "test_recall_at_1": 0.5263157894736842,
+      "test_recall_at_3": 0.7894736842105263,
+      "test_mrr": 0.670377149012883,
+      "test_ndcg_at_5": 0.7148608999574088
+    },
+    "lsa": {
+      "dev_mrr": 0.840479797979798,
+      "test_recall_at_1": 0.7894736842105263,
+      "test_recall_at_3": 0.8421052631578947,
+      "test_mrr": 0.8270814096645122,
+      "test_ndcg_at_5": 0.8407489241810366
+    },
+    "hybrid_rrf": {
+      "dev_mrr": 0.7258938033715511,
+      "test_recall_at_1": 0.7631578947368421,
+      "test_recall_at_3": 0.8421052631578947,
+      "test_mrr": 0.8079586026469684,
+      "test_ndcg_at_5": 0.8174106924117066
+    },
+    "random": {
+      "dev_mrr": null,
+      "test_recall_at_1": 0.05263157894736842,
+      "test_recall_at_3": 0.07894736842105263,
+      "test_mrr": 0.13032024555059332,
+      "test_ndcg_at_5": 0.08730340435020881
+    }
+  },
+  "headline": {
+    "retriever": "lsa",
+    "metric": "test_mrr",
+    "value": 0.8270814096645122,
+    "ci95": [
+      0.7111876731301939,
+      0.9242927631578949
+    ],
+    "ci_method": "bootstrap over 38 answerable test questions, 1000 resamples"
+  },
+  "mrr_gain_over_bm25_ci95": [
+    0.010651629072681704,
+    0.12721334586466165
+  ],
+  "end_to_end": {
+    "correct": 0.48148148148148145,
+    "ci95": [
+      0.35185185185185186,
+      0.6296296296296297
+    ],
+    "always_abstain_correct": 0.2962962962962963,
+    "reader_given_gold_context_exact_match": 0.9473684210526315,
+    "taxonomy": {
+      "answered_unanswerable": 15,
+      "correct": 25,
+      "correct_refusal": 1,
+      "retrieval_miss": 6,
+      "wrong_doc_used": 5,
+      "wrong_span": 2
+    }
+  },
+  "gate": {
+    "rule": "Pass only if both hold on the test questions: (1) the lower bound of the 95% bootstrap interval on end-to-end correctness is above the correctness of the always-abstain policy (which equals the share of unanswerable questions); (2) unless the headline retriever is BM25 itself, the lower bound of the 95% paired bootstrap interval on the MRR gain over BM25 is above zero, so that any extra complexity is shown to pay for itself.",
+    "end_to_end_beats_always_abstain": true,
+    "retrieval_gain_over_bm25": true,
+    "passed": true
+  },
+  "traps": {
+    "threshold_tuned_on_test": {
+      "correct_with_leak": 0.48148148148148145,
+      "correct_honest": 0.48148148148148145,
+      "difference": 0.0,
+      "note": "The threshold was chosen on the questions it is scored on. Optimistic by construction."
+    },
+    "answer_everything": {
+      "correct_without_abstention": 0.46296296296296297,
+      "correct_honest": 0.48148148148148145,
+      "difference": 0.01851851851851849,
+      "note": "A system that never abstains gets every unanswerable question wrong."
+    },
+    "answerable_only": {
+      "correct_answerable_only": 0.6578947368421053,
+      "correct_all_questions": 0.48148148148148145,
+      "difference": 0.17641325536062386,
+      "note": "Scoring only answerable questions hides the cost of answering what should be refused."
+    }
+  },
+  "caveats": [
+    "The corpus is generated from templates about a fictional company. It teaches how to evaluate retrieval and answering. It says nothing about real documents.",
+    "The test set is small (see test_questions), so every interval is wide. Differences of a few points are not evidence.",
+    "Questions are written from the same templates as the documents, so lexical retrieval is easier here than on real text.",
+    "The reader is a rule-based extractor, not a language model. LSA is a classical stand-in for dense retrieval, not a neural embedder.",
+    "No language model generates or judges answers in this project. That comparison is designed, not built."
+  ]
+}

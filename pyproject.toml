@@ -14,7 +14,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["house_price", "fraud_detection"]
+known-first-party = ["house_price", "fraud_detection", "demand_forecast", "text_classification", "rag_eval"]
 
 [tool.ruff.lint.per-file-ignores]
 "*/tests/*" = ["B011"]
@@ -24,5 +24,11 @@ known-first-party = ["house_price", "fraud_detection"]
 # project folders can share one import path. importlib mode lets test files in
 # different projects share a base name.
 addopts = "-q --import-mode=importlib"
-testpaths = ["01-house-price-regression/tests", "02-fraud-detection/tests"]
-pythonpath = ["01-house-price-regression", "02-fraud-detection"]
+testpaths = [
+    "01-house-price-regression/tests",
+    "02-fraud-detection/tests",
+    "03-demand-forecasting/tests",
+    "04-text-classification/tests",
+    "05-rag-evals/tests",
+]
+pythonpath = ["01-house-price-regression", "02-fraud-detection", "03-demand-forecasting", "04-text-classification", "05-rag-evals"]

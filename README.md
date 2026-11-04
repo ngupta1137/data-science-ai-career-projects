@@ -2,7 +2,7 @@
 
 End-to-end projects for people building a career in data science and AI. Each project ships with code, a data access script, tests, committed metrics, and error analysis, so you can reproduce every number and see where the model fails.
 
-**Status: pre-release scaffold.** Nothing here has been released or archived yet. Project 01 code and tests are written. Its metrics have not been generated, and the table below says so.
+**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 04 have code and tests but no generated metrics. Project 05 is built on a generated corpus with committed results. The table below says which is which.
 
 <!-- DOI badge goes here after the first Zenodo release -->
 
@@ -25,9 +25,9 @@ End-to-end projects for people building a career in data science and AI. Each pr
 |---|---|---|---|
 | 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Code and tests written. Metrics not yet generated |
 | 02 | [Fraud detection](02-fraud-detection) | Imbalanced classification, PR-AUC, calibration, cost-based decisions, time-based splits | Code and tests written. Metrics not yet generated |
-| 03 | Demand forecasting | Time-based splits, backtesting, MASE | Planned |
-| 04 | Text classification | TF-IDF baseline versus transformer, confusion analysis | Planned |
-| 05 | RAG with evals | Retrieval recall@k, MRR, failure taxonomy | Planned |
+| 03 | [Demand forecasting](03-demand-forecasting) | Rolling-origin backtests, horizon-safe features, MASE | Code and tests written. Metrics not yet generated |
+| 04 | [Text classification](04-text-classification) | TF-IDF baselines, macro-F1, metadata leakage, confusion analysis | Code and tests written. Metrics not yet generated. Transformer comparison designed, not built |
+| 05 | [RAG with evals](05-rag-evals) | Retrieval recall@k, MRR, refusal, failure taxonomy | Built and run on a generated corpus. Results committed, describe that corpus only |
 
 Roadmap, not part of the claim above: experiment analysis (power, CUPED, peeking) and a recommender. These are only added if projects 01 to 05 meet the bar.
 

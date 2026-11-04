@@ -1,0 +1,338 @@
+{
+  "retriever": "lsa",
+  "by_type": {
+    "lexical": {
+      "n": 16,
+      "end_to_end_correct": 0.875,
+      "gold_in_top_k": 1.0,
+      "categories": {
+        "correct": 14,
+        "wrong_doc_used": 2
+      }
+    },
+    "paraphrase": {
+      "n": 16,
+      "end_to_end_correct": 0.5625,
+      "gold_in_top_k": 0.625,
+      "categories": {
+        "correct": 9,
+        "retrieval_miss": 6,
+        "wrong_doc_used": 1
+      }
+    },
+    "numeric_detail": {
+      "n": 2,
+      "end_to_end_correct": 0.0,
+      "gold_in_top_k": 1.0,
+      "categories": {
+        "wrong_span": 2
+      }
+    },
+    "stale_version": {
+      "n": 4,
+      "end_to_end_correct": 0.5,
+      "gold_in_top_k": 1.0,
+      "categories": {
+        "correct": 2,
+        "wrong_doc_used": 2
+      }
+    },
+    "unanswerable_attribute": {
+      "n": 8,
+      "end_to_end_correct": 0.0,
+      "categories": {
+        "answered_unanswerable": 8
+      }
+    },
+    "unanswerable_offtopic": {
+      "n": 8,
+      "end_to_end_correct": 0.125,
+      "categories": {
+        "answered_unanswerable": 7,
+        "correct_refusal": 1
+      }
+    }
+  },
+  "failures": [
+    {
+      "id": "q010",
+      "type": "lexical",
+      "category": "wrong_doc_used",
+      "question": "What is the replacement cycle in the Laptop Refresh Policy?",
+      "gold_answer": "36 months",
+      "predicted": "24 hours",
+      "source": "policy_badge_replacement",
+      "confidence": 0.35096714639145554
+    },
+    {
+      "id": "q020",
+      "type": "lexical",
+      "category": "wrong_doc_used",
+      "question": "What is the rotation interval in the Password Rotation Policy?",
+      "gold_answer": "90 days",
+      "predicted": "$300",
+      "source": "policy_oncall_allowance",
+      "confidence": 0.405221194441891
+    },
+    {
+      "id": "q040",
+      "type": "paraphrase",
+      "category": "retrieval_miss",
+      "question": "How many days after buying something can someone still ask to be paid back?",
+      "gold_answer": "30 days",
+      "predicted": "5 days",
+      "source": "policy_bereavement_leave",
+      "confidence": 0.7144293638652367
+    },
+    {
+      "id": "q042",
+      "type": "paraphrase",
+      "category": "retrieval_miss",
+      "question": "How many months does a work machine stay with an employee before it is swapped?",
+      "gold_answer": "36 months",
+      "predicted": "1 business day",
+      "source": "policy_visitor_access",
+      "confidence": 0.452895556511401
+    },
+    {
+      "id": "q044",
+      "type": "paraphrase",
+      "category": "retrieval_miss",
+      "question": "What can a worker spend yearly on classes and industry events?",
+      "gold_answer": "$2,000",
+      "predicted": "5 years",
+      "source": "archive_data_retention",
+      "confidence": 0.0
+    },
+    {
+      "id": "q048",
+      "type": "paraphrase",
+      "category": "wrong_doc_used",
+      "question": "How many hours do I have to tell someone that I can no longer find my door pass?",
+      "gold_answer": "24 hours",
+      "predicted": "1 business day",
+      "source": "policy_visitor_access",
+      "confidence": 1.0
+    },
+    {
+      "id": "q058",
+      "type": "paraphrase",
+      "category": "retrieval_miss",
+      "question": "How much do I get paid for bringing in a friend who gets hired?",
+      "gold_answer": "$3,000",
+      "predicted": "16 weeks",
+      "source": "policy_parental_leave",
+      "confidence": 1.0
+    },
+    {
+      "id": "q060",
+      "type": "paraphrase",
+      "category": "retrieval_miss",
+      "question": "What is the most the firm will repay if I move cities for the job?",
+      "gold_answer": "$10,000",
+      "predicted": "5 years",
+      "source": "archive_data_retention",
+      "confidence": 0.0
+    },
+    {
+      "id": "q062",
+      "type": "paraphrase",
+      "category": "retrieval_miss",
+      "question": "What is the most the firm repays annually for my university classes?",
+      "gold_answer": "$5,250",
+      "predicted": "5 years",
+      "source": "archive_data_retention",
+      "confidence": 0.0
+    },
+    {
+      "id": "q066",
+      "type": "numeric_detail",
+      "category": "wrong_span",
+      "question": "Above what amount does an expense report need director approval?",
+      "gold_answer": "$2,500",
+      "predicted": "30 days",
+      "source": "policy_expense_deadline",
+      "confidence": 0.8388265977086846
+    },
+    {
+      "id": "q068",
+      "type": "numeric_detail",
+      "category": "wrong_span",
+      "question": "What is the longest a visitor may stay on site during one visit?",
+      "gold_answer": "8 hours",
+      "predicted": "1 business day",
+      "source": "policy_visitor_access",
+      "confidence": 0.8195976787247233
+    },
+    {
+      "id": "q073",
+      "type": "stale_version",
+      "category": "wrong_doc_used",
+      "question": "What is the current replacement cycle in the Laptop Refresh Policy?",
+      "gold_answer": "36 months",
+      "predicted": "24 hours",
+      "source": "policy_badge_replacement",
+      "confidence": 0.35096714639145554
+    },
+    {
+      "id": "q075",
+      "type": "stale_version",
+      "category": "wrong_doc_used",
+      "question": "What is the current rotation interval in the Password Rotation Policy?",
+      "gold_answer": "90 days",
+      "predicted": "$300",
+      "source": "policy_oncall_allowance",
+      "confidence": 0.405221194441891
+    },
+    {
+      "id": "q080",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Which vendors are approved for buying remote work equipment?",
+      "gold_answer": null,
+      "predicted": "$1,200",
+      "source": "policy_remote_stipend",
+      "confidence": 0.5163715940260268
+    },
+    {
+      "id": "q082",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Which app is used to file expense reports?",
+      "gold_answer": null,
+      "predicted": "30 days",
+      "source": "policy_expense_deadline",
+      "confidence": 0.6856389144102194
+    },
+    {
+      "id": "q084",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Which conferences are pre-approved under the Annual Training Budget Policy?",
+      "gold_answer": null,
+      "predicted": "$2,000",
+      "source": "policy_training_budget",
+      "confidence": 0.22544997502997763
+    },
+    {
+      "id": "q086",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Where is the badge office located?",
+      "gold_answer": null,
+      "predicted": "24 hours",
+      "source": "policy_badge_replacement",
+      "confidence": 0.5
+    },
+    {
+      "id": "q088",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "How many characters must a company password contain?",
+      "gold_answer": null,
+      "predicted": "90 days",
+      "source": "policy_password_rotation",
+      "confidence": 0.5822547189397893
+    },
+    {
+      "id": "q090",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Which phone number reaches the security response team?",
+      "gold_answer": null,
+      "predicted": "4 hours",
+      "source": "policy_incident_reporting",
+      "confidence": 1.0
+    },
+    {
+      "id": "q092",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Which moving companies are on the preferred list under the Relocation Assistance Policy?",
+      "gold_answer": null,
+      "predicted": "$10,000",
+      "source": "policy_relocation_assistance",
+      "confidence": 0.0
+    },
+    {
+      "id": "q094",
+      "type": "unanswerable_attribute",
+      "category": "answered_unanswerable",
+      "question": "Is Bereavement Leave available after the loss of a pet?",
+      "gold_answer": null,
+      "predicted": "5 days",
+      "source": "policy_bereavement_leave",
+      "confidence": 0.5801624382345234
+    },
+    {
+      "id": "q096",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "Where can I park a bicycle at the main office?",
+      "gold_answer": null,
+      "predicted": "$1,200",
+      "source": "policy_remote_stipend",
+      "confidence": 1.0
+    },
+    {
+      "id": "q098",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "What is the dress code on Fridays?",
+      "gold_answer": null,
+      "predicted": "5 years",
+      "source": "archive_data_retention",
+      "confidence": 0.0
+    },
+    {
+      "id": "q100",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "Who is the chief executive of Northwind Logistics?",
+      "gold_answer": null,
+      "predicted": "36 months",
+      "source": "policy_laptop_refresh",
+      "confidence": 0.0
+    },
+    {
+      "id": "q102",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "Which public holidays does the company observe?",
+      "gold_answer": null,
+      "predicted": "36 months",
+      "source": "policy_laptop_refresh",
+      "confidence": 1.0
+    },
+    {
+      "id": "q104",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "How many vacation days do new hires get?",
+      "gold_answer": null,
+      "predicted": "90 days",
+      "source": "policy_password_rotation",
+      "confidence": 1.0
+    },
+    {
+      "id": "q106",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "Where is the nearest warehouse to the head office?",
+      "gold_answer": null,
+      "predicted": "$1,200",
+      "source": "policy_remote_stipend",
+      "confidence": 1.0
+    },
+    {
+      "id": "q110",
+      "type": "unanswerable_offtopic",
+      "category": "answered_unanswerable",
+      "question": "What is the name of the employee shuttle service?",
+      "gold_answer": null,
+      "predicted": "$2,000",
+      "source": "policy_training_budget",
+      "confidence": 1.0
+    }
+  ]
+}

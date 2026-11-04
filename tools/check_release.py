@@ -22,7 +22,19 @@ ORCID = "0009-0003-2501-7378"
 MAX_FILE_BYTES = 1_000_000
 STATUSES = {"planned", "in_progress", "built", "released"}
 
-TEXT_SUFFIXES = {".md", ".py", ".txt", ".json", ".cff", ".yml", ".yaml", ".toml", ".csv", ""}
+TEXT_SUFFIXES = {
+    ".md",
+    ".py",
+    ".txt",
+    ".json",
+    ".cff",
+    ".yml",
+    ".yaml",
+    ".toml",
+    ".csv",
+    "",
+    ".jsonl",
+}
 BLOCKED_SUFFIXES = {".csv", ".parquet", ".zip", ".gz", ".joblib", ".pkl", ".pickle", ".h5", ".npy"}
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", ".ruff_cache", ".venv", "venv", "raw", "cache"}
 
@@ -61,7 +73,7 @@ PROJECT_REQUIRED = [
 ]
 PROJECT_ALLOWED = {"README.md", "STATUS", "data", "tests", "results", "reports"}
 PACKAGE_REQUIRED = ["__init__.py", "config.py", "data.py", "metrics.py", "train.py", "report.py"]
-DATA_ALLOWED = {"DATA_CARD.md", "CHECKSUMS.txt", "raw", "cache"}
+DATA_ALLOWED = {"DATA_CARD.md", "CHECKSUMS.txt", "raw", "cache", "corpus.jsonl", "questions.jsonl"}
 
 PLACEHOLDER_PATTERNS = [
     re.compile(r"X{4,}"),
