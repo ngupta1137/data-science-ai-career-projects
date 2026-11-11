@@ -21,6 +21,8 @@ End-to-end projects for people building a career in data science and AI. Each pr
 
 ## Projects
 
+Prefer to start from your field? See [domains/](domains/README.md) for guides by domain: retail and consumer goods, banking and insurance, marketing and growth, e-commerce and media, healthcare, operations, and enterprise generative AI.
+
 | # | Project | Skill it teaches | Status |
 |---|---|---|---|
 | 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Code and tests written. Metrics not yet generated |

@@ -15,4 +15,5 @@
 - Project 09 (LLM judge audit): built on simulated judges and annotators with planted slot and length bias. No LLM was called. The pre-set gate failed and the result is reported as is. A real-judge run is designed, not built.
 - Project 10 (structured extraction): built on generated invoices and rule-based extractors. No LLM was called. The pre-set gate failed and the result is reported as is.
 - Project 11 (recommender evaluation): built on a simulated world with drift and popularity-biased exposure. The pre-set gate failed and the result is reported as is.
+- Domain guides (`domains/`): seven pages that route to the existing projects by domain, with what does not transfer. Index only; no new code or results. The release gate checks that links resolve and every project is covered.
 - Project 12 (uplift modelling): built on simulated customers with a known effect. The gate passed in a well-powered setup; the README states the limits.

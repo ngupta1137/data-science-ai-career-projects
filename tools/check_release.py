@@ -60,7 +60,7 @@ ROOT_REQUIRED = [
     "docs/evidence-standard.md",
     "docs/repo-layout.md",
 ]
-ROOT_ALLOWED_DIRS = {"docs", "templates", "tools", ".github"}
+ROOT_ALLOWED_DIRS = {"docs", "templates", "tools", ".github", "domains"}
 
 PROJECT_REQUIRED = [
     "README.md",
@@ -120,6 +120,23 @@ def check_root_layout(errors: list[str]) -> None:
     for project in project_dirs():
         if project.name not in readme:
             errors.append(f"root README does not list {project.name}")
+
+
+def check_domains(errors: list[str]) -> None:
+    """Domain guides may only link to projects that exist, and every project must be covered."""
+    folder = ROOT / "domains"
+    if not folder.exists():
+        return
+    names = {p.name for p in project_dirs()}
+    covered: set[str] = set()
+    for page in sorted(folder.glob("*.md")):
+        for target in re.findall(r"\]\(\.\./([^)/#]+)\)", read(page)):
+            if re.match(r"[0-9][0-9]-", target):
+                covered.add(target)
+                if target not in names:
+                    errors.append(f"{page.relative_to(ROOT)} links to missing project {target}")
+    for name in sorted(names - covered):
+        errors.append(f"no domain guide covers {name}")
 
 
 def check_project_layout(errors: list[str]) -> None:
@@ -249,6 +266,7 @@ def main() -> int:
     errors: list[str] = []
     check_root_layout(errors)
     check_project_layout(errors)
+    check_domains(errors)
     check_files(errors)
     check_metadata(errors)
     check_placeholders(errors, allow_license_marker=args.ci)

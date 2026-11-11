@@ -10,6 +10,7 @@ data-science-ai-career-projects/
 ├── requirements-dev.txt      runtime plus lint tooling
 ├── Makefile                  make check runs everything CI runs
 ├── docs/                     repo-wide documents (evidence standard, this file)
+├── domains/                  index of the projects by domain (guides only, no code)
 ├── templates/                skeleton for a new project
 ├── tools/                    release gate (layout, metadata, style checks)
 ├── .github/                  CI, issue and PR templates, Dependabot, CODEOWNERS
