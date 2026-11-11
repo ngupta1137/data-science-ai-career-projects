@@ -1,0 +1,123 @@
+{
+  "true_profit_parts_per_promoted_store": {
+    "extra_units_sold": 289.15262271143376,
+    "discount_on_extra_units": -86.74578681343012,
+    "discount_on_units_that_would_have_sold": -182.87329855271605,
+    "pull_forward": -49.094274814602976,
+    "cannibalisation": -37.22150611091684
+  },
+  "segments": [
+    {
+      "segment": "urban",
+      "stores": 105,
+      "promoted_stores": 55,
+      "estimate": -41.86818181818184,
+      "ci95": [
+        -104.05623654169821,
+        20.319872905334528
+      ],
+      "truth": -12.569352974249712,
+      "call": "unclear"
+    },
+    {
+      "segment": "rural",
+      "stores": 95,
+      "promoted_stores": 45,
+      "estimate": -69.02000000000001,
+      "ci95": [
+        -142.66525061387915,
+        4.625250613879132
+      ],
+      "truth": -133.0424432097665,
+      "call": "unclear"
+    }
+  ],
+  "method_study": {
+    "campaigns": 400,
+    "stores": 200,
+    "assignment": "random",
+    "estimators": {
+      "pre_post": {
+        "mean_estimate": 57.89475999999996,
+        "mean_truth": -66.2737391984293,
+        "bias": 124.16849919842926,
+        "rmse": 124.58766083595725,
+        "coverage": 0.0,
+        "share_run_it": 1.0,
+        "share_stop_it": 0.0,
+        "share_unclear": 0.0
+      },
+      "window_did": {
+        "mean_estimate": 20.02048499999996,
+        "mean_truth": -66.2737391984293,
+        "bias": 86.29422419842926,
+        "rmse": 87.1639889405574,
+        "coverage": 0.0,
+        "share_run_it": 0.3175,
+        "share_stop_it": 0.0,
+        "share_unclear": 0.6825
+      },
+      "full_did": {
+        "mean_estimate": -64.63301500000003,
+        "mean_truth": -66.2737391984293,
+        "bias": 1.6407241984292584,
+        "rmse": 24.062088179794,
+        "coverage": 0.9575,
+        "share_run_it": 0.0,
+        "share_stop_it": 0.76,
+        "share_unclear": 0.24
+      }
+    }
+  },
+  "manager_picked_stores": {
+    "campaigns": 400,
+    "stores": 200,
+    "assignment": "picked",
+    "estimators": {
+      "full_did": {
+        "mean_estimate": 8.681659999999962,
+        "mean_truth": -70.92986805676738,
+        "bias": 79.61152805676734,
+        "rmse": 82.73758844584285,
+        "coverage": 0.0675,
+        "share_run_it": 0.045,
+        "share_stop_it": 0.0025,
+        "share_unclear": 0.9525
+      }
+    }
+  },
+  "stores_needed": [
+    {
+      "stores": 40,
+      "campaigns": 200,
+      "share_run_it": 0.0,
+      "share_stop_it": 0.28,
+      "share_unclear": 0.72,
+      "coverage": 0.945
+    },
+    {
+      "stores": 100,
+      "campaigns": 200,
+      "share_run_it": 0.0,
+      "share_stop_it": 0.525,
+      "share_unclear": 0.475,
+      "coverage": 0.93
+    },
+    {
+      "stores": 200,
+      "campaigns": 200,
+      "share_run_it": 0.0,
+      "share_stop_it": 0.775,
+      "share_unclear": 0.225,
+      "coverage": 0.965
+    },
+    {
+      "stores": 400,
+      "campaigns": 200,
+      "share_run_it": 0.0,
+      "share_stop_it": 0.975,
+      "share_unclear": 0.025,
+      "coverage": 0.94
+    }
+  ]
+}

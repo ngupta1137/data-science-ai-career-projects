@@ -1,0 +1,139 @@
+{
+  "project": "13-promotion-lift",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "data": {
+    "stores": 200,
+    "promoted_stores": 100,
+    "weeks": 52,
+    "promo_weeks": [
+      30,
+      31,
+      32,
+      33
+    ],
+    "post_weeks": [
+      34,
+      35,
+      36,
+      37
+    ],
+    "pre_weeks": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "mean_weekly_units_item": 65.74817307692308,
+    "sha256": "7aa1e487798b014412ca011f395c8ccfb9fdf1383ea2a58597384d774b514067"
+  },
+  "assumptions": {
+    "margin_item": 2.0,
+    "discount": 0.6,
+    "margin_sibling": 1.5,
+    "lift": {
+      "urban": 0.6,
+      "rural": 0.35
+    },
+    "cannibalisation": 0.1,
+    "pull_forward": 0.08
+  },
+  "estimators": {
+    "pre_post": {
+      "value": 56.93399999999995,
+      "se": 8.908505097417132,
+      "ci95": [
+        39.257593172410864,
+        74.61040682758903
+      ],
+      "call": "run it",
+      "error": 123.7162435802322,
+      "covers_truth": false
+    },
+    "window_did": {
+      "value": 17.49399999999995,
+      "se": 10.93276571142957,
+      "ci95": [
+        -4.079872044532721,
+        39.06787204453262
+      ],
+      "call": "unclear",
+      "error": 84.2762435802322,
+      "covers_truth": false
+    },
+    "full_did": {
+      "value": -52.50100000000003,
+      "se": 24.06436275361086,
+      "ci95": [
+        -99.95816199470701,
+        -5.043838005293061
+      ],
+      "call": "stop it",
+      "error": 14.281243580232228,
+      "covers_truth": true
+    }
+  },
+  "true_incremental_profit_per_promoted_store": -66.78224358023226,
+  "true_call": "stop it",
+  "headline": {
+    "estimator": "full_did",
+    "metric": "incremental_profit_per_promoted_store",
+    "value": -52.50100000000003,
+    "ci95": [
+      -99.95816199470701,
+      -5.043838005293061
+    ],
+    "ci_method": "Welch t interval over stores, promoted against control",
+    "call": "stop it"
+  },
+  "gate": {
+    "rule": "Pass only if all three hold for the full difference-in-differences estimator (promoted item plus sibling, promotion plus post weeks, randomised control stores), fixed before results as the headline: (1) across 400 simulated campaigns its 95% interval covers the true incremental profit in at least 90% of them; (2) on the headline campaign its 95% interval excludes zero, so it makes a definite call; (3) that call has the same sign as the true incremental profit.",
+    "checks": {
+      "interval_coverage_at_least_0.90": true,
+      "headline_interval_excludes_zero": true,
+      "headline_call_matches_truth": true
+    },
+    "passed": true
+  },
+  "traps": {
+    "before_and_after_without_control": {
+      "headline_estimate": 56.93399999999995,
+      "bias_over_campaigns": 124.16849919842926,
+      "note": "The promotion weeks fall on the seasonal peak, so a before-and-after view credits the season to the promotion."
+    },
+    "counting_only_the_promoted_item_in_promo_weeks": {
+      "headline_estimate": 17.49399999999995,
+      "bias_over_campaigns": 86.29422419842926,
+      "missed_cannibalisation": -37.22150611091684,
+      "missed_pull_forward": -49.094274814602976
+    },
+    "manager_picked_stores": {
+      "bias_full_did_random": 1.6407241984292584,
+      "bias_full_did_picked": 79.61152805676734,
+      "coverage_picked": 0.0675,
+      "note": "When the stores with the best trend get the promotion, their growth is credited to it."
+    },
+    "units_up_profit_down": {
+      "extra_units_per_promoted_store": 144.57631135571688,
+      "true_profit_per_promoted_store": -66.78224358023226
+    }
+  },
+  "caveats": [
+    "Everything is simulated. Store sizes, the season, the lift, cannibalisation, pull-forward and the margins are chosen by the author, so the sizes of the results describe this setup, not any retailer.",
+    "One item, one sibling, one four-week promotion. No competing promotions, display or feature support, stock-outs, price ladders or halo on other categories.",
+    "Stores are independent. Real stores share distribution centres, media and shoppers, which can leak a promotion into control stores.",
+    "The promotion is randomised across stores in the headline campaign. The manager-picked variant shows what happens without that.",
+    "Margins and the discount are assumptions. Profit here ignores supplier funding, which often pays part of the discount.",
+    "Intervals assume stores are independent draws. They do not cover a mistaken choice of pre-period or post-period length."
+  ]
+}

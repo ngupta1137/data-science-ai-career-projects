@@ -2,9 +2,16 @@
 
 **Who this is for:** Analysts, data scientists and product owners working on stores, promotions, pricing, supply and field execution.
 
-This page routes you to projects in this repository. It adds no new code and no new results. Every project describes a simulation or a generated dataset, not this domain's real systems.
+This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
-## Start here
+## Projects built for this domain
+
+These projects use a simulation shaped around this domain's own decision.
+
+- [Promotion lift](../13-promotion-lift): was the promotion profitable once the discount on normal sales, cannibalisation and pull-forward are counted?
+- [Out-of-stock detection](../14-out-of-stock-detection): which shelves should reps check today, with a fixed number of visits?
+
+## Projects that carry over from the core set
 
 1. [Demand forecasting](../03-demand-forecasting): Forecast sales by item and week, and learn why a rolling-origin backtest is the only honest test.
 2. [Uplift modelling](../12-uplift-modelling): Decide which customers or stores get a promotion, and why a model of who buys is not a model of who the promotion changes.

@@ -1,0 +1,150 @@
+{
+  "demand_bands": [
+    {
+      "band": "slow, under 0.3 a day",
+      "share_of_shelves": 0.28,
+      "share_of_lost_margin_with_no_visits": 0.03322403317581252,
+      "zero_run_rule": {
+        "share_of_visits": 0.7898888888888889,
+        "precision": 0.06920804613869742,
+        "share_of_lost_margin_recovered": 0.5595065312046444
+      },
+      "expected_value": {
+        "share_of_visits": 0.3561111111111111,
+        "precision": 0.027145085803432136,
+        "share_of_lost_margin_recovered": 0.09361393323657474
+      },
+      "oracle": {
+        "share_of_visits": 0.10233545647558387,
+        "precision": 1.0,
+        "share_of_lost_margin_recovered": 0.3664731494920174
+      }
+    },
+    {
+      "band": "medium, 0.3 to 2 a day",
+      "share_of_shelves": 0.558,
+      "share_of_lost_margin_with_no_visits": 0.3736136560902691,
+      "zero_run_rule": {
+        "share_of_visits": 0.18355555555555556,
+        "precision": 0.5357142857142857,
+        "share_of_lost_margin_recovered": 0.4610221992772328
+      },
+      "expected_value": {
+        "share_of_visits": 0.28988888888888886,
+        "precision": 0.24453813721732465,
+        "share_of_lost_margin_recovered": 0.5239416623644811
+      },
+      "oracle": {
+        "share_of_visits": 0.6815286624203821,
+        "precision": 1.0,
+        "share_of_lost_margin_recovered": 0.896295818275684
+      }
+    },
+    {
+      "band": "fast, over 2 a day",
+      "share_of_shelves": 0.162,
+      "share_of_lost_margin_with_no_visits": 0.5931623107339185,
+      "zero_run_rule": {
+        "share_of_visits": 0.026555555555555554,
+        "precision": 1.0,
+        "share_of_lost_margin_recovered": 0.3993171286887245
+      },
+      "expected_value": {
+        "share_of_visits": 0.354,
+        "precision": 0.15756434400502198,
+        "share_of_lost_margin_recovered": 0.8970408909844728
+      },
+      "oracle": {
+        "share_of_visits": 0.21613588110403398,
+        "precision": 1.0,
+        "share_of_lost_margin_recovered": 0.9023656613283473
+      }
+    }
+  ],
+  "capacity": [
+    {
+      "capacity_per_day": 50,
+      "zero_run_rule": {
+        "net_value_per_store_day": -0.23866666666666667,
+        "precision": 0.287,
+        "recall": 0.24968206867316659
+      },
+      "expected_value": {
+        "net_value_per_store_day": 5.8276666666666666,
+        "precision": 0.266,
+        "recall": 0.28297055057618437
+      }
+    },
+    {
+      "capacity_per_day": 150,
+      "zero_run_rule": {
+        "net_value_per_store_day": -3.0870000000000006,
+        "precision": 0.17955555555555555,
+        "recall": 0.5170382835506941
+      },
+      "expected_value": {
+        "net_value_per_store_day": 1.105666666666667,
+        "precision": 0.13633333333333333,
+        "recall": 0.42029598308668076
+      }
+    },
+    {
+      "capacity_per_day": 300,
+      "zero_run_rule": {
+        "net_value_per_store_day": -10.182333333333332,
+        "precision": 0.11372222222222222,
+        "recall": 0.6688879633486048
+      },
+      "expected_value": {
+        "net_value_per_store_day": -6.913666666666667,
+        "precision": 0.10044444444444445,
+        "recall": 0.6093880972338642
+      }
+    }
+  ],
+  "rate_estimates": {
+    "mean_true_rate": 1.2584446982224065,
+    "mean_naive_rate": 1.2081333333333335,
+    "mean_clean_rate": 1.4211249795425078,
+    "median_ratio_naive_to_true": 0.9715951583622261,
+    "median_ratio_clean_to_true": 1.174922084461161
+  },
+  "post_hoc_visit_calibration": {
+    "status": "post hoc, added after the gate failed; does not change the verdict",
+    "mean_predicted_chance_empty": 0.7334391771432044,
+    "share_found_empty": 0.13633333333333333,
+    "share_of_shelf_days_truly_empty_during_evaluation": 0.032793333333333334,
+    "rows": [
+      {
+        "fifth_of_visits_by_predicted_chance": 1,
+        "mean_predicted_chance_empty": 0.4285369702246784,
+        "share_found_empty": 0.06573033707865168,
+        "visits": 1780
+      },
+      {
+        "fifth_of_visits_by_predicted_chance": 2,
+        "mean_predicted_chance_empty": 0.6166783385891151,
+        "share_found_empty": 0.10704381586245147,
+        "visits": 1803
+      },
+      {
+        "fifth_of_visits_by_predicted_chance": 3,
+        "mean_predicted_chance_empty": 0.7896643660577144,
+        "share_found_empty": 0.19944903581267218,
+        "visits": 1815
+      },
+      {
+        "fifth_of_visits_by_predicted_chance": 4,
+        "mean_predicted_chance_empty": 0.879274212677483,
+        "share_found_empty": 0.32432432432432434,
+        "visits": 37
+      },
+      {
+        "fifth_of_visits_by_predicted_chance": 5,
+        "mean_predicted_chance_empty": 0.9145895575172284,
+        "share_found_empty": 0.15231416549789623,
+        "visits": 3565
+      }
+    ]
+  }
+}

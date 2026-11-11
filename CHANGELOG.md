@@ -17,3 +17,5 @@
 - Project 11 (recommender evaluation): built on a simulated world with drift and popularity-biased exposure. The pre-set gate failed and the result is reported as is.
 - Domain guides (`domains/`): seven pages that route to the existing projects by domain, with what does not transfer. Index only; no new code or results. The release gate checks that links resolve and every project is covered.
 - Project 12 (uplift modelling): built on simulated customers with a known effect. The gate passed in a well-powered setup; the README states the limits.
+- Project 13 (promotion lift): built on a simulated grocery chain. The pre-set gate passed; at 200 stores the right method gives a definite answer in about three campaigns in four, which the README states.
+- Project 14 (out-of-stock detection): built on a simulated chain. The pre-set gate failed on visit precision and the result is reported as is, with a labelled post hoc calibration table.

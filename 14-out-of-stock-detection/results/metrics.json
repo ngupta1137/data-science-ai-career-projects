@@ -1,0 +1,176 @@
+{
+  "project": "14-out-of-stock-detection",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "data": {
+    "stores": 50,
+    "shelves": 10000,
+    "history_days": 60,
+    "eval_days": 60,
+    "eval_empty_episodes": 2314,
+    "share_of_shelf_days_empty_no_visits": 0.2247,
+    "sha256": "fb5cf1703d60c2a1d79eae9bdc7c16a92fb0d69517afbf484347b252578d9c8b"
+  },
+  "assumptions": {
+    "margin": 1.0,
+    "visit_cost": 3.0,
+    "capacity_per_day": 150,
+    "prior_empty": 0.05,
+    "zero_run_rule_days": 3
+  },
+  "policies": {
+    "no_visits": {
+      "lost_margin_per_store_day": 13.825333333333333,
+      "visits_per_day": 0.0,
+      "flagged_per_day": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "median_days_to_fix": null,
+      "net_value_per_store_day": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "zero_run_rule": {
+      "lost_margin_per_store_day": 7.912333333333334,
+      "visits_per_day": 150.0,
+      "flagged_per_day": 2515.383333333333,
+      "precision": 0.17955555555555555,
+      "recall": 0.5170382835506941,
+      "median_days_to_fix": 8.0,
+      "net_value_per_store_day": {
+        "value": -3.0870000000000006,
+        "ci95": [
+          -3.7947249999999997,
+          -2.3348
+        ]
+      }
+    },
+    "poisson_alarm": {
+      "lost_margin_per_store_day": 3.604,
+      "visits_per_day": 150.0,
+      "flagged_per_day": 558.9666666666667,
+      "precision": 0.21133333333333335,
+      "recall": 0.6287751677852349,
+      "median_days_to_fix": 4.0,
+      "net_value_per_store_day": {
+        "value": 1.2213333333333332,
+        "ci95": [
+          0.1782833333333333,
+          2.3307416666666665
+        ]
+      }
+    },
+    "expected_value": {
+      "lost_margin_per_store_day": 3.719666666666667,
+      "visits_per_day": 150.0,
+      "flagged_per_day": 2336.6833333333334,
+      "precision": 0.13633333333333333,
+      "recall": 0.42029598308668076,
+      "median_days_to_fix": 1.0,
+      "net_value_per_store_day": {
+        "value": 1.105666666666667,
+        "ci95": [
+          0.03357500000000003,
+          2.2034249999999993
+        ]
+      }
+    },
+    "expected_value_naive_rate": {
+      "lost_margin_per_store_day": 3.45,
+      "visits_per_day": 150.0,
+      "flagged_per_day": 723.6666666666666,
+      "precision": 0.14433333333333334,
+      "recall": 0.45932203389830506,
+      "median_days_to_fix": 1.0,
+      "net_value_per_store_day": {
+        "value": 1.375333333333333,
+        "ci95": [
+          0.24289166666666664,
+          2.5343666666666667
+        ]
+      }
+    },
+    "oracle": {
+      "lost_margin_per_store_day": 1.6273333333333333,
+      "visits_per_day": 39.25,
+      "flagged_per_day": 47.43333333333333,
+      "precision": 1.0,
+      "recall": 0.8187110187110187,
+      "median_days_to_fix": 0.0,
+      "net_value_per_store_day": {
+        "value": 9.843,
+        "ci95": [
+          8.797366666666667,
+          11.004399999999999
+        ]
+      }
+    }
+  },
+  "headline": {
+    "policy": "expected_value",
+    "metric": "net_value_per_store_day",
+    "value": 1.105666666666667,
+    "ci95": [
+      0.03357500000000003,
+      2.2034249999999993
+    ],
+    "ci_method": "percentile bootstrap over stores, 1000 resamples",
+    "minus_zero_run_rule": {
+      "value": 4.192666666666667,
+      "ci95": [
+        3.5236583333333336,
+        4.8504249999999995
+      ]
+    },
+    "precision": 0.13633333333333333
+  },
+  "gate": {
+    "rule": "Pass only if all three hold for the expected value policy (rank shelves by the chance they are empty times the margin they lose, visit only when that beats the visit cost, within the daily capacity), fixed before results as the headline: (1) the 95% store-bootstrap interval on its net value per store per day over no visits has a lower bound above zero; (2) the 95% paired store-bootstrap interval on its net value minus that of the three-zero-day rule has a lower bound above zero; (3) at least half of its visits find an empty shelf.",
+    "checks": {
+      "beats_no_visits": true,
+      "beats_zero_run_rule": true,
+      "precision_at_least_0.5": false
+    },
+    "passed": false
+  },
+  "traps": {
+    "zero_sales_read_as_zero_demand": {
+      "mean_true_rate": 1.2584446982224065,
+      "mean_naive_rate": 1.2081333333333335,
+      "mean_clean_rate": 1.4211249795425078,
+      "median_ratio_naive_to_true": 0.9715951583622261,
+      "median_ratio_clean_to_true": 1.174922084461161,
+      "net_value_naive_rate": 1.375333333333333,
+      "net_value_clean_rate": 1.105666666666667
+    },
+    "same_rule_for_every_shelf": {
+      "zero_run_rule_flagged_per_day": 2515.383333333333,
+      "capacity_per_day": 150,
+      "zero_run_rule_precision": 0.17955555555555555,
+      "note": "Three days without a sale is normal for a slow seller and a long gap for a fast one, so one rule floods reps with slow-seller alerts."
+    },
+    "alarm_without_value": {
+      "poisson_alarm_precision": 0.21133333333333335,
+      "poisson_alarm_net_value": 1.2213333333333332,
+      "note": "A shelf can be almost surely empty and still not worth a visit if it sells little."
+    }
+  },
+  "caveats": [
+    "Everything is simulated. Sales rates, how often shelves go empty, how long they stay empty, the margin and the visit cost are chosen by the author.",
+    "Demand has no weekday pattern, season or promotions, which in real data create zero-sales runs that are not empty shelves.",
+    "The prior share of empty shelves is set close to the simulator's true value. In practice it comes from shelf audits and is less accurate.",
+    "A visit always finds and fixes an empty shelf. Real reps miss some, and some empty shelves cannot be refilled because there is no stock in the back room.",
+    "Shelves are independent. Real empty shelves cluster by store, delivery day and supplier.",
+    "Intervals resample stores. They do not cover a different simulator."
+  ]
+}

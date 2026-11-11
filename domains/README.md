@@ -1,8 +1,8 @@
 # Choose by domain
 
-The twelve projects are organised by skill. This folder organises the same projects by domain, so you can start from your own field. It is an index only: no new code, data or results.
+Projects 01 to 12 are organised by skill. Projects 13 onward are each built for one domain. This folder organises all of them by domain, so you can start from your own field. The pages here are an index: the code, data and results live in the project folders.
 
-Key: **main** means start here for this domain, **also** means useful second.
+Key: **main** means start here for this domain, **also** means useful second, **domain project** means built for that domain.
 
 | Project | Retail and consumer goods | Banking, fintech and insurance | Marketing and growth | E-commerce, media and consumer apps | Healthcare and life sciences | Operations and supply chain | Enterprise generative AI |
 |---|---|---|---|---|---|---|---|
@@ -18,6 +18,8 @@ Key: **main** means start here for this domain, **also** means useful second.
 | [10 Structured extraction](../10-structured-extraction) | also | also |  |  | also | main | main |
 | [11 Recommender evaluation](../11-recommender-eval) | also |  | main | main |  |  |  |
 | [12 Uplift modelling](../12-uplift-modelling) | main |  | main | also |  |  |  |
+| [13 Promotion lift](../13-promotion-lift) | domain project |  |  |  |  |  |  |
+| [14 Out-of-stock detection](../14-out-of-stock-detection) | domain project |  |  |  |  |  |  |
 
 ## Domain guides
 

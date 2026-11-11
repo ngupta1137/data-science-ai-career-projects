@@ -2,7 +2,7 @@
 
 **Who this is for:** Teams working on clinical operations, patient communication, documentation and product information.
 
-This page routes you to projects in this repository. It adds no new code and no new results. Every project describes a simulation or a generated dataset, not this domain's real systems.
+This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
 ## Start here
 
