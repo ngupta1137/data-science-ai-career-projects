@@ -1,0 +1,315 @@
+{
+  "headline_monitor": "psi_max",
+  "detection_matrix": {
+    "psi_max": {
+      "covariate_abrupt": 1.0,
+      "covariate_small": 1.0,
+      "covariate_gradual": 1.0,
+      "variance_shift": 1.0,
+      "category_shift": 1.0,
+      "concept_drift": 0.03333333333333333
+    },
+    "ks_max": {
+      "covariate_abrupt": 1.0,
+      "covariate_small": 1.0,
+      "covariate_gradual": 1.0,
+      "variance_shift": 1.0,
+      "category_shift": 0.03333333333333333,
+      "concept_drift": 0.03
+    },
+    "score_psi": {
+      "covariate_abrupt": 1.0,
+      "covariate_small": 1.0,
+      "covariate_gradual": 1.0,
+      "variance_shift": 1.0,
+      "category_shift": 0.23333333333333334,
+      "concept_drift": 0.03
+    },
+    "auc_drop": {
+      "covariate_abrupt": 0.03666666666666667,
+      "covariate_small": 0.04,
+      "covariate_gradual": 0.03,
+      "variance_shift": 0.0,
+      "category_shift": 0.02,
+      "concept_drift": 1.0
+    },
+    "psi_fixed_0.1": {
+      "covariate_abrupt": 1.0,
+      "covariate_small": 1.0,
+      "covariate_gradual": 1.0,
+      "variance_shift": 1.0,
+      "category_shift": 1.0,
+      "concept_drift": 0.0
+    },
+    "psi_fixed_0.2": {
+      "covariate_abrupt": 1.0,
+      "covariate_small": 0.11,
+      "covariate_gradual": 1.0,
+      "variance_shift": 1.0,
+      "category_shift": 1.0,
+      "concept_drift": 0.0
+    }
+  },
+  "headline_misses": [
+    {
+      "scenario": "concept_drift",
+      "detection": {
+        "rate": 0.03333333333333333,
+        "ci95": [
+          0.01820494733885481,
+          0.06026182580405482
+        ],
+        "n": 300
+      }
+    }
+  ],
+  "smallest_shift_reaching_floor": 0.2,
+  "sweep": [
+    {
+      "shift_sd": 0.1,
+      "headline": {
+        "detection": {
+          "rate": 0.25,
+          "ci95": [
+            0.17545211362287672,
+            0.34304463548061603
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 15.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.01,
+          "ci95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ],
+          "n": 100
+        }
+      },
+      "psi_fixed_0.2": {
+        "detection": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": null,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      }
+    },
+    {
+      "shift_sd": 0.2,
+      "headline": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 2.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02,
+          "ci95": [
+            0.00550196755016235,
+            0.07001179072854388
+          ],
+          "n": 100
+        }
+      },
+      "psi_fixed_0.2": {
+        "detection": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": null,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      }
+    },
+    {
+      "shift_sd": 0.3,
+      "headline": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.01,
+          "ci95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ],
+          "n": 100
+        }
+      },
+      "psi_fixed_0.2": {
+        "detection": {
+          "rate": 0.11,
+          "ci95": [
+            0.06254196357064568,
+            0.18631296503080313
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 16.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      }
+    },
+    {
+      "shift_sd": 0.5,
+      "headline": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      },
+      "psi_fixed_0.2": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      }
+    },
+    {
+      "shift_sd": 0.75,
+      "headline": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.010254524024038925,
+            0.0845193642905276
+          ],
+          "n": 100
+        }
+      },
+      "psi_fixed_0.2": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      }
+    },
+    {
+      "shift_sd": 1.0,
+      "headline": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.010254524024038925,
+            0.0845193642905276
+          ],
+          "n": 100
+        }
+      },
+      "psi_fixed_0.2": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9630065017930143,
+            1.0
+          ],
+          "n": 100
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ],
+          "n": 100
+        }
+      }
+    }
+  ]
+}

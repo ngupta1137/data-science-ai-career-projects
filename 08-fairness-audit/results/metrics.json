@@ -1,0 +1,529 @@
+{
+  "project": "08-fairness-audit",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "fit": 6000,
+    "dev": 3000,
+    "test": 6000,
+    "test_group_B_share": 0.25066666666666665,
+    "test_base_rate_A": 0.5108985765124555,
+    "test_base_rate_B": 0.38231382978723405,
+    "sha256": "238077074c889d51900929f9e0a356a90f49c3ef5bd2bea69d2f012851f05bcc"
+  },
+  "assumptions": {
+    "benefit_good": 1.0,
+    "cost_bad": 2.0,
+    "tpr_gap_tolerance": 0.1
+  },
+  "policies": {
+    "aware_single": {
+      "model": "aware",
+      "thresholds": {
+        "all": 0.6403408070993818
+      },
+      "groups": {
+        "A": {
+          "n": 4496,
+          "positives": 2297,
+          "base_rate": 0.5108985765124555,
+          "selection_rate": 0.32673487544483987,
+          "tpr": 0.4884632128863735,
+          "fpr": 0.15779899954524784,
+          "ppv": 0.763784887678693,
+          "auc": 0.7555339893088697,
+          "mean_score_minus_base_rate": 0.008404068220186245
+        },
+        "B": {
+          "n": 1504,
+          "positives": 575,
+          "base_rate": 0.38231382978723405,
+          "selection_rate": 0.1283244680851064,
+          "tpr": 0.23478260869565218,
+          "fpr": 0.062432723358449946,
+          "ppv": 0.6994818652849741,
+          "auc": 0.7144849534328638,
+          "mean_score_minus_base_rate": 0.0026321623448708475
+        }
+      },
+      "disparities": {
+        "tpr_gap": -0.25368060419072136,
+        "fpr_gap": -0.0953662761867979,
+        "ppv_gap": -0.06430302239371888,
+        "selection_ratio_min_over_max": 0.3927479976246687
+      },
+      "utility": {
+        "value": 0.0745,
+        "ci95": [
+          0.057166666666666664,
+          0.09185416666666665
+        ]
+      },
+      "tpr_gap": {
+        "value": -0.25368060419072136,
+        "ci95": [
+          -0.29756988003180895,
+          -0.21528273027289452
+        ]
+      },
+      "fpr_gap": {
+        "value": -0.0953662761867979,
+        "ci95": [
+          -0.11707689518597578,
+          -0.07270579000565988
+        ]
+      },
+      "ppv_gap": {
+        "value": -0.06430302239371888,
+        "ci95": [
+          -0.13508315187000494,
+          -0.000983113833440049
+        ]
+      },
+      "selection_ratio": {
+        "value": 0.3927479976246687,
+        "ci95": [
+          0.33965000045533034,
+          0.4452262765176941
+        ]
+      },
+      "abs_tpr_gap_ci95": [
+        0.21528273027289452,
+        0.29756988003180895
+      ]
+    },
+    "unaware_single": {
+      "model": "unaware",
+      "thresholds": {
+        "all": 0.62411533598805
+      },
+      "groups": {
+        "A": {
+          "n": 4496,
+          "positives": 2297,
+          "base_rate": 0.5108985765124555,
+          "selection_rate": 0.3320729537366548,
+          "tpr": 0.4919460165433174,
+          "fpr": 0.165075034106412,
+          "ppv": 0.7568653717347622,
+          "auc": 0.7554589561923406,
+          "mean_score_minus_base_rate": -0.004232408440032809
+        },
+        "B": {
+          "n": 1504,
+          "positives": 575,
+          "base_rate": 0.38231382978723405,
+          "selection_rate": 0.1981382978723404,
+          "tpr": 0.3356521739130435,
+          "fpr": 0.11302475780409042,
+          "ppv": 0.6476510067114094,
+          "auc": 0.7141423690738053,
+          "mean_score_minus_base_rate": 0.041096850381385164
+        }
+      },
+      "disparities": {
+        "tpr_gap": -0.1562938426302739,
+        "fpr_gap": -0.05205027630232158,
+        "ppv_gap": -0.1092143650233528,
+        "selection_ratio_min_over_max": 0.596670989440082
+      },
+      "utility": {
+        "value": 0.0645,
+        "ci95": [
+          0.0461625,
+          0.0823375
+        ]
+      },
+      "tpr_gap": {
+        "value": -0.1562938426302739,
+        "ci95": [
+          -0.1985688644651363,
+          -0.11299967774736243
+        ]
+      },
+      "fpr_gap": {
+        "value": -0.05205027630232158,
+        "ci95": [
+          -0.07860805030967213,
+          -0.026561932511442104
+        ]
+      },
+      "ppv_gap": {
+        "value": -0.1092143650233528,
+        "ci95": [
+          -0.16768199664956346,
+          -0.05273021471829169
+        ]
+      },
+      "selection_ratio": {
+        "value": 0.596670989440082,
+        "ci95": [
+          0.5351015323610723,
+          0.6643529264273944
+        ]
+      },
+      "abs_tpr_gap_ci95": [
+        0.11299967774736243,
+        0.19856886446513627
+      ]
+    },
+    "blind_single": {
+      "model": "blind",
+      "thresholds": {
+        "all": 0.6260474698493909
+      },
+      "groups": {
+        "A": {
+          "n": 4496,
+          "positives": 2297,
+          "base_rate": 0.5108985765124555,
+          "selection_rate": 0.3265124555160142,
+          "tpr": 0.4884632128863735,
+          "fpr": 0.15734424738517508,
+          "ppv": 0.7643051771117166,
+          "auc": 0.755506272590363,
+          "mean_score_minus_base_rate": -0.005536993902739873
+        },
+        "B": {
+          "n": 1504,
+          "positives": 575,
+          "base_rate": 0.38231382978723405,
+          "selection_rate": 0.20412234042553193,
+          "tpr": 0.3391304347826087,
+          "fpr": 0.12055974165769645,
+          "ppv": 0.6351791530944625,
+          "auc": 0.7145542191229466,
+          "mean_score_minus_base_rate": 0.0451677401432391
+        }
+      },
+      "disparities": {
+        "tpr_gap": -0.14933277810376483,
+        "fpr_gap": -0.03678450572747863,
+        "ppv_gap": -0.12912602401725415,
+        "selection_ratio_min_over_max": 0.6251594295321469
+      },
+      "utility": {
+        "value": 0.06683333333333333,
+        "ci95": [
+          0.048162500000000004,
+          0.0848375
+        ]
+      },
+      "tpr_gap": {
+        "value": -0.14933277810376483,
+        "ci95": [
+          -0.19316118581542094,
+          -0.10390089168203157
+        ]
+      },
+      "fpr_gap": {
+        "value": -0.03678450572747863,
+        "ci95": [
+          -0.06295426532367893,
+          -0.010489825380053554
+        ]
+      },
+      "ppv_gap": {
+        "value": -0.12912602401725415,
+        "ci95": [
+          -0.1883329450349662,
+          -0.06952584074014746
+        ]
+      },
+      "selection_ratio": {
+        "value": 0.6251594295321469,
+        "ci95": [
+          0.5624874802425157,
+          0.697200109400361
+        ]
+      },
+      "abs_tpr_gap_ci95": [
+        0.10390089168203157,
+        0.19316118581542094
+      ]
+    },
+    "unaware_group_thresholds": {
+      "model": "unaware",
+      "thresholds": {
+        "A": 0.6335764692707114,
+        "B": 0.5902980090490431
+      },
+      "groups": {
+        "A": {
+          "n": 4496,
+          "positives": 2297,
+          "base_rate": 0.5108985765124555,
+          "selection_rate": 0.3162811387900356,
+          "tpr": 0.47496734871571616,
+          "fpr": 0.15052296498408368,
+          "ppv": 0.7672292545710268,
+          "auc": 0.7554589561923406,
+          "mean_score_minus_base_rate": -0.004232408440032809
+        },
+        "B": {
+          "n": 1504,
+          "positives": 575,
+          "base_rate": 0.38231382978723405,
+          "selection_rate": 0.24135638297872342,
+          "tpr": 0.391304347826087,
+          "fpr": 0.14854682454251883,
+          "ppv": 0.6198347107438017,
+          "auc": 0.7141423690738053,
+          "mean_score_minus_base_rate": 0.041096850381385164
+        }
+      },
+      "disparities": {
+        "tpr_gap": -0.08366300088962919,
+        "fpr_gap": -0.0019761404415648554,
+        "ppv_gap": -0.14739454382722506,
+        "selection_ratio_min_over_max": 0.7631071011760481
+      },
+      "utility": {
+        "value": 0.063,
+        "ci95": [
+          0.04382916666666667,
+          0.0815
+        ]
+      },
+      "tpr_gap": {
+        "value": -0.08366300088962919,
+        "ci95": [
+          -0.12733332728493407,
+          -0.03753436963562858
+        ]
+      },
+      "fpr_gap": {
+        "value": -0.0019761404415648554,
+        "ci95": [
+          -0.030406793595969532,
+          0.02675238090798584
+        ]
+      },
+      "ppv_gap": {
+        "value": -0.14739454382722506,
+        "ci95": [
+          -0.2024170268924673,
+          -0.09213783003084729
+        ]
+      },
+      "selection_ratio": {
+        "value": 0.7631071011760481,
+        "ci95": [
+          0.6900062635921351,
+          0.8446843200740056
+        ]
+      },
+      "abs_tpr_gap_ci95": [
+        0.037534369635628576,
+        0.12733332728493407
+      ]
+    },
+    "reject_all": {
+      "model": "none",
+      "thresholds": {},
+      "groups": {
+        "A": {
+          "n": 4496,
+          "positives": 2297,
+          "base_rate": 0.5108985765124555,
+          "selection_rate": 0.0,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "ppv": null,
+          "auc": 0.5,
+          "mean_score_minus_base_rate": -0.5108985765124555
+        },
+        "B": {
+          "n": 1504,
+          "positives": 575,
+          "base_rate": 0.38231382978723405,
+          "selection_rate": 0.0,
+          "tpr": 0.0,
+          "fpr": 0.0,
+          "ppv": null,
+          "auc": 0.5,
+          "mean_score_minus_base_rate": -0.38231382978723405
+        }
+      },
+      "disparities": {
+        "tpr_gap": 0.0,
+        "fpr_gap": 0.0,
+        "ppv_gap": null,
+        "selection_ratio_min_over_max": null
+      },
+      "utility": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "tpr_gap": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "fpr_gap": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "ppv_gap": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "selection_ratio": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "abs_tpr_gap_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "model_auc": {
+    "aware": {
+      "overall": 0.7518627243194722,
+      "group_A": 0.7555339893088697,
+      "group_B": 0.7144849534328638
+    },
+    "unaware": {
+      "overall": 0.750261809943791,
+      "group_A": 0.7554589561923406,
+      "group_B": 0.7141423690738053
+    },
+    "blind": {
+      "overall": 0.7501346896394503,
+      "group_A": 0.755506272590363,
+      "group_B": 0.7145542191229466
+    }
+  },
+  "headline": {
+    "policy": "blind_single",
+    "selected_by": "highest dev utility among candidates with positive utility and a dev TPR gap within tolerance",
+    "metric": "abs_tpr_gap",
+    "value": 0.14933277810376483,
+    "ci95": [
+      0.10390089168203157,
+      0.19316118581542094
+    ],
+    "utility": {
+      "value": 0.06683333333333333,
+      "ci95": [
+        0.048162500000000004,
+        0.0848375
+      ]
+    },
+    "ci_method": "group-stratified bootstrap, 1000 resamples"
+  },
+  "gate": {
+    "rule": "Pass only if both hold on the test set for the headline policy, which is picked on dev as the highest-utility candidate with positive utility and a dev true positive rate gap no larger than 0.10 (or, if none qualifies, the smallest gap): (1) the 95% interval on the absolute true positive rate gap between groups has an upper bound at most 0.10; (2) the 95% interval on mean utility per applicant has a lower bound above zero, so the policy beats rejecting everyone. The 0.10 tolerance is an assumption made before results.",
+    "checks": {
+      "tpr_gap_within_tolerance": false,
+      "beats_rejecting_everyone": true
+    },
+    "passed": false
+  },
+  "traps": {
+    "fairness_through_unawareness": {
+      "tpr_gap_aware": {
+        "value": -0.25368060419072136,
+        "ci95": [
+          -0.29756988003180895,
+          -0.21528273027289452
+        ]
+      },
+      "tpr_gap_unaware": {
+        "value": -0.1562938426302739,
+        "ci95": [
+          -0.1985688644651363,
+          -0.11299967774736243
+        ]
+      },
+      "tpr_gap_blind_no_proxy": {
+        "value": -0.14933277810376483,
+        "ci95": [
+          -0.19316118581542094,
+          -0.10390089168203157
+        ]
+      },
+      "note": "Dropping the group column, and even the proxy, leaves a gap. The gap comes from different base rates and a noisier measurement for group B."
+    },
+    "aggregate_auc_hides_group_gap": {
+      "overall_auc": 0.750261809943791,
+      "group_A_auc": 0.7554589561923406,
+      "group_B_auc": 0.7141423690738053,
+      "note": "One overall number averages over a group the model serves worse."
+    },
+    "group_thresholds_tuned_on_test": {
+      "tpr_gap_with_leak": 0.0020374401393121744,
+      "tpr_gap_honest_dev_tuned": -0.08366300088962919,
+      "note": "Thresholds fitted on the rows they are scored on look perfect by construction."
+    },
+    "gap_of_zero_is_cheap": {
+      "reject_all_tpr_gap": 0.0,
+      "reject_all_utility": 0.0,
+      "note": "A policy that approves nobody has no gap. A fairness number needs a utility number beside it."
+    },
+    "cannot_equalize_everything": {
+      "unaware_single": {
+        "tpr_gap": -0.1562938426302739,
+        "fpr_gap": -0.05205027630232158,
+        "ppv_gap": -0.1092143650233528
+      },
+      "group_thresholds": {
+        "tpr_gap": -0.08366300088962919,
+        "fpr_gap": -0.0019761404415648554,
+        "ppv_gap": -0.14739454382722506
+      },
+      "base_rate_A": 0.5108985765124555,
+      "base_rate_B": 0.38231382978723405,
+      "note": "With different base rates, equalizing the true positive rate moves the other gaps. They cannot all be zero together."
+    },
+    "small_group_wide_interval": {
+      "tpr_ci_unaware_single": {
+        "A": {
+          "width": 0.04133194749794178,
+          "ci95": [
+            0.4703873120129278,
+            0.5117192595108696
+          ]
+        },
+        "B": {
+          "width": 0.07254555717416222,
+          "ci95": [
+            0.30048882798971066,
+            0.3730343851638729
+          ]
+        }
+      }
+    }
+  },
+  "caveats": [
+    "All data is simulated with mechanisms chosen by the author. The sizes of the gaps describe this setup, not any real lending or hiring system.",
+    "Two groups only. No intersections, no more than one protected attribute, and no small-subgroup problem beyond group B being a quarter of the data.",
+    "The group label is observed and correct. In practice it is often missing, inferred, or legally off limits.",
+    "The 0.10 tolerance and the cost of a bad approval are assumptions. Change them and the verdict can change; the sensitivity table shows how.",
+    "Equal opportunity is one definition among several. Satisfying it does not make a policy fair in a legal or ethical sense. This project gives no legal advice and no compliance determination.",
+    "The outcome label is taken as the truth. In real data it is often itself a product of past decisions, which this project does not model."
+  ]
+}

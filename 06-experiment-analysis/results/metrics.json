@@ -1,0 +1,829 @@
+{
+  "project": "06-experiment-analysis",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.5"
+  },
+  "data": {
+    "experiments_per_cell": 2000,
+    "headline_aa_experiments": 20000,
+    "sha256": "0e747b9087ee379c68cc67776f61439629044b863bd8695805bc7038d74f6d45"
+  },
+  "headline": {
+    "analysis": "cuped_fixed_horizon",
+    "metric": "variance_ratio_cuped_over_raw",
+    "n_per_arm": 1000,
+    "rho": 0.6,
+    "value": 0.6532421110032107,
+    "ci95": [
+      0.6199934581109728,
+      0.6853928250762071
+    ],
+    "theory": 0.64,
+    "ci_method": "bootstrap over 2000 simulated experiments"
+  },
+  "fixed_horizon_grid": [
+    {
+      "n_per_arm": 200,
+      "dist": "normal",
+      "rho": 0.6,
+      "aa": {
+        "raw": {
+          "rate": 0.0475,
+          "ci95": [
+            0.03901402059617837,
+            0.05772090719335553
+          ],
+          "n": 2000
+        },
+        "cuped": {
+          "rate": 0.0675,
+          "ci95": [
+            0.057313062415804306,
+            0.07934518348247949
+          ],
+          "n": 2000
+        }
+      },
+      "with_effect": {
+        "raw": {
+          "power": {
+            "rate": 0.176,
+            "ci95": [
+              0.1599356907777146,
+              0.19330655586053722
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9595,
+            "ci95": [
+              0.9499431768629318,
+              0.9672950566855967
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.0015043026341801063,
+          "mean_error_ci95": [
+            -0.002825303701887319,
+            0.005833908970247532
+          ],
+          "mean_ci_width": 0.39156226808322797
+        },
+        "cuped": {
+          "power": {
+            "rate": 0.2455,
+            "ci95": [
+              0.22713763060738004,
+              0.2648381464587777
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9535,
+            "ci95": [
+              0.9433703066271119,
+              0.9618909314887917
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.0004574868132112888,
+          "mean_error_ci95": [
+            -0.003019384709145064,
+            0.003934358335567641
+          ],
+          "mean_ci_width": 0.31325813899853244
+        }
+      }
+    },
+    {
+      "n_per_arm": 1000,
+      "dist": "normal",
+      "rho": 0.6,
+      "aa": {
+        "raw": {
+          "rate": 0.0493,
+          "ci95": [
+            0.0463851964782741,
+            0.05238790482269861
+          ],
+          "n": 20000
+        },
+        "cuped": {
+          "rate": 0.05035,
+          "ci95": [
+            0.04740490766399351,
+            0.05346779036126138
+          ],
+          "n": 20000
+        }
+      },
+      "with_effect": {
+        "raw": {
+          "power": {
+            "rate": 0.621,
+            "ci95": [
+              0.5995254353250561,
+              0.6420106392328806
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9545,
+            "ci95": [
+              0.9444626753715425,
+              0.9627947286497985
+            ],
+            "n": 2000
+          },
+          "mean_error": -4.483037810205148e-05,
+          "mean_error_ci95": [
+            -0.0019687304059114426,
+            0.0018790696497073395
+          ],
+          "mean_ci_width": 0.17524546027329388
+        },
+        "cuped": {
+          "power": {
+            "rate": 0.8035,
+            "ci95": [
+              0.7855107983788351,
+              0.8203255539214444
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.952,
+            "ci95": [
+              0.9417339082484883,
+              0.9605330810092589
+            ],
+            "n": 2000
+          },
+          "mean_error": -2.6285785318174327e-05,
+          "mean_error_ci95": [
+            -0.0015693281057339522,
+            0.0015167565350976038
+          ],
+          "mean_ci_width": 0.14021004348995963
+        }
+      }
+    },
+    {
+      "n_per_arm": 5000,
+      "dist": "normal",
+      "rho": 0.6,
+      "aa": {
+        "raw": {
+          "rate": 0.0525,
+          "ci95": [
+            0.04355496702511128,
+            0.06316079029161008
+          ],
+          "n": 2000
+        },
+        "cuped": {
+          "rate": 0.049,
+          "ci95": [
+            0.04037353995030726,
+            0.05935563669738288
+          ],
+          "n": 2000
+        }
+      },
+      "with_effect": {
+        "raw": {
+          "power": {
+            "rate": 0.9975,
+            "ci95": [
+              0.9941608466835673,
+              0.9989316912715861
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9545,
+            "ci95": [
+              0.9444626753715425,
+              0.9627947286497985
+            ],
+            "n": 2000
+          },
+          "mean_error": -0.0003467078956924818,
+          "mean_error_ci95": [
+            -0.0012303057613902873,
+            0.0005368899700053237
+          ],
+          "mean_ci_width": 0.0784011368080699
+        },
+        "cuped": {
+          "power": {
+            "rate": 1.0,
+            "ci95": [
+              0.9980829527187469,
+              0.9999999999999998
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9425,
+            "ci95": [
+              0.9314237261895166,
+              0.9518796869665744
+            ],
+            "n": 2000
+          },
+          "mean_error": -0.0003016017051497085,
+          "mean_error_ci95": [
+            -0.0010154022105021922,
+            0.0004121988002027751
+          ],
+          "mean_ci_width": 0.06271614528275975
+        }
+      }
+    },
+    {
+      "n_per_arm": 200,
+      "dist": "lognormal",
+      "rho": 0.6,
+      "aa": {
+        "raw": {
+          "rate": 0.048,
+          "ci95": [
+            0.03946691899074102,
+            0.05826609175151162
+          ],
+          "n": 2000
+        },
+        "cuped": {
+          "rate": 0.0585,
+          "ci95": [
+            0.049036041566208714,
+            0.06965671118313761
+          ],
+          "n": 2000
+        }
+      },
+      "with_effect": {
+        "raw": {
+          "power": {
+            "rate": 0.1825,
+            "ci95": [
+              0.1661858393764371,
+              0.20003148564715845
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.95,
+            "ci95": [
+              0.9395558910656041,
+              0.9587187663812682
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.0006957810493867942,
+          "mean_error_ci95": [
+            -0.0037055809927959518,
+            0.00509714309156954
+          ],
+          "mean_ci_width": 0.3872800363931892
+        },
+        "cuped": {
+          "power": {
+            "rate": 0.275,
+            "ci95": [
+              0.2558763528427728,
+              0.2949863184337909
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9515,
+            "ci95": [
+              0.9411889997479057,
+              0.9600799065571228
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.0021352085899570684,
+          "mean_error_ci95": [
+            -0.0013632883577343966,
+            0.0056337055376485335
+          ],
+          "mean_ci_width": 0.3080935443389117
+        }
+      }
+    },
+    {
+      "n_per_arm": 1000,
+      "dist": "lognormal",
+      "rho": 0.6,
+      "aa": {
+        "raw": {
+          "rate": 0.05,
+          "ci95": [
+            0.04128123361873174,
+            0.0604441089343959
+          ],
+          "n": 2000
+        },
+        "cuped": {
+          "rate": 0.0485,
+          "ci95": [
+            0.03992009344287708,
+            0.05881100025209431
+          ],
+          "n": 2000
+        }
+      },
+      "with_effect": {
+        "raw": {
+          "power": {
+            "rate": 0.6205,
+            "ci95": [
+              0.599020956423249,
+              0.6415170351819691
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.951,
+            "ci95": [
+              0.9406443633026171,
+              0.9596264600496927
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.0005799521272972556,
+          "mean_error_ci95": [
+            -0.0013587783939071254,
+            0.0025186826485016365
+          ],
+          "mean_ci_width": 0.17451329170847565
+        },
+        "cuped": {
+          "power": {
+            "rate": 0.809,
+            "ci95": [
+              0.7911863917774892,
+              0.8256288730026965
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.9535,
+            "ci95": [
+              0.9433703066271119,
+              0.9618909314887917
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.0006943293170475974,
+          "mean_error_ci95": [
+            -0.0008583304613923456,
+            0.00224698909548754
+          ],
+          "mean_ci_width": 0.13921569389022412
+        }
+      }
+    },
+    {
+      "n_per_arm": 5000,
+      "dist": "lognormal",
+      "rho": 0.6,
+      "aa": {
+        "raw": {
+          "rate": 0.043,
+          "ci95": [
+            0.03495107254461269,
+            0.05280110867045247
+          ],
+          "n": 2000
+        },
+        "cuped": {
+          "rate": 0.048,
+          "ci95": [
+            0.03946691899074102,
+            0.05826609175151162
+          ],
+          "n": 2000
+        }
+      },
+      "with_effect": {
+        "raw": {
+          "power": {
+            "rate": 0.999,
+            "ci95": [
+              0.9963610657309615,
+              0.9997257210823479
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.94,
+            "ci95": [
+              0.9287241955068138,
+              0.9495888028856835
+            ],
+            "n": 2000
+          },
+          "mean_error": 6.94729365295535e-06,
+          "mean_error_ci95": [
+            -0.0008943641072225615,
+            0.0009082586945284722
+          ],
+          "mean_ci_width": 0.07824421861456951
+        },
+        "cuped": {
+          "power": {
+            "rate": 1.0,
+            "ci95": [
+              0.9980829527187469,
+              0.9999999999999998
+            ],
+            "n": 2000
+          },
+          "coverage": {
+            "rate": 0.945,
+            "ci95": [
+              0.9341286162883299,
+              0.9541652116313549
+            ],
+            "n": 2000
+          },
+          "mean_error": 0.00021595698064194553,
+          "mean_error_ci95": [
+            -0.000495321391405014,
+            0.000927235352688905
+          ],
+          "mean_ci_width": 0.06249534131858929
+        }
+      }
+    }
+  ],
+  "cuped_by_rho": [
+    {
+      "rho": 0.0,
+      "variance_ratio": 1.0019057527181223,
+      "variance_ratio_ci95": [
+        1.0000529582222437,
+        1.0038126850248248
+      ],
+      "theory_ratio": 1.0,
+      "cuped_mean_error": 0.0010665360889958475,
+      "cuped_mean_error_ci95": [
+        -0.0009388279084441209,
+        0.0030719000864358158
+      ]
+    },
+    {
+      "rho": 0.3,
+      "variance_ratio": 0.899239226833894,
+      "variance_ratio_ci95": [
+        0.8770684488427128,
+        0.9222668354874898
+      ],
+      "theory_ratio": 0.91,
+      "cuped_mean_error": -1.2558566465049437e-05,
+      "cuped_mean_error_ci95": [
+        -0.0018825463705212948,
+        0.0018574292375911957
+      ]
+    },
+    {
+      "rho": 0.6,
+      "variance_ratio": 0.6532421110032107,
+      "variance_ratio_ci95": [
+        0.6199934581109728,
+        0.6853928250762071
+      ],
+      "theory_ratio": 0.64,
+      "cuped_mean_error": 0.0007305442294829865,
+      "cuped_mean_error_ci95": [
+        -0.000863821496397121,
+        0.002324909955363094
+      ]
+    },
+    {
+      "rho": 0.8,
+      "variance_ratio": 0.3480781370308816,
+      "variance_ratio_ci95": [
+        0.3256262345122191,
+        0.3720987405033948
+      ],
+      "theory_ratio": 0.3599999999999999,
+      "cuped_mean_error": -0.0006325993196118916,
+      "cuped_mean_error_ci95": [
+        -0.0018028922109304618,
+        0.0005376935717066786
+      ]
+    }
+  ],
+  "power": {
+    "effect": 0.1,
+    "target_power": 0.8,
+    "rho": 0.6,
+    "raw": {
+      "n_per_arm": 1570,
+      "simulated_power": {
+        "rate": 0.796,
+        "ci95": [
+          0.7777797978268458,
+          0.8130853101826524
+        ],
+        "n": 2000
+      }
+    },
+    "cuped": {
+      "n_per_arm": 1005,
+      "simulated_power": {
+        "rate": 0.7845,
+        "ci95": [
+          0.765943686823055,
+          0.801965513273912
+        ],
+        "n": 2000
+      }
+    },
+    "users_saved_percent": 35.98726114649682
+  },
+  "peeking": [
+    {
+      "looks": 1,
+      "naive_false_positive": {
+        "rate": 0.0535,
+        "ci95": [
+          0.04446618753651597,
+          0.06424573568564287
+        ],
+        "n": 2000
+      },
+      "bonferroni_false_positive": {
+        "rate": 0.0535,
+        "ci95": [
+          0.04446618753651597,
+          0.06424573568564287
+        ],
+        "n": 2000
+      }
+    },
+    {
+      "looks": 5,
+      "naive_false_positive": {
+        "rate": 0.1455,
+        "ci95": [
+          0.13072618405103206,
+          0.1616330024713762
+        ],
+        "n": 2000
+      },
+      "bonferroni_false_positive": {
+        "rate": 0.0335,
+        "ci95": [
+          0.026465276470638475,
+          0.042323328642770504
+        ],
+        "n": 2000
+      }
+    },
+    {
+      "looks": 10,
+      "naive_false_positive": {
+        "rate": 0.1935,
+        "ci95": [
+          0.17678106379716146,
+          0.21139408618624655
+        ],
+        "n": 2000
+      },
+      "bonferroni_false_positive": {
+        "rate": 0.02,
+        "ci95": [
+          0.014721726201265444,
+          0.027118639188737373
+        ],
+        "n": 2000
+      }
+    },
+    {
+      "looks": 20,
+      "naive_false_positive": {
+        "rate": 0.262,
+        "ci95": [
+          0.2431979924091159,
+          0.28171452209676046
+        ],
+        "n": 2000
+      },
+      "bonferroni_false_positive": {
+        "rate": 0.019,
+        "ci95": [
+          0.013873784918301425,
+          0.025970414566263898
+        ],
+        "n": 2000
+      }
+    }
+  ],
+  "multiple_metrics": {
+    "metrics": 10,
+    "n_per_arm": 500,
+    "true_effect": 0.2,
+    "all_null": {
+      "uncorrected": {
+        "family_wise_error": {
+          "rate": 0.398,
+          "ci95": [
+            0.37676296791226604,
+            0.4196281097331095
+          ],
+          "n": 2000
+        }
+      },
+      "bonferroni": {
+        "family_wise_error": {
+          "rate": 0.0505,
+          "ci95": [
+            0.04173547326167801,
+            0.06098795224416838
+          ],
+          "n": 2000
+        }
+      },
+      "holm": {
+        "family_wise_error": {
+          "rate": 0.0505,
+          "ci95": [
+            0.04173547326167801,
+            0.06098795224416838
+          ],
+          "n": 2000
+        }
+      }
+    },
+    "two_true": {
+      "uncorrected": {
+        "family_wise_error": {
+          "rate": 0.3355,
+          "ci95": [
+            0.3151396320427095,
+            0.3564910765128227
+          ],
+          "n": 2000
+        },
+        "power_per_true_metric": {
+          "rate": 0.88575,
+          "ci95": [
+            0.8755193825676447,
+            0.8952404069343508
+          ],
+          "n": 4000
+        }
+      },
+      "bonferroni": {
+        "family_wise_error": {
+          "rate": 0.0405,
+          "ci95": [
+            0.03270494331440327,
+            0.05005682313706816
+          ],
+          "n": 2000
+        },
+        "power_per_true_metric": {
+          "rate": 0.633,
+          "ci95": [
+            0.6179423735014846,
+            0.6478024145834549
+          ],
+          "n": 4000
+        }
+      },
+      "holm": {
+        "family_wise_error": {
+          "rate": 0.0445,
+          "ci95": [
+            0.03630266512840682,
+            0.054443764944814586
+          ],
+          "n": 2000
+        },
+        "power_per_true_metric": {
+          "rate": 0.64,
+          "ci95": [
+            0.6249971280315599,
+            0.6547342278473237
+          ],
+          "n": 4000
+        }
+      }
+    }
+  },
+  "gate": {
+    "rule": "Pass only if all four hold, each judged on 95% intervals from the simulation: (1) at the headline cell, the A/A false positive rate of CUPED with a fixed horizon has an interval that contains 0.05; (2) at the headline cell with a true effect, the CUPED estimate has no detectable bias (the interval on the mean error contains 0); (3) the variance of the CUPED estimate divided by the variance of the raw estimate has an interval whose upper bound is below 1; (4) the Holm family-wise error rate over the multiple-metric A/A set has an interval whose lower bound is at or below 0.05.",
+    "checks": {
+      "aa_false_positive_contains_nominal": true,
+      "cuped_unbiased": true,
+      "cuped_variance_ratio_below_one": true,
+      "holm_family_wise_error_controlled": true
+    },
+    "passed": true
+  },
+  "traps": {
+    "peeking": {
+      "looks": 10,
+      "naive_false_positive": {
+        "rate": 0.1935,
+        "ci95": [
+          0.17678106379716146,
+          0.21139408618624655
+        ],
+        "n": 2000
+      },
+      "bonferroni_false_positive": {
+        "rate": 0.02,
+        "ci95": [
+          0.014721726201265444,
+          0.027118639188737373
+        ],
+        "n": 2000
+      },
+      "note": "Stopping at the first significant look in an A/A test."
+    },
+    "uncorrected_metrics": {
+      "metrics": 10,
+      "uncorrected_family_wise_error": {
+        "rate": 0.398,
+        "ci95": [
+          0.37676296791226604,
+          0.4196281097331095
+        ],
+        "n": 2000
+      },
+      "holm_family_wise_error": {
+        "rate": 0.0505,
+        "ci95": [
+          0.04173547326167801,
+          0.06098795224416838
+        ],
+        "n": 2000
+      },
+      "note": "Reading ten metrics at the 0.05 level and acting on any that moves."
+    },
+    "heavy_tail_small_sample": {
+      "n_per_arm": 200,
+      "lognormal_raw_false_positive": {
+        "rate": 0.048,
+        "ci95": [
+          0.03946691899074102,
+          0.05826609175151162
+        ],
+        "n": 2000
+      },
+      "normal_raw_false_positive": {
+        "rate": 0.0475,
+        "ci95": [
+          0.03901402059617837,
+          0.05772090719335553
+        ],
+        "n": 2000
+      },
+      "note": "A normal approximation on skewed data with few users."
+    },
+    "contaminated_covariate": {
+      "true_effect": 0.1,
+      "contamination_shift": 0.5,
+      "cuped_mean_error_clean_covariate": -0.001091637573948237,
+      "cuped_mean_error_contaminated_covariate": -0.2865851206126794,
+      "cuped_coverage_clean": {
+        "rate": 0.9455,
+        "ci95": [
+          0.9346702670259668,
+          0.9546216438464368
+        ],
+        "n": 2000
+      },
+      "cuped_coverage_contaminated": {
+        "rate": 0.0,
+        "ci95": [
+          1.0842021724855044e-19,
+          0.001917047281252934
+        ],
+        "n": 2000
+      },
+      "note": "The covariate moves with treatment, so CUPED removes part of the real effect. A covariate must be fixed before assignment."
+    }
+  },
+  "caveats": [
+    "All data is simulated with a known truth. Real experiments have effects that vary by user, interference between users, and data problems this project does not model.",
+    "The outcome is one number per user with a clean pre-period metric. Real metrics are noisier and pre-period data is often missing.",
+    "Tests use a normal approximation. Intervals are about the simulation, so they show how reliable a method is under these assumptions only.",
+    "Only equally spaced looks and Bonferroni are measured. Alpha-spending and always-valid methods are designed, not built.",
+    "No sample ratio mismatch checks, no novelty effects, no network effects, no variance from repeated measures."
+  ]
+}

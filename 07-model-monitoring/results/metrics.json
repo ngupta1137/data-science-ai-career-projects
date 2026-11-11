@@ -1,0 +1,981 @@
+{
+  "project": "07-model-monitoring",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "weeks": 52,
+    "batch_size": 500,
+    "onset_week": 26,
+    "calibration_streams": 1000,
+    "dev_streams_per_scenario": 100,
+    "test_streams_per_scenario": 300,
+    "reference_auc": 0.8161604191252404,
+    "sha256": "e202e1ec7202dd431929515dd0473edf0507740790651aeb846e7d120efc6877"
+  },
+  "thresholds": {
+    "psi_max": 0.06679874375503499,
+    "ks_max": 0.09394999999999998,
+    "score_psi": 0.059435518294055356,
+    "auc_drop": 0.060975091681414795
+  },
+  "selection": {
+    "dev_mean_detection": {
+      "psi_max": 1.0,
+      "ks_max": 0.8019999999999999,
+      "score_psi": 0.85
+    },
+    "headline": "psi_max"
+  },
+  "headline": {
+    "monitor": "psi_max",
+    "metric": "abrupt_covariate_shift_detection_rate",
+    "value": 1.0,
+    "ci95": [
+      0.9873570287754538,
+      0.9999999999999998
+    ],
+    "ci_method": "Wilson interval over 300 test streams",
+    "false_alarm_rate": {
+      "rate": 0.07,
+      "ci95": [
+        0.046236944827176336,
+        0.10463601042593323
+      ],
+      "n": 300
+    }
+  },
+  "results": {
+    "psi_max": {
+      "null": {
+        "false_alarm": {
+          "rate": 0.07,
+          "ci95": [
+            0.046236944827176336,
+            0.10463601042593323
+          ],
+          "n": 300
+        }
+      },
+      "covariate_abrupt": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03666666666666667,
+          "ci95": [
+            0.02059530516285303,
+            0.06445384817189295
+          ],
+          "n": 300
+        }
+      },
+      "covariate_small": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.023333333333333334,
+          "ci95": [
+            0.011347660299125234,
+            0.04737197226827532
+          ],
+          "n": 300
+        }
+      },
+      "covariate_gradual": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 2.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.016666666666666666,
+          "ci95": [
+            0.00713947735063333,
+            0.0384153948330945
+          ],
+          "n": 300
+        }
+      },
+      "variance_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.04666666666666667,
+          "ci95": [
+            0.027998933682334012,
+            0.07679736022792105
+          ],
+          "n": 300
+        }
+      },
+      "category_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03333333333333333,
+          "ci95": [
+            0.01820494733885481,
+            0.06026182580405482
+          ],
+          "n": 300
+        }
+      },
+      "concept_drift": {
+        "detection": {
+          "rate": 0.03333333333333333,
+          "ci95": [
+            0.01820494733885481,
+            0.06026182580405482
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 7.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02,
+          "ci95": [
+            0.009197631557703617,
+            0.042939620817860576
+          ],
+          "n": 300
+        }
+      }
+    },
+    "ks_max": {
+      "null": {
+        "false_alarm": {
+          "rate": 0.08,
+          "ci95": [
+            0.054346855395144764,
+            0.11627324043347391
+          ],
+          "n": 300
+        }
+      },
+      "covariate_abrupt": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        }
+      },
+      "covariate_small": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        }
+      },
+      "covariate_gradual": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 2.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.023333333333333334,
+          "ci95": [
+            0.011347660299125234,
+            0.04737197226827532
+          ],
+          "n": 300
+        }
+      },
+      "variance_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03666666666666667,
+          "ci95": [
+            0.02059530516285303,
+            0.06445384817189295
+          ],
+          "n": 300
+        }
+      },
+      "category_shift": {
+        "detection": {
+          "rate": 0.03333333333333333,
+          "ci95": [
+            0.01820494733885481,
+            0.06026182580405482
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 7.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02666666666666667,
+          "ci95": [
+            0.01357306980864708,
+            0.05172894295058982
+          ],
+          "n": 300
+        }
+      },
+      "concept_drift": {
+        "detection": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 15.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        }
+      }
+    },
+    "score_psi": {
+      "null": {
+        "false_alarm": {
+          "rate": 0.05333333333333334,
+          "ci95": [
+            0.03309191251909646,
+            0.08486914177483133
+          ],
+          "n": 300
+        }
+      },
+      "covariate_abrupt": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02,
+          "ci95": [
+            0.009197631557703617,
+            0.042939620817860576
+          ],
+          "n": 300
+        }
+      },
+      "covariate_small": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 1.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02666666666666667,
+          "ci95": [
+            0.01357306980864708,
+            0.05172894295058982
+          ],
+          "n": 300
+        }
+      },
+      "covariate_gradual": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 3.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02,
+          "ci95": [
+            0.009197631557703617,
+            0.042939620817860576
+          ],
+          "n": 300
+        }
+      },
+      "variance_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.04,
+          "ci95": [
+            0.023027321487942308,
+            0.06860421203864003
+          ],
+          "n": 300
+        }
+      },
+      "category_shift": {
+        "detection": {
+          "rate": 0.23333333333333334,
+          "ci95": [
+            0.18902823823172718,
+            0.28438134642136403
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 10.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.02,
+          "ci95": [
+            0.009197631557703617,
+            0.042939620817860576
+          ],
+          "n": 300
+        }
+      },
+      "concept_drift": {
+        "detection": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 9.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03333333333333333,
+          "ci95": [
+            0.01820494733885481,
+            0.06026182580405482
+          ],
+          "n": 300
+        }
+      }
+    },
+    "auc_drop": {
+      "null": {
+        "false_alarm": {
+          "rate": 0.06666666666666667,
+          "ci95": [
+            0.043567515545158274,
+            0.10072305951611496
+          ],
+          "n": 300
+        }
+      },
+      "covariate_abrupt": {
+        "detection": {
+          "rate": 0.03666666666666667,
+          "ci95": [
+            0.02059530516285303,
+            0.06445384817189295
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 15.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        }
+      },
+      "covariate_small": {
+        "detection": {
+          "rate": 0.04,
+          "ci95": [
+            0.023027321487942308,
+            0.06860421203864003
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 13.5,
+        "pre_onset_false_alarm": {
+          "rate": 0.04,
+          "ci95": [
+            0.023027321487942308,
+            0.06860421203864003
+          ],
+          "n": 300
+        }
+      },
+      "covariate_gradual": {
+        "detection": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 13.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.056666666666666664,
+          "ci95": [
+            0.03567747646328951,
+            0.08886595802247463
+          ],
+          "n": 300
+        }
+      },
+      "variance_shift": {
+        "detection": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": null,
+        "pre_onset_false_alarm": {
+          "rate": 0.03,
+          "ci95": [
+            0.01586185380943231,
+            0.05602253914164096
+          ],
+          "n": 300
+        }
+      },
+      "category_shift": {
+        "detection": {
+          "rate": 0.02,
+          "ci95": [
+            0.009197631557703617,
+            0.042939620817860576
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 17.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.03333333333333333,
+          "ci95": [
+            0.01820494733885481,
+            0.06026182580405482
+          ],
+          "n": 300
+        }
+      },
+      "concept_drift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 4.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.04,
+          "ci95": [
+            0.023027321487942308,
+            0.06860421203864003
+          ],
+          "n": 300
+        }
+      }
+    },
+    "psi_fixed_0.1": {
+      "null": {
+        "false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "covariate_abrupt": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "covariate_small": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "covariate_gradual": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 3.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "variance_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "category_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "concept_drift": {
+        "detection": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": null,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      }
+    },
+    "psi_fixed_0.2": {
+      "null": {
+        "false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "covariate_abrupt": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "covariate_small": {
+        "detection": {
+          "rate": 0.11,
+          "ci95": [
+            0.07940528531126051,
+            0.15045623224388538
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 12.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "covariate_gradual": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 5.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "variance_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "category_shift": {
+        "detection": {
+          "rate": 1.0,
+          "ci95": [
+            0.9873570287754538,
+            0.9999999999999998
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": 0.0,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      },
+      "concept_drift": {
+        "detection": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        },
+        "median_delay_weeks": null,
+        "pre_onset_false_alarm": {
+          "rate": 0.0,
+          "ci95": [
+            8.673617379884035e-19,
+            0.012642971224546034
+          ],
+          "n": 300
+        }
+      }
+    }
+  },
+  "supplementary_null_check": {
+    "streams": 2000,
+    "status": "post hoc follow-up, run after the gate result was known; not part of the gate",
+    "false_alarm": {
+      "psi_max": {
+        "rate": 0.0625,
+        "ci95": [
+          0.05270713160648804,
+          0.07397028476460826
+        ],
+        "n": 2000
+      },
+      "ks_max": {
+        "rate": 0.077,
+        "ci95": [
+          0.06611031084545657,
+          0.08951151115448341
+        ],
+        "n": 2000
+      },
+      "score_psi": {
+        "rate": 0.045,
+        "ci95": [
+          0.03675381704471326,
+          0.05499069598122689
+        ],
+        "n": 2000
+      },
+      "auc_drop": {
+        "rate": 0.0575,
+        "ci95": [
+          0.04812031303342549,
+          0.06857627381048334
+        ],
+        "n": 2000
+      },
+      "psi_fixed_0.1": {
+        "rate": 0.0,
+        "ci95": [
+          1.0842021724855044e-19,
+          0.001917047281252934
+        ],
+        "n": 2000
+      },
+      "psi_fixed_0.2": {
+        "rate": 0.0,
+        "ci95": [
+          1.0842021724855044e-19,
+          0.001917047281252934
+        ],
+        "n": 2000
+      }
+    }
+  },
+  "gate": {
+    "rule": "Pass only if both hold for the headline label-free monitor on fresh test streams: (1) the stream-level false alarm rate on null streams has a 95% interval whose upper bound is at most 0.10, which is twice the 0.05 budget the threshold was calibrated to; (2) the detection rate for the abrupt covariate shift has a 95% interval whose lower bound is at least 0.80. Both limits are design choices made before results were seen.",
+    "checks": {
+      "false_alarm_within_limit": false,
+      "abrupt_shift_detected": true
+    },
+    "passed": false
+  },
+  "traps": {
+    "fixed_psi_rule_of_thumb": {
+      "by_threshold": {
+        "0.1": {
+          "false_alarm_batch_500": {
+            "rate": 0.0,
+            "ci95": [
+              8.673617379884035e-19,
+              0.012642971224546034
+            ],
+            "n": 300
+          },
+          "false_alarm_batch_100": {
+            "rate": 1.0,
+            "ci95": [
+              0.9873570287754538,
+              0.9999999999999998
+            ],
+            "n": 300
+          }
+        },
+        "0.2": {
+          "false_alarm_batch_500": {
+            "rate": 0.0,
+            "ci95": [
+              8.673617379884035e-19,
+              0.012642971224546034
+            ],
+            "n": 300
+          },
+          "false_alarm_batch_100": {
+            "rate": 1.0,
+            "ci95": [
+              0.9873570287754538,
+              0.9999999999999998
+            ],
+            "n": 300
+          }
+        }
+      },
+      "detection_of_small_shift_psi_0.2": {
+        "rate": 0.11,
+        "ci95": [
+          0.07940528531126051,
+          0.15045623224388538
+        ],
+        "n": 300
+      },
+      "detection_of_small_shift_calibrated_headline": {
+        "rate": 1.0,
+        "ci95": [
+          0.9873570287754538,
+          0.9999999999999998
+        ],
+        "n": 300
+      },
+      "note": "A fixed PSI cutoff ignores batch size and misses small shifts."
+    },
+    "threshold_moved_across_batch_size": {
+      "headline_false_alarm_batch_500": {
+        "rate": 0.07,
+        "ci95": [
+          0.046236944827176336,
+          0.10463601042593323
+        ],
+        "n": 300
+      },
+      "headline_false_alarm_batch_100": {
+        "rate": 1.0,
+        "ci95": [
+          0.9873570287754538,
+          0.9999999999999998
+        ],
+        "n": 300
+      },
+      "note": "A threshold calibrated at one batch size, used at another."
+    },
+    "label_free_blind_to_concept_drift": {
+      "headline_detection": {
+        "rate": 0.03333333333333333,
+        "ci95": [
+          0.01820494733885481,
+          0.06026182580405482
+        ],
+        "n": 300
+      },
+      "delayed_label_auc_detection": {
+        "rate": 1.0,
+        "ci95": [
+          0.9873570287754538,
+          0.9999999999999998
+        ],
+        "n": 300
+      },
+      "delayed_label_median_delay_weeks": 4.0,
+      "note": "The inputs did not move. Only the link between inputs and outcome did."
+    }
+  },
+  "caveats": [
+    "All data is simulated. Drift sizes and the model are assumptions, not measurements of a real system.",
+    "Streams are independent weekly batches of 500 rows with one drift event. Real drift is messier and several things move at once.",
+    "Monitors compare each week to a fixed reference. They do not adapt, retrain, or handle seasonality.",
+    "The KS monitor covers numeric features only, so it cannot see the categorical shift. Part of the gap between PSI and KS is that design choice, not the statistics.",
+    "Thresholds are calibrated for a 52 week horizon. A longer horizon needs a higher threshold for the same chance of any false alarm.",
+    "Thresholds are calibrated to a 5% chance of any false alarm in a 52 week null stream. Choose your own budget for your own cost of a false alarm.",
+    "The model is a logistic regression on five numeric features and one categorical feature. Monitor behaviour on high-dimensional or text inputs is not tested."
+  ]
+}
