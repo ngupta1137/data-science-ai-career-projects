@@ -1,0 +1,152 @@
+{
+  "calibration_by_decile": [
+    {
+      "model": "accepted_only",
+      "rows": [
+        {
+          "decile": 1,
+          "mean_predicted": 0.029105467034217136,
+          "true_rate": 0.029
+        },
+        {
+          "decile": 2,
+          "mean_predicted": 0.04489598547662861,
+          "true_rate": 0.05025
+        },
+        {
+          "decile": 3,
+          "mean_predicted": 0.05907199880936556,
+          "true_rate": 0.06525
+        },
+        {
+          "decile": 4,
+          "mean_predicted": 0.07366413480877548,
+          "true_rate": 0.09425
+        },
+        {
+          "decile": 5,
+          "mean_predicted": 0.08944276882929478,
+          "true_rate": 0.1145
+        },
+        {
+          "decile": 6,
+          "mean_predicted": 0.1096355886289407,
+          "true_rate": 0.14975
+        },
+        {
+          "decile": 7,
+          "mean_predicted": 0.1364937696313998,
+          "true_rate": 0.1925
+        },
+        {
+          "decile": 8,
+          "mean_predicted": 0.17538348895120617,
+          "true_rate": 0.248
+        },
+        {
+          "decile": 9,
+          "mean_predicted": 0.254336924023243,
+          "true_rate": 0.3625
+        },
+        {
+          "decile": 10,
+          "mean_predicted": 0.5216224728780942,
+          "true_rate": 0.60125
+        }
+      ]
+    },
+    {
+      "model": "recalibrated",
+      "rows": [
+        {
+          "decile": 1,
+          "mean_predicted": 0.021469694503339624,
+          "true_rate": 0.029
+        },
+        {
+          "decile": 2,
+          "mean_predicted": 0.03763329647116258,
+          "true_rate": 0.05025
+        },
+        {
+          "decile": 3,
+          "mean_predicted": 0.05404591561405151,
+          "true_rate": 0.06525
+        },
+        {
+          "decile": 4,
+          "mean_predicted": 0.07225398356713501,
+          "true_rate": 0.09425
+        },
+        {
+          "decile": 5,
+          "mean_predicted": 0.09316779961009297,
+          "true_rate": 0.1145
+        },
+        {
+          "decile": 6,
+          "mean_predicted": 0.12143067142077585,
+          "true_rate": 0.14975
+        },
+        {
+          "decile": 7,
+          "mean_predicted": 0.16092441140776464,
+          "true_rate": 0.1925
+        },
+        {
+          "decile": 8,
+          "mean_predicted": 0.22061546522990746,
+          "true_rate": 0.248
+        },
+        {
+          "decile": 9,
+          "mean_predicted": 0.34417228663287347,
+          "true_rate": 0.3625
+        },
+        {
+          "decile": 10,
+          "mean_predicted": 0.6826138202056512,
+          "true_rate": 0.60125
+        }
+      ]
+    }
+  ],
+  "random_sample_size": [
+    {
+      "random_share": 0.01,
+      "replications": 5,
+      "random_loans": 400,
+      "mean_profit_per_applicant": 0.05187900000000001,
+      "min_profit_per_applicant": 0.050647500000000005,
+      "mean_calibration_approved": 0.8019166093421243,
+      "worst_calibration_approved": 0.6454095609115484
+    },
+    {
+      "random_share": 0.02,
+      "replications": 5,
+      "random_loans": 800,
+      "mean_profit_per_applicant": 0.052327500000000006,
+      "min_profit_per_applicant": 0.051307500000000006,
+      "mean_calibration_approved": 0.8021891281472001,
+      "worst_calibration_approved": 0.6818432760232612
+    },
+    {
+      "random_share": 0.05,
+      "replications": 5,
+      "random_loans": 2000,
+      "mean_profit_per_applicant": 0.05261475,
+      "min_profit_per_applicant": 0.05188125,
+      "mean_calibration_approved": 0.8731712556242925,
+      "worst_calibration_approved": 0.8215587183429613
+    },
+    {
+      "random_share": 0.1,
+      "replications": 5,
+      "random_loans": 4000,
+      "mean_profit_per_applicant": 0.05300475,
+      "min_profit_per_applicant": 0.052575,
+      "mean_calibration_approved": 0.8878487943615145,
+      "worst_calibration_approved": 0.8409564494241256
+    }
+  ]
+}
