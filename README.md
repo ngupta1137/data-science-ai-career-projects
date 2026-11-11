@@ -2,13 +2,13 @@
 
 End-to-end projects for people building a career in data science and AI. Each project ships with code, a data access script, tests, committed metrics, and error analysis, so you can reproduce every number and see where the model fails.
 
-**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 04 have code and tests but no generated metrics. Projects 05 to 08 are built on generated or simulated data with committed results. The table below says which is which.
+**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 04 have code and tests but no generated metrics. Projects 05 to 12 are built on generated or simulated data with committed results. The table below says which is which.
 
 <!-- DOI badge goes here after the first Zenodo release -->
 
 ## What this is
 
-- Eight reference projects, each built to the standard in [docs/evidence-standard.md](docs/evidence-standard.md).
+- Twelve reference projects, each built to the standard in [docs/evidence-standard.md](docs/evidence-standard.md).
 - A baseline first, a leakage trap shown and fixed, error analysis by segment, and a decision memo for each.
 - Self-study material. Run it, break it, compare your numbers to the committed ones.
 
@@ -31,8 +31,12 @@ End-to-end projects for people building a career in data science and AI. Each pr
 | 06 | [Experiment analysis](06-experiment-analysis) | False positive rate, CUPED, power, peeking, multiple metrics | Built on simulated experiments with a known truth. Gate passed |
 | 07 | [Model monitoring and drift](07-model-monitoring) | PSI and KS monitors, calibrated thresholds, detection delay, concept drift | Built on simulated streams. Gate failed, reported as is |
 | 08 | [Fairness and model risk audit](08-fairness-audit) | Group metrics, unawareness trap, equal opportunity thresholds, utility cost | Built on simulated applicants. Gate failed, reported as is |
+| 09 | [LLM judge audit](09-llm-judge-eval) | Position and length bias, agreement with humans, triage, calibrated deciders | Built on simulated judges and annotators, no LLM was called. Gate failed, reported as is |
+| 10 | [Structured extraction](10-structured-extraction) | Field accuracy, silent errors, unseen templates, OCR noise ceiling | Built on generated invoices and rule-based extractors, no LLM was called. Gate failed, reported as is |
+| 11 | [Recommender evaluation](11-recommender-eval) | NDCG, popularity bias, temporal split, sampled metrics, exposure | Built on a simulated world with drift. Gate failed, reported as is |
+| 12 | [Uplift modelling](12-uplift-modelling) | Qini and AUUC, IPW profit, response-model trap, data needed | Built on simulated customers with a known effect. Gate passed, with caveats in the README |
 
-Projects 05 to 08 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 07 and 08 failed their own pre-set decision gates and say so in their decision memos.
+Projects 05 to 12 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 07 to 11 failed their own pre-set decision gates and say so in their decision memos.
 
 Roadmap, not part of the claim above: a recommender. It is only added if the projects above meet the bar.
 

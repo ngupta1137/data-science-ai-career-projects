@@ -12,3 +12,7 @@
 - Project 06 (experiment analysis): built on simulated experiments with a known truth. Gate passed. The first full run failed one check from simulation noise; the headline A/A cell was raised to 20,000 experiments and the process is disclosed in the project README.
 - Project 07 (model monitoring and drift): built on simulated streams. The pre-set gate failed on the false alarm limit and the result is reported as is, with a labelled post hoc follow-up.
 - Project 08 (fairness and model risk audit): built on simulated applicants. The pre-set gate failed on the true positive rate gap and the result is reported as is, with a labelled post hoc study of dev set size.
+- Project 09 (LLM judge audit): built on simulated judges and annotators with planted slot and length bias. No LLM was called. The pre-set gate failed and the result is reported as is. A real-judge run is designed, not built.
+- Project 10 (structured extraction): built on generated invoices and rule-based extractors. No LLM was called. The pre-set gate failed and the result is reported as is.
+- Project 11 (recommender evaluation): built on a simulated world with drift and popularity-biased exposure. The pre-set gate failed and the result is reported as is.
+- Project 12 (uplift modelling): built on simulated customers with a known effect. The gate passed in a well-powered setup; the README states the limits.

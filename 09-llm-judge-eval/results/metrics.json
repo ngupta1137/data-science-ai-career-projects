@@ -1,0 +1,471 @@
+{
+  "project": "09-llm-judge-eval",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "dev_pairs": 1500,
+    "test_pairs": 3000,
+    "annotators": 3,
+    "sha256": "8a1b39c7f565dd9d751770663e946e51afd8d9bca19bf343fd8d2765b096bd21"
+  },
+  "assumptions": {
+    "human_beta": 2.5,
+    "judge_beta": 1.5,
+    "position_bias": 0.4,
+    "length_bias": 0.5,
+    "length_quality_corr": 0.3,
+    "agreement_floor": 0.8,
+    "outrank_limit": 0.05
+  },
+  "candidates": {
+    "single_order": {
+      "agreement_consensus": {
+        "value": 0.7613333333333333,
+        "ci95": [
+          0.7457513844058978,
+          0.776246846126631
+        ]
+      },
+      "agreement_truth": {
+        "value": 0.7843333333333333,
+        "ci95": [
+          0.7692570103443932,
+          0.7986823909875547
+        ]
+      },
+      "kappa_vs_consensus": 0.5226972140449677,
+      "dev_agreement_consensus": 0.7806666666666666
+    },
+    "swap_calibrated": {
+      "agreement_consensus": {
+        "value": 0.7823333333333333,
+        "ci95": [
+          0.7672104557918142,
+          0.7967340611227927
+        ]
+      },
+      "agreement_truth": {
+        "value": 0.804,
+        "ci95": [
+          0.7894096437041895,
+          0.8178127877316095
+        ]
+      },
+      "kappa_vs_consensus": 0.5646465436624626,
+      "dev_agreement_consensus": 0.7806666666666666,
+      "split_verdict_rate": 0.27266666666666667
+    },
+    "swap_coin": {
+      "agreement_consensus": {
+        "value": 0.7786666666666666,
+        "ci95": [
+          0.7634597544193871,
+          0.7931608077300951
+        ]
+      },
+      "agreement_truth": {
+        "value": 0.8016666666666666,
+        "ci95": [
+          0.7870158848759942,
+          0.8155458480729071
+        ]
+      },
+      "kappa_vs_consensus": 0.5573081490858145,
+      "dev_agreement_consensus": 0.772,
+      "split_verdict_rate": 0.27266666666666667
+    },
+    "length_only": {
+      "agreement_consensus": {
+        "value": 0.5876666666666667,
+        "ci95": [
+          0.5699503573298605,
+          0.605158742963577
+        ]
+      },
+      "agreement_truth": {
+        "value": 0.5993333333333334,
+        "ci95": [
+          0.5816814269216927,
+          0.616731165806233
+        ]
+      },
+      "kappa_vs_consensus": 0.17521896369629916,
+      "dev_agreement_consensus": 0.598
+    },
+    "oracle": {
+      "agreement_consensus": {
+        "value": 0.8976666666666666,
+        "ci95": [
+          0.8863073060418878,
+          0.9080088789393708
+        ]
+      },
+      "agreement_truth": {
+        "value": 1.0,
+        "ci95": [
+          0.9987211043351955,
+          1.0
+        ]
+      },
+      "kappa_vs_consensus": 0.7953398824570946,
+      "dev_agreement_consensus": 0.9106666666666666
+    },
+    "coin_flip": {
+      "agreement_consensus": {
+        "value": 0.48966666666666664,
+        "ci95": [
+          0.4718028706166474,
+          0.507556893227092
+        ]
+      },
+      "agreement_truth": {
+        "value": 0.49,
+        "ci95": [
+          0.47213553552688137,
+          0.5078900423864148
+        ]
+      },
+      "kappa_vs_consensus": -0.02065577967168362,
+      "dev_agreement_consensus": 0.5106666666666667
+    }
+  },
+  "triage": {
+    "coverage": 0.7273333333333334,
+    "agreement_consensus_on_decided": {
+      "value": 0.8725939505041247,
+      "ci95": [
+        0.8579456988359155,
+        0.8859325400996048
+      ]
+    },
+    "agreement_truth_on_decided": {
+      "value": 0.9014665444546288,
+      "ci95": [
+        0.8882467214254336,
+        0.9132752186822118
+      ]
+    },
+    "agreement_consensus_on_split": {
+      "value": 0.48166259168704156,
+      "ci95": [
+        0.44758647876424434,
+        0.5159101366419362
+      ]
+    },
+    "note": "Pairs where the two orders disagree are sent to humans. Agreement is on the pairs the judge keeps."
+  },
+  "headline": {
+    "judge": "single_order",
+    "selected_by": "higher agreement with the human consensus on dev between single_order and swap_calibrated",
+    "metric": "agreement_with_human_consensus",
+    "value": 0.7613333333333333,
+    "ci95": [
+      0.7457513844058978,
+      0.776246846126631
+    ],
+    "ci_method": "Wilson interval over test pairs",
+    "minus_longer_answer_baseline": {
+      "value": 0.17366666666666664,
+      "ci95": [
+        0.153325,
+        0.19400833333333334
+      ]
+    },
+    "max_share_v_beats_better_system": 1.0
+  },
+  "gate": {
+    "rule": "Pass only if all three hold on the test set for the headline judge, which is picked on dev as the full-coverage judge candidate (single_order or swap_calibrated) with the higher agreement with the human consensus: (1) the lower 95% bound on agreement with the human consensus is at least 0.80, the level Zheng et al. 2023 report for strong judges; (2) the 95% interval on agreement minus the agreement of always picking the longer answer has a lower bound above zero; (3) in the system ranking, the verbose system V, whose true quality is below S4 and S5, beats S4 or S5 head to head in at most 5% of prompt-level bootstrap resamples. The 0.80 bar and the 5% limit are assumptions fixed before results.",
+    "checks": {
+      "agreement_lower_bound_at_least_floor": false,
+      "beats_longer_answer_baseline": true,
+      "verbose_system_not_over_ranked": false
+    },
+    "passed": false
+  },
+  "bias": {
+    "planted": {
+      "position": 0.4,
+      "quality_slope": 1.5,
+      "length_slope": 0.5
+    },
+    "recovered_with_true_quality": {
+      "position": {
+        "value": 0.4259423845644486,
+        "ci95": [
+          0.3576974386048036,
+          0.4908332668018604
+        ]
+      },
+      "quality_slope": {
+        "value": 1.4962812104464165,
+        "ci95": [
+          1.4149744430128135,
+          1.570525516677206
+        ]
+      },
+      "length_slope": {
+        "value": 0.50188480804994,
+        "ci95": [
+          0.44482732228934185,
+          0.5557257405136666
+        ]
+      }
+    },
+    "recovered_with_human_label_as_quality": {
+      "position": {
+        "value": 0.3511792042989973,
+        "ci95": [
+          0.29053071805598696,
+          0.42212073147584017
+        ]
+      },
+      "quality_slope": {
+        "value": 1.2013029998519709,
+        "ci95": [
+          1.1196610363821222,
+          1.2707087764914036
+        ]
+      },
+      "length_slope": {
+        "value": 0.5521607751319114,
+        "ci95": [
+          0.4943810775871063,
+          0.6046344729299328
+        ]
+      }
+    },
+    "p_first_slot_picked": 0.5556666666666668,
+    "note": "The slot bias is recovered either way. The human label is a noisy stand-in for quality, so the length slope is overstated when length tracks quality."
+  },
+  "traps": {
+    "human_label_is_not_truth": {
+      "oracle_agreement_with_consensus": {
+        "value": 0.8976666666666666,
+        "ci95": [
+          0.8863073060418878,
+          0.9080088789393708
+        ]
+      },
+      "consensus_agreement_with_truth": {
+        "value": 0.8976666666666666,
+        "ci95": [
+          0.8863073060418878,
+          0.9080088789393708
+        ]
+      },
+      "single_annotator_agreement_with_truth": 0.8578888888888888,
+      "note": "A perfect judge only agrees with the consensus this often. Agreement near 1.0 is impossible."
+    },
+    "fixed_slot_evaluation": {
+      "agreement_when_consensus_winner_always_first": {
+        "value": 0.8266666666666667,
+        "ci95": [
+          0.8127054058782915,
+          0.8397923822873695
+        ]
+      },
+      "agreement_when_slots_balanced": {
+        "value": 0.771,
+        "ci95": [
+          0.7601963316920398,
+          0.7814568658206994
+        ]
+      },
+      "note": "If the answer humans prefer always sits in the first slot, a judge that likes the first slot looks more accurate than it is."
+    },
+    "length_confounded_eval_set": {
+      "by_length_quality_correlation": {
+        "rho=+0.3": {
+          "swap_coin": {
+            "value": 0.7803333333333333,
+            "ci95": [
+              0.7651644090533455,
+              0.7947852234439207
+            ]
+          },
+          "length_only": {
+            "value": 0.6026666666666667,
+            "ci95": [
+              0.5850350516524623,
+              0.6200356817710313
+            ]
+          },
+          "oracle": {
+            "value": 0.906,
+            "ci95": [
+              0.8950315831337997,
+              0.9159299535863791
+            ]
+          }
+        },
+        "rho=+0.0": {
+          "swap_coin": {
+            "value": 0.76,
+            "ci95": [
+              0.7443906702443382,
+              0.7749443040099634
+            ]
+          },
+          "length_only": {
+            "value": 0.502,
+            "ci95": [
+              0.4841167596948285,
+              0.5198781247225123
+            ]
+          },
+          "oracle": {
+            "value": 0.9026666666666666,
+            "ci95": [
+              0.8915390453077907,
+              0.9127643507168199
+            ]
+          }
+        },
+        "rho=-0.3": {
+          "swap_coin": {
+            "value": 0.7376666666666667,
+            "ci95": [
+              0.7216281261198639,
+              0.7530973054741325
+            ]
+          },
+          "length_only": {
+            "value": 0.39466666666666667,
+            "ci95": [
+              0.37732131483687426,
+              0.41228143918317806
+            ]
+          },
+          "oracle": {
+            "value": 0.8996666666666666,
+            "ci95": [
+              0.8883990128420768,
+              0.9099120565565227
+            ]
+          }
+        }
+      },
+      "note": "A length-biased judge scores higher when longer answers tend to be better, and lower when they do not."
+    },
+    "eval_set_size": {
+      "headline_agreement": 0.7613333333333333,
+      "wilson_lower_bound_by_n": {
+        "50": 0.6273081260130943,
+        "100": 0.6691086664653344,
+        "300": 0.7099845122453751,
+        "1000": 0.7339444824665919,
+        "3000": 0.7457513844058978
+      },
+      "n_needed_for_lower_bound_to_reach_floor": null,
+      "note": "Even a good judge cannot be certified on a small human-labelled set."
+    },
+    "verbose_system_over_ranked": {
+      "single_order": {
+        "order": [
+          "V",
+          "S5",
+          "S4",
+          "S3",
+          "S2",
+          "S1"
+        ],
+        "v_win_rate_vs": {
+          "S4": 0.5725,
+          "S5": 0.5085
+        },
+        "share_of_resamples_v_beats": {
+          "S4": 1.0,
+          "S5": 0.773
+        }
+      },
+      "swap_coin": {
+        "order": [
+          "V",
+          "S5",
+          "S4",
+          "S3",
+          "S2",
+          "S1"
+        ],
+        "v_win_rate_vs": {
+          "S4": 0.5655,
+          "S5": 0.5005
+        },
+        "share_of_resamples_v_beats": {
+          "S4": 1.0,
+          "S5": 0.504
+        }
+      },
+      "swap_calibrated": {
+        "order": [
+          "S5",
+          "S4",
+          "V",
+          "S3",
+          "S2",
+          "S1"
+        ],
+        "v_win_rate_vs": {
+          "S4": 0.47650000000000003,
+          "S5": 0.38949999999999996
+        },
+        "share_of_resamples_v_beats": {
+          "S4": 0.012,
+          "S5": 0.0
+        }
+      },
+      "length_only": {
+        "order": [
+          "V",
+          "S5",
+          "S4",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "v_win_rate_vs": {
+          "S4": 0.8415,
+          "S5": 0.855
+        },
+        "share_of_resamples_v_beats": {
+          "S4": 1.0,
+          "S5": 1.0
+        }
+      },
+      "oracle": {
+        "order": [
+          "S5",
+          "S4",
+          "V",
+          "S3",
+          "S2",
+          "S1"
+        ],
+        "v_win_rate_vs": {
+          "S4": 0.4625,
+          "S5": 0.37649999999999995
+        },
+        "share_of_resamples_v_beats": {
+          "S4": 0.001,
+          "S5": 0.0
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Everything is simulated. The judge, the humans and the biases are chosen by the author, so the sizes of the effects describe this setup, not GPT-4, Claude, or any real judge.",
+    "No real model was called. The design is built; a run against a real judge and real human labels is designed, not done. The audit module accepts that data.",
+    "Humans are modelled as unbiased noisy raters of true quality. Real annotators have their own length and style preferences, which this project does not model.",
+    "Self-preference (a judge favouring its own family's answers) is not simulated. It needs real model outputs.",
+    "Judge calls are independent draws given the pair. A real judge's repeated calls at temperature zero are not independent, so swap averaging helps less than it does here when the bias is deterministic.",
+    "The 0.80 bar and the 5% outranking limit are assumptions. Change them and the verdict can change.",
+    "Only pairwise preference is studied. Pointwise scores, rubric grading and multi-turn judging are not."
+  ]
+}

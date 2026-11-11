@@ -1,0 +1,256 @@
+{
+  "post_hoc_new_template_labels": {
+    "status": "added after the learning curve showed more labelled documents from seen templates did not help unseen ones; not part of the gate",
+    "rows": [
+      {
+        "template": "E",
+        "labelled_documents_from_new_template": 0,
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.006361933328210577
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "E",
+        "labelled_documents_from_new_template": 10,
+        "doc_level": {
+          "value": 1.0,
+          "ci95": [
+            0.9936380666717896,
+            1.0
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "E",
+        "labelled_documents_from_new_template": 30,
+        "doc_level": {
+          "value": 1.0,
+          "ci95": [
+            0.9936380666717896,
+            1.0
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "E",
+        "labelled_documents_from_new_template": 100,
+        "doc_level": {
+          "value": 1.0,
+          "ci95": [
+            0.9936380666717896,
+            1.0
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "G",
+        "labelled_documents_from_new_template": 0,
+        "doc_level": {
+          "value": 0.6266666666666667,
+          "ci95": [
+            0.5872724941106875,
+            0.664449149446166
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "G",
+        "labelled_documents_from_new_template": 10,
+        "doc_level": {
+          "value": 0.9633333333333334,
+          "ci95": [
+            0.9451079894023278,
+            0.9756632857135306
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "G",
+        "labelled_documents_from_new_template": 30,
+        "doc_level": {
+          "value": 1.0,
+          "ci95": [
+            0.9936380666717896,
+            1.0
+          ],
+          "n": 600
+        }
+      },
+      {
+        "template": "G",
+        "labelled_documents_from_new_template": 100,
+        "doc_level": {
+          "value": 1.0,
+          "ci95": [
+            0.9936380666717896,
+            1.0
+          ],
+          "n": 600
+        }
+      }
+    ]
+  },
+  "headline_extractor": "span_ranker",
+  "selection_reason": "higher share of documents with all five fields correct on dev",
+  "dev_doc_level": {
+    "first_match": 0.0,
+    "template_regex": 0.5116666666666667,
+    "span_ranker": 1.0
+  },
+  "error_taxonomy": {
+    "first_match": {
+      "seen": {
+        "vendor": {
+          "other_value_in_text": 398
+        },
+        "invoice_number": {},
+        "date": {
+          "distractor:due_date": 144
+        },
+        "total": {
+          "distractor:item": 1200
+        },
+        "currency": {}
+      },
+      "unseen_E": {
+        "vendor": {
+          "other_value_in_text": 600
+        },
+        "invoice_number": {},
+        "date": {
+          "distractor:due_date": 102
+        },
+        "total": {
+          "distractor:item": 600
+        },
+        "currency": {}
+      },
+      "unseen_G": {
+        "vendor": {},
+        "invoice_number": {},
+        "date": {
+          "distractor:due_date": 115
+        },
+        "total": {
+          "other_value_in_text": 600
+        },
+        "currency": {}
+      }
+    },
+    "template_regex": {
+      "seen": {
+        "vendor": {
+          "missing": 107
+        },
+        "invoice_number": {
+          "missing": 217
+        },
+        "date": {
+          "missing": 214
+        },
+        "total": {
+          "missing": 278
+        },
+        "currency": {
+          "missing": 278
+        }
+      },
+      "unseen_E": {
+        "vendor": {
+          "missing": 600
+        },
+        "invoice_number": {
+          "missing": 600
+        },
+        "date": {
+          "missing": 600
+        },
+        "total": {
+          "missing": 600
+        },
+        "currency": {
+          "missing": 600
+        }
+      },
+      "unseen_G": {
+        "vendor": {
+          "missing": 600
+        },
+        "invoice_number": {
+          "missing": 600
+        },
+        "date": {
+          "missing": 600
+        },
+        "total": {
+          "missing": 600
+        },
+        "currency": {
+          "missing": 600
+        }
+      }
+    },
+    "span_ranker": {
+      "seen": {
+        "vendor": {},
+        "invoice_number": {},
+        "date": {},
+        "total": {},
+        "currency": {}
+      },
+      "unseen_E": {
+        "vendor": {
+          "other_value_in_text": 600
+        },
+        "invoice_number": {},
+        "date": {},
+        "total": {},
+        "currency": {}
+      },
+      "unseen_G": {
+        "vendor": {},
+        "invoice_number": {},
+        "date": {
+          "distractor:due_date": 115
+        },
+        "total": {
+          "missing": 144
+        },
+        "currency": {}
+      }
+    }
+  },
+  "field_accuracy_headline": {
+    "seen": {
+      "vendor": 1.0,
+      "invoice_number": 1.0,
+      "date": 1.0,
+      "total": 1.0,
+      "currency": 1.0
+    },
+    "unseen_E": {
+      "vendor": 0.0,
+      "invoice_number": 1.0,
+      "date": 1.0,
+      "total": 1.0,
+      "currency": 1.0
+    },
+    "unseen_G": {
+      "vendor": 1.0,
+      "invoice_number": 1.0,
+      "date": 0.8083333333333333,
+      "total": 0.76,
+      "currency": 1.0
+    }
+  }
+}

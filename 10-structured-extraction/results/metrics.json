@@ -1,0 +1,1403 @@
+{
+  "project": "10-structured-extraction",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "train": 2000,
+    "dev": 600,
+    "test_seen": 1200,
+    "test_unseen_per_template": 600,
+    "seen_templates": [
+      "A",
+      "B",
+      "C"
+    ],
+    "unseen_templates": [
+      "E",
+      "G"
+    ],
+    "sha256": "01fdf1711d1c04919a1d6faae178e87e53e64af5b273807deffca7795dd3db19"
+  },
+  "assumptions": {
+    "abstain_below": 0.5,
+    "doc_floor_seen": 0.9,
+    "doc_floor_unseen": 0.7
+  },
+  "extractors": {
+    "first_match": {
+      "dev_doc_level": 0.0,
+      "seen": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.00319111750250199
+          ],
+          "n": 1200
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.6683333333333333,
+              "ci95": [
+                0.6411945816958823,
+                0.6943977420782753
+              ],
+              "n": 1200
+            },
+            "precision": 0.6683333333333333,
+            "recall": 0.6683333333333333,
+            "f1": 0.6683333333333333,
+            "extracted": 1200
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.88,
+              "ci95": [
+                0.8603902976787152,
+                0.8971844530193833
+              ],
+              "n": 1200
+            },
+            "precision": 0.88,
+            "recall": 0.88,
+            "f1": 0.88,
+            "extracted": 1200
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 1200
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          }
+        },
+        "micro": {
+          "precision": 0.7096666666666667,
+          "recall": 0.7096666666666667,
+          "f1": 0.7096666666666667,
+          "extracted": 6000
+        },
+        "abstain_rate": 0.0,
+        "silent": {
+          "wrong_values": 1742,
+          "schema_valid_but_wrong": 1742
+        }
+      },
+      "unseen_E": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.006361933328210577
+          ],
+          "n": 600
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 600
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.83,
+              "ci95": [
+                0.7978659747310244,
+                0.8579351492723566
+              ],
+              "n": 600
+            },
+            "precision": 0.83,
+            "recall": 0.83,
+            "f1": 0.83,
+            "extracted": 600
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 600
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          }
+        },
+        "micro": {
+          "precision": 0.566,
+          "recall": 0.566,
+          "f1": 0.566,
+          "extracted": 3000
+        },
+        "abstain_rate": 0.0,
+        "silent": {
+          "wrong_values": 1302,
+          "schema_valid_but_wrong": 1302
+        }
+      },
+      "unseen_G": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.006361933328210577
+          ],
+          "n": 600
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.8083333333333333,
+              "ci95": [
+                0.7749153273166938,
+                0.8378281471309097
+              ],
+              "n": 600
+            },
+            "precision": 0.8083333333333333,
+            "recall": 0.8083333333333333,
+            "f1": 0.8083333333333333,
+            "extracted": 600
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 600
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          }
+        },
+        "micro": {
+          "precision": 0.7616666666666667,
+          "recall": 0.7616666666666667,
+          "f1": 0.7616666666666667,
+          "extracted": 3000
+        },
+        "abstain_rate": 0.0,
+        "silent": {
+          "wrong_values": 715,
+          "schema_valid_but_wrong": 715
+        }
+      },
+      "unseen_pooled": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.00319111750250199
+          ],
+          "n": 1200
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.5,
+              "ci95": [
+                0.47175501149539095,
+                0.5282449885046091
+              ],
+              "n": 1200
+            },
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "extracted": 1200
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.8191666666666667,
+              "ci95": [
+                0.7963824614613646,
+                0.8399138751995383
+              ],
+              "n": 1200
+            },
+            "precision": 0.8191666666666667,
+            "recall": 0.8191666666666667,
+            "f1": 0.8191666666666667,
+            "extracted": 1200
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 1200
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          }
+        },
+        "micro": {
+          "precision": 0.6638333333333334,
+          "recall": 0.6638333333333334,
+          "f1": 0.6638333333333334,
+          "extracted": 6000
+        },
+        "abstain_rate": 0.0,
+        "silent": {
+          "wrong_values": 2017,
+          "schema_valid_but_wrong": 2017
+        }
+      },
+      "seen_by_template": {
+        "A": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.009704892057833234
+          ],
+          "n": 392
+        },
+        "B": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.009282778725000097
+          ],
+          "n": 410
+        },
+        "C": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.0095599858252605
+          ],
+          "n": 398
+        }
+      }
+    },
+    "template_regex": {
+      "dev_doc_level": 0.5116666666666667,
+      "seen": {
+        "doc_level": {
+          "value": 0.525,
+          "ci95": [
+            0.4967104490802642,
+            0.5531299950446108
+          ],
+          "n": 1200
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.9108333333333334,
+              "ci95": [
+                0.8933702733850194,
+                0.9256743584004249
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 0.9108333333333334,
+            "f1": 0.9533362407326647,
+            "extracted": 1093
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 0.8191666666666667,
+              "ci95": [
+                0.7963824614613646,
+                0.8399138751995383
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 0.8191666666666667,
+            "f1": 0.9005955107650022,
+            "extracted": 983
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.8216666666666667,
+              "ci95": [
+                0.7989918678827325,
+                0.8422885131906578
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 0.8216666666666667,
+            "f1": 0.9021043000914912,
+            "extracted": 986
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.7683333333333333,
+              "ci95": [
+                0.7436287111560381,
+                0.791325389117619
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 0.7683333333333333,
+            "f1": 0.8689915174363808,
+            "extracted": 922
+          },
+          "currency": {
+            "accuracy": {
+              "value": 0.7683333333333333,
+              "ci95": [
+                0.7436287111560381,
+                0.791325389117619
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 0.7683333333333333,
+            "f1": 0.8689915174363808,
+            "extracted": 922
+          }
+        },
+        "micro": {
+          "precision": 1.0,
+          "recall": 0.8176666666666667,
+          "f1": 0.8996882450027507,
+          "extracted": 4906
+        },
+        "abstain_rate": 0.18233333333333324,
+        "silent": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        }
+      },
+      "unseen_E": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.006361933328210577
+          ],
+          "n": 600
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "currency": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          }
+        },
+        "micro": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "extracted": 0
+        },
+        "abstain_rate": 1.0,
+        "silent": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        }
+      },
+      "unseen_G": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.006361933328210577
+          ],
+          "n": 600
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "currency": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          }
+        },
+        "micro": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "extracted": 0
+        },
+        "abstain_rate": 1.0,
+        "silent": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        }
+      },
+      "unseen_pooled": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.00319111750250199
+          ],
+          "n": 1200
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          },
+          "currency": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.00319111750250199
+              ],
+              "n": 1200
+            },
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 0
+          }
+        },
+        "micro": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": null,
+          "extracted": 0
+        },
+        "abstain_rate": 1.0,
+        "silent": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        }
+      },
+      "seen_by_template": {
+        "A": {
+          "value": 0.6530612244897959,
+          "ci95": [
+            0.6046602632693254,
+            0.6984913003864397
+          ],
+          "n": 392
+        },
+        "B": {
+          "value": 0.5292682926829269,
+          "ci95": [
+            0.48090485009025263,
+            0.5770883531063329
+          ],
+          "n": 410
+        },
+        "C": {
+          "value": 0.3944723618090452,
+          "ci95": [
+            0.3476842022239836,
+            0.4432782068446643
+          ],
+          "n": 398
+        }
+      }
+    },
+    "span_ranker": {
+      "dev_doc_level": 1.0,
+      "seen": {
+        "doc_level": {
+          "value": 1.0,
+          "ci95": [
+            0.9968088824974979,
+            0.9999999999999998
+          ],
+          "n": 1200
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "date": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "total": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          }
+        },
+        "micro": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "extracted": 6000
+        },
+        "abstain_rate": 0.0,
+        "silent": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        }
+      },
+      "unseen_E": {
+        "doc_level": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.006361933328210577
+          ],
+          "n": 600
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.006361933328210577
+              ],
+              "n": 600
+            },
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "extracted": 600
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "date": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "total": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          }
+        },
+        "micro": {
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8000000000000002,
+          "extracted": 3000
+        },
+        "abstain_rate": 0.0,
+        "silent": {
+          "wrong_values": 600,
+          "schema_valid_but_wrong": 600
+        }
+      },
+      "unseen_G": {
+        "doc_level": {
+          "value": 0.6266666666666667,
+          "ci95": [
+            0.5872724941106875,
+            0.664449149446166
+          ],
+          "n": 600
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.8083333333333333,
+              "ci95": [
+                0.7749153273166938,
+                0.8378281471309097
+              ],
+              "n": 600
+            },
+            "precision": 0.8083333333333333,
+            "recall": 0.8083333333333333,
+            "f1": 0.8083333333333333,
+            "extracted": 600
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.76,
+              "ci95": [
+                0.7242408728559602,
+                0.7924509218133704
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 0.76,
+            "f1": 0.8636363636363636,
+            "extracted": 456
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9936380666717896,
+                1.0
+              ],
+              "n": 600
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 600
+          }
+        },
+        "micro": {
+          "precision": 0.959733893557423,
+          "recall": 0.9136666666666666,
+          "f1": 0.9361338797814208,
+          "extracted": 2856
+        },
+        "abstain_rate": 0.04800000000000004,
+        "silent": {
+          "wrong_values": 115,
+          "schema_valid_but_wrong": 115
+        }
+      },
+      "unseen_pooled": {
+        "doc_level": {
+          "value": 0.31333333333333335,
+          "ci95": [
+            0.287719439963846,
+            0.340138577237088
+          ],
+          "n": 1200
+        },
+        "fields": {
+          "vendor": {
+            "accuracy": {
+              "value": 0.5,
+              "ci95": [
+                0.47175501149539095,
+                0.5282449885046091
+              ],
+              "n": 1200
+            },
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "extracted": 1200
+          },
+          "invoice_number": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          },
+          "date": {
+            "accuracy": {
+              "value": 0.9041666666666667,
+              "ci95": [
+                0.8861984475916519,
+                0.9195553990938256
+              ],
+              "n": 1200
+            },
+            "precision": 0.9041666666666667,
+            "recall": 0.9041666666666667,
+            "f1": 0.9041666666666667,
+            "extracted": 1200
+          },
+          "total": {
+            "accuracy": {
+              "value": 0.88,
+              "ci95": [
+                0.8603902976787152,
+                0.8971844530193833
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 0.88,
+            "f1": 0.9361702127659575,
+            "extracted": 1056
+          },
+          "currency": {
+            "accuracy": {
+              "value": 1.0,
+              "ci95": [
+                0.9968088824974979,
+                0.9999999999999998
+              ],
+              "n": 1200
+            },
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "extracted": 1200
+          }
+        },
+        "micro": {
+          "precision": 0.8779030054644809,
+          "recall": 0.8568333333333333,
+          "f1": 0.8672402159244265,
+          "extracted": 5856
+        },
+        "abstain_rate": 0.02400000000000002,
+        "silent": {
+          "wrong_values": 715,
+          "schema_valid_but_wrong": 715
+        }
+      },
+      "seen_by_template": {
+        "A": {
+          "value": 1.0,
+          "ci95": [
+            0.9902951079421666,
+            0.9999999999999999
+          ],
+          "n": 392
+        },
+        "B": {
+          "value": 1.0,
+          "ci95": [
+            0.990717221275,
+            1.0
+          ],
+          "n": 410
+        },
+        "C": {
+          "value": 1.0,
+          "ci95": [
+            0.9904400141747397,
+            1.0
+          ],
+          "n": 398
+        }
+      }
+    }
+  },
+  "headline": {
+    "extractor": "span_ranker",
+    "selected_by": "higher share of documents with all five fields correct on dev",
+    "metric": "documents_with_all_fields_correct",
+    "value": 1.0,
+    "ci95": [
+      0.9968088824974979,
+      0.9999999999999998
+    ],
+    "ci_method": "Wilson interval over test documents",
+    "unseen_value": 0.31333333333333335,
+    "unseen_ci95": [
+      0.287719439963846,
+      0.340138577237088
+    ],
+    "minus_first_match_seen": {
+      "value": 1.0,
+      "ci95": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "gate": {
+    "rule": "Pass only if all three hold on the test sets for the headline extractor, which is picked on dev as the one with the higher share of documents with all five fields correct: (1) on documents from templates seen in training, the lower 95% bound on that share is at least 0.90; (2) on documents from the two unseen templates, pooled, the lower 95% bound is at least 0.70; (3) on seen templates, the 95% paired interval on that share minus the share of the first-match baseline has a lower bound above zero. The 0.90 and 0.70 bars are assumptions fixed before results.",
+    "checks": {
+      "seen_doc_level_lower_bound_at_least_floor": true,
+      "unseen_doc_level_lower_bound_at_least_floor": false,
+      "beats_first_match_on_seen": true
+    },
+    "passed": false
+  },
+  "traps": {
+    "field_scores_hide_document_errors": {
+      "headline": "span_ranker",
+      "micro_f1_seen": 1.0,
+      "doc_level_seen": 1.0,
+      "product_of_field_accuracies_seen": 1.0,
+      "micro_f1_unseen": 0.8672402159244265,
+      "doc_level_unseen": 0.31333333333333335,
+      "note": "Five fields at 0.9 each give about 0.59 of documents fully right if errors are independent. Report both numbers."
+    },
+    "unseen_template_drop": {
+      "first_match": {
+        "seen": 0.0,
+        "unseen_E": 0.0,
+        "unseen_G": 0.0
+      },
+      "template_regex": {
+        "seen": 0.525,
+        "unseen_E": 0.0,
+        "unseen_G": 0.0
+      },
+      "span_ranker": {
+        "seen": 1.0,
+        "unseen_E": 0.0,
+        "unseen_G": 0.6266666666666667
+      }
+    },
+    "random_split_vs_held_out_template": {
+      "random_split_doc_level_seen": 1.0,
+      "leave_one_template_out": {
+        "A": 0.8475,
+        "B": 0.8125,
+        "C": 0.0
+      },
+      "mean_leave_one_template_out": 0.5533333333333333,
+      "note": "Training on two templates and testing on the third is the honest estimate for a new customer's format. A random split of documents from the same templates is not."
+    },
+    "ocr_noise": {
+      "0": {
+        "ceiling_all_values_still_readable": 1.0,
+        "first_match": 0.0,
+        "template_regex": 0.525,
+        "span_ranker": 1.0
+      },
+      "0.005": {
+        "ceiling_all_values_still_readable": 0.9658333333333333,
+        "first_match": 0.0,
+        "template_regex": 0.5008333333333334,
+        "span_ranker": 0.9608333333333333
+      },
+      "0.01": {
+        "ceiling_all_values_still_readable": 0.9258333333333333,
+        "first_match": 0.0,
+        "template_regex": 0.47833333333333333,
+        "span_ranker": 0.92
+      },
+      "0.02": {
+        "ceiling_all_values_still_readable": 0.8533333333333334,
+        "first_match": 0.0,
+        "template_regex": 0.43333333333333335,
+        "span_ranker": 0.8433333333333334
+      }
+    },
+    "silent_errors": {
+      "first_match": {
+        "seen": {
+          "wrong_values": 1742,
+          "schema_valid_but_wrong": 1742
+        },
+        "unseen": {
+          "wrong_values": 2017,
+          "schema_valid_but_wrong": 2017
+        },
+        "abstain_rate_seen": 0.0,
+        "abstain_rate_unseen": 0.0
+      },
+      "template_regex": {
+        "seen": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        },
+        "unseen": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        },
+        "abstain_rate_seen": 0.18233333333333324,
+        "abstain_rate_unseen": 1.0
+      },
+      "span_ranker": {
+        "seen": {
+          "wrong_values": 0,
+          "schema_valid_but_wrong": 0
+        },
+        "unseen": {
+          "wrong_values": 715,
+          "schema_valid_but_wrong": 715
+        },
+        "abstain_rate_seen": 0.0,
+        "abstain_rate_unseen": 0.02400000000000002
+      }
+    },
+    "labelled_documents_needed": [
+      {
+        "train_docs": 50,
+        "seen_doc_level": 0.9916666666666667,
+        "unseen_doc_level": 0.31333333333333335
+      },
+      {
+        "train_docs": 200,
+        "seen_doc_level": 0.9983333333333333,
+        "unseen_doc_level": 0.31333333333333335
+      },
+      {
+        "train_docs": 800,
+        "seen_doc_level": 1.0,
+        "unseen_doc_level": 0.31333333333333335
+      },
+      {
+        "train_docs": 2000,
+        "seen_doc_level": 1.0,
+        "unseen_doc_level": 0.31333333333333335
+      }
+    ]
+  },
+  "caveats": [
+    "All documents are generated. They are far cleaner and more regular than real invoices, so the near-perfect results on seen templates say the task is easy to learn in this setting, not that extraction is solved.",
+    "The unseen templates were written by the same author as the seen ones, and the rules were written knowing the seen templates only. The author was not blind to the unseen ones. A real shift is usually less tidy.",
+    "No LLM was used. An LLM extractor with a schema is designed, not built; the scoring code here applies to its output unchanged.",
+    "OCR noise is a crude character swap, not a real recogniser. Layout errors, skewed scans and tables spanning pages are not modelled.",
+    "Dates are assumed day first for slashes. A month-first source would be silently misread.",
+    "One currency per document, two-decimal amounts, five fields, no line items extracted.",
+    "The 0.90 and 0.70 bars are assumptions. Change them and the verdict can change."
+  ]
+}

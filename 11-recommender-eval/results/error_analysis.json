@@ -1,0 +1,57 @@
+{
+  "headline_model": "item_knn",
+  "selection_reason": "highest NDCG@10 against held-out clicks on the validation window among item_knn, svd, svd_ips",
+  "validation_ndcg10": {
+    "item_knn": 0.11545026891561531,
+    "svd": 0.10904901255878673,
+    "svd_ips": 0.0813371637997062
+  },
+  "by_user_activity": [
+    {
+      "segment": "1 to 4 clicks",
+      "users": 23,
+      "headline_ndcg10": 0.08986802830830984,
+      "popularity_ndcg10": 0.1545671369207234,
+      "headline_true_like10": 0.2508733534077601,
+      "popularity_true_like10": 0.2095193276494496
+    },
+    {
+      "segment": "5 to 14",
+      "users": 285,
+      "headline_ndcg10": 0.11946748006340134,
+      "popularity_ndcg10": 0.10507204422829798,
+      "headline_true_like10": 0.2509755721456776,
+      "popularity_true_like10": 0.21480333629397222
+    },
+    {
+      "segment": "15 or more",
+      "users": 1066,
+      "headline_ndcg10": 0.11752531339737618,
+      "popularity_ndcg10": 0.1065612870062844,
+      "headline_true_like10": 0.19883304235162375,
+      "popularity_true_like10": 0.1735874461704693
+    }
+  ],
+  "by_item_popularity": [
+    {
+      "item_group": "least clicked third",
+      "held_out_clicks": 753,
+      "item_knn_recall10": 0.0,
+      "popularity_recall10": 0.0
+    },
+    {
+      "item_group": "middle third",
+      "held_out_clicks": 947,
+      "item_knn_recall10": 0.0,
+      "popularity_recall10": 0.0
+    },
+    {
+      "item_group": "most clicked third",
+      "held_out_clicks": 4075,
+      "item_knn_recall10": 0.20687116564417177,
+      "popularity_recall10": 0.18773006134969325
+    }
+  ],
+  "eligible_users": 1374,
+  "holdout_clicks": 5775
+}

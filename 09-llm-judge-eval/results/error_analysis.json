@@ -1,0 +1,316 @@
+{
+  "headline_judge": "single_order",
+  "selection_reason": "higher agreement with the human consensus on dev between single_order and swap_calibrated",
+  "dev_agreement": {
+    "single_order": 0.7806666666666666,
+    "swap_calibrated": 0.7806666666666666
+  },
+  "by_quality_gap": [
+    {
+      "band": "close, |dq| < 0.3",
+      "pairs": 481,
+      "headline_agreement_truth": 0.5550935550935551,
+      "headline_agreement_consensus": 0.5051975051975052,
+      "consensus_agreement_truth": 0.5841995841995842,
+      "split_verdict_rate": 0.46361746361746364
+    },
+    {
+      "band": "mid, 0.3 to 1.0",
+      "pairs": 1051,
+      "headline_agreement_truth": 0.7107516650808754,
+      "headline_agreement_consensus": 0.6707897240723121,
+      "consensus_agreement_truth": 0.90104662226451,
+      "split_verdict_rate": 0.37392959086584204
+    },
+    {
+      "band": "clear, >= 1.0",
+      "pairs": 1468,
+      "headline_agreement_truth": 0.912125340599455,
+      "headline_agreement_consensus": 0.9100817438692098,
+      "consensus_agreement_truth": 0.9979564032697548,
+      "split_verdict_rate": 0.13760217983651227
+    }
+  ],
+  "disagreements_with_consensus": {
+    "count": 716,
+    "share_where_judge_matches_truth": 0.26256983240223464,
+    "note": "Where the judge and the consensus differ, the share above is how often the judge still matched the true order, so the consensus was the one that erred."
+  },
+  "raw_judge_follows_longer_answer": {
+    "single_order_call_picks_longer": 0.6403333333333333,
+    "note": "Share of calls where the judge picked the longer of the two answers. 0.50 would mean no pull."
+  },
+  "calibrator": {
+    "swap_score_weight": 1.9908423157942787,
+    "length_weight": -0.04521462062384204
+  },
+  "systems": {
+    "order_by_truth": [
+      "S5",
+      "S4",
+      "V",
+      "S3",
+      "S2",
+      "S1"
+    ],
+    "single_order": {
+      "borda_score": {
+        "S1": 0.3397,
+        "S2": 0.4104,
+        "S3": 0.48069999999999996,
+        "S4": 0.5419,
+        "S5": 0.6066,
+        "V": 0.6206999999999999
+      },
+      "order": [
+        "V",
+        "S5",
+        "S4",
+        "S3",
+        "S2",
+        "S1"
+      ],
+      "kendall_tau_vs_truth": 0.7333333333333333,
+      "v_win_rate_vs": {
+        "S4": 0.5725,
+        "S5": 0.5085
+      },
+      "share_of_resamples_v_beats": {
+        "S4": 1.0,
+        "S5": 0.773
+      },
+      "max_share_v_beats_better_system": 1.0
+    },
+    "swap_coin": {
+      "borda_score": {
+        "S1": 0.346,
+        "S2": 0.4022,
+        "S3": 0.4763,
+        "S4": 0.5447,
+        "S5": 0.6134999999999999,
+        "V": 0.6173
+      },
+      "order": [
+        "V",
+        "S5",
+        "S4",
+        "S3",
+        "S2",
+        "S1"
+      ],
+      "kendall_tau_vs_truth": 0.7333333333333333,
+      "v_win_rate_vs": {
+        "S4": 0.5655,
+        "S5": 0.5005
+      },
+      "share_of_resamples_v_beats": {
+        "S4": 1.0,
+        "S5": 0.504
+      },
+      "max_share_v_beats_better_system": 1.0
+    },
+    "swap_calibrated": {
+      "borda_score": {
+        "S1": 0.3370000000000001,
+        "S2": 0.41859999999999997,
+        "S3": 0.4968,
+        "S4": 0.5673999999999999,
+        "S5": 0.6515000000000001,
+        "V": 0.5287
+      },
+      "order": [
+        "S5",
+        "S4",
+        "V",
+        "S3",
+        "S2",
+        "S1"
+      ],
+      "kendall_tau_vs_truth": 0.9999999999999999,
+      "v_win_rate_vs": {
+        "S4": 0.47650000000000003,
+        "S5": 0.38949999999999996
+      },
+      "share_of_resamples_v_beats": {
+        "S4": 0.012,
+        "S5": 0.0
+      },
+      "max_share_v_beats_better_system": 0.012
+    },
+    "length_only": {
+      "borda_score": {
+        "S1": 0.42669999999999997,
+        "S2": 0.42460000000000003,
+        "S3": 0.42119999999999996,
+        "S4": 0.43500000000000005,
+        "S5": 0.4396,
+        "V": 0.8529
+      },
+      "order": [
+        "V",
+        "S5",
+        "S4",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "kendall_tau_vs_truth": 0.3333333333333333,
+      "v_win_rate_vs": {
+        "S4": 0.8415,
+        "S5": 0.855
+      },
+      "share_of_resamples_v_beats": {
+        "S4": 1.0,
+        "S5": 1.0
+      },
+      "max_share_v_beats_better_system": 1.0
+    },
+    "oracle": {
+      "borda_score": {
+        "S1": 0.29810000000000003,
+        "S2": 0.39510000000000006,
+        "S3": 0.5027,
+        "S4": 0.5894,
+        "S5": 0.6809999999999999,
+        "V": 0.5337
+      },
+      "order": [
+        "S5",
+        "S4",
+        "V",
+        "S3",
+        "S2",
+        "S1"
+      ],
+      "kendall_tau_vs_truth": 0.9999999999999999,
+      "v_win_rate_vs": {
+        "S4": 0.4625,
+        "S5": 0.37649999999999995
+      },
+      "share_of_resamples_v_beats": {
+        "S4": 0.001,
+        "S5": 0.0
+      },
+      "max_share_v_beats_better_system": 0.001
+    }
+  },
+  "sweep": [
+    {
+      "pos_bias": 0.0,
+      "length_bias": 0.0,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7646666666666666,
+        "swap_coin": 0.7649999999999999,
+        "swap_calibrated": 0.7824000000000001,
+        "length_only": 0.5934
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.46820000000000006,
+      "v_win_rate_vs_s4_calibrated": 0.5769
+    },
+    {
+      "pos_bias": 0.0,
+      "length_bias": 0.5,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7725333333333333,
+        "swap_coin": 0.7704000000000001,
+        "swap_calibrated": 0.7821333333333333,
+        "length_only": 0.5928
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.5644,
+      "v_win_rate_vs_s4_calibrated": 0.4702
+    },
+    {
+      "pos_bias": 0.0,
+      "length_bias": 1.0,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7594666666666667,
+        "swap_coin": 0.7578,
+        "swap_calibrated": 0.7812666666666667,
+        "length_only": 0.5914
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.6464000000000001,
+      "v_win_rate_vs_s4_calibrated": 0.563
+    },
+    {
+      "pos_bias": 0.4,
+      "length_bias": 0.0,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7676000000000001,
+        "swap_coin": 0.7642,
+        "swap_calibrated": 0.7796000000000001,
+        "length_only": 0.5948666666666667
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.4711,
+      "v_win_rate_vs_s4_calibrated": 0.5788
+    },
+    {
+      "pos_bias": 0.4,
+      "length_bias": 0.5,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7626666666666667,
+        "swap_coin": 0.7663333333333333,
+        "swap_calibrated": 0.7755333333333334,
+        "length_only": 0.5962
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.5638,
+      "v_win_rate_vs_s4_calibrated": 0.4605
+    },
+    {
+      "pos_bias": 0.4,
+      "length_bias": 1.0,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.757,
+        "swap_coin": 0.7579333333333333,
+        "swap_calibrated": 0.7811333333333333,
+        "length_only": 0.5919333333333334
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.6508,
+      "v_win_rate_vs_s4_calibrated": 0.5686
+    },
+    {
+      "pos_bias": 0.8,
+      "length_bias": 0.0,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7446666666666666,
+        "swap_coin": 0.7495999999999999,
+        "swap_calibrated": 0.7654,
+        "length_only": 0.5878666666666666
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.46719999999999995,
+      "v_win_rate_vs_s4_calibrated": 0.5896
+    },
+    {
+      "pos_bias": 0.8,
+      "length_bias": 0.5,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7636666666666667,
+        "swap_coin": 0.7623333333333334,
+        "swap_calibrated": 0.7694666666666666,
+        "length_only": 0.5900000000000001
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.5759000000000001,
+      "v_win_rate_vs_s4_calibrated": 0.46040000000000003
+    },
+    {
+      "pos_bias": 0.8,
+      "length_bias": 1.0,
+      "replications": 5,
+      "agreement": {
+        "single_order": 0.7478666666666667,
+        "swap_coin": 0.7506666666666667,
+        "swap_calibrated": 0.7754,
+        "length_only": 0.5948
+      },
+      "v_win_rate_vs_s4_swap_coin": 0.6442,
+      "v_win_rate_vs_s4_calibrated": 0.5529
+    }
+  ]
+}

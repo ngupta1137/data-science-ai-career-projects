@@ -27,8 +27,9 @@ One concept DOI for this repository. One version DOI per release.
 | v0.1.0 | Scaffold, project 01, project 02. Proves the template. |
 | v0.2.0 | Projects 03 to 05. |
 | v0.3.0 | Projects 06 to 08. |
-| v1.0.0 | After a hostile review of projects 01 to 08. |
-| v1.1.0 | Roadmap projects (recommender), only if the projects above passed the bar. |
+| v0.4.0 | Projects 09 to 12. |
+| v1.0.0 | After a hostile review of projects 01 to 12. |
+| v1.1.0 | Roadmap projects, only if the projects above passed the bar. |
 
 ## Do not
 

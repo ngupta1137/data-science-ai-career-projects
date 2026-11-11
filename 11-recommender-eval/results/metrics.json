@@ -1,0 +1,416 @@
+{
+  "project": "11-recommender-eval",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "users": 1500,
+    "items": 600,
+    "clicks": 59081,
+    "train_clicks_test": 50100,
+    "holdout_clicks_test": 8981,
+    "sha256": "64b646fc76ba2677f5a6e03cc9e932c2af31e9bc8093ab967d2394b6f584b37d"
+  },
+  "assumptions": {
+    "exposure_strength": 1.5,
+    "drift": 0.5,
+    "click_beta": 1.2,
+    "click_bias": -1.5,
+    "ips_alpha": 0.5,
+    "spearman_floor": 0.8,
+    "k": 10
+  },
+  "models": {
+    "random": {
+      "ndcg10": {
+        "value": 0.012405347444321365,
+        "ci95": [
+          0.009501415303015072,
+          0.015225331776047086
+        ]
+      },
+      "recall10": 0.016953772709295444,
+      "hit10": 0.07059679767103348,
+      "true_like10": {
+        "value": 0.23664570831936996,
+        "ci95": [
+          0.23340359926807228,
+          0.24000636897226185
+        ]
+      },
+      "value_captured": 0.0,
+      "coverage10": 1.0,
+      "gini10": 0.12984158175642885,
+      "dev_ndcg10_validation": null
+    },
+    "popularity": {
+      "ndcg10": {
+        "value": 0.10705597431072836,
+        "ci95": [
+          0.09885852951645296,
+          0.11551365450868686
+        ]
+      },
+      "recall10": 0.14250086258177705,
+      "hit10": 0.4395924308588064,
+      "true_like10": {
+        "value": 0.1827380735061424,
+        "ci95": [
+          0.18006203232829263,
+          0.18560706082205805
+        ]
+      },
+      "value_captured": -0.09348041406293496,
+      "coverage10": 0.09,
+      "gini10": 0.9716579330422125,
+      "dev_ndcg10_validation": null
+    },
+    "recent_popularity": {
+      "ndcg10": {
+        "value": 0.12322922249300022,
+        "ci95": [
+          0.11497063567686767,
+          0.13203542547203095
+        ]
+      },
+      "recall10": 0.15988198167911755,
+      "hit10": 0.4861717612809316,
+      "true_like10": {
+        "value": 0.19308149068017905,
+        "ci95": [
+          0.18997500424749955,
+          0.19611597413296517
+        ]
+      },
+      "value_captured": -0.07554405080743996,
+      "coverage10": 0.07666666666666666,
+      "gini10": 0.9740545851528384,
+      "dev_ndcg10_validation": null
+    },
+    "item_knn": {
+      "ndcg10": {
+        "value": 0.11746519690739705,
+        "ci95": [
+          0.10883193802492372,
+          0.12648576438845777
+        ]
+      },
+      "recall10": 0.15427216583779646,
+      "hit10": 0.4737991266375546,
+      "true_like10": {
+        "value": 0.21051975861479438,
+        "ci95": [
+          0.20706697867269458,
+          0.21387103774724797
+        ]
+      },
+      "value_captured": -0.04530461417260823,
+      "coverage10": 0.105,
+      "gini10": 0.9687877244056284,
+      "dev_ndcg10_validation": 0.11545026891561531
+    },
+    "svd": {
+      "ndcg10": {
+        "value": 0.10385868888096092,
+        "ci95": [
+          0.09617698908138637,
+          0.11192976037322191
+        ]
+      },
+      "recall10": 0.13486938855067548,
+      "hit10": 0.4294032023289665,
+      "true_like10": {
+        "value": 0.346583764153739,
+        "ci95": [
+          0.341751532036943,
+          0.3511108750688124
+        ]
+      },
+      "value_captured": 0.19064191957739451,
+      "coverage10": 0.19,
+      "gini10": 0.8949915089762253,
+      "dev_ndcg10_validation": 0.10904901255878673
+    },
+    "svd_ips": {
+      "ndcg10": {
+        "value": 0.07941280256664322,
+        "ci95": [
+          0.07279918575037579,
+          0.08640231260680281
+        ]
+      },
+      "recall10": 0.1084702233719701,
+      "hit10": 0.3529839883551674,
+      "true_like10": {
+        "value": 0.4038731199851734,
+        "ci95": [
+          0.397004609577467,
+          0.4100031060963717
+        ]
+      },
+      "value_captured": 0.28998652490233856,
+      "coverage10": 0.6933333333333334,
+      "gini10": 0.736212518195051,
+      "dev_ndcg10_validation": 0.0813371637997062
+    },
+    "oracle": {
+      "ndcg10": {
+        "value": 0.03506034580532036,
+        "ci95": [
+          0.030659282050098085,
+          0.0399019384202953
+        ]
+      },
+      "recall10": 0.052302542395337145,
+      "hit10": 0.18922852983988356,
+      "true_like10": {
+        "value": 0.813318751048242,
+        "ci95": [
+          0.8074588647049848,
+          0.8187776893005175
+        ]
+      },
+      "value_captured": 1.0,
+      "coverage10": 0.7283333333333334,
+      "gini10": 0.6603238719068414,
+      "dev_ndcg10_validation": null
+    }
+  },
+  "reference_true_like10": {
+    "random": 0.23664570831936996,
+    "oracle": 0.813318751048242
+  },
+  "headline": {
+    "model": "item_knn",
+    "selected_by": "highest NDCG@10 against held-out clicks on the validation window among item_knn, svd, svd_ips",
+    "metric": "ndcg10_against_held_out_clicks",
+    "value": 0.11746519690739705,
+    "ci95": [
+      0.10883193802492372,
+      0.12648576438845777
+    ],
+    "ci_method": "percentile bootstrap over 1374 users, 1000 resamples",
+    "minus_popularity_observed_ndcg10": {
+      "value": 0.010409222596668696,
+      "ci95": [
+        0.006621518416070207,
+        0.014463696082372328
+      ]
+    },
+    "minus_popularity_true_like10": {
+      "value": 0.027781685108651977,
+      "ci95": [
+        0.025683875542269204,
+        0.029533374763360765
+      ]
+    },
+    "spearman_observed_vs_true": -0.6785714285714287
+  },
+  "gate": {
+    "rule": "Pass only if all three hold on the test window for the headline model, which is picked on the validation window as the personalised candidate (item_knn, svd, svd_ips) with the highest NDCG@10 against held-out clicks: (1) the 95% paired bootstrap interval over users on its NDCG@10 minus popularity's has a lower bound above zero; (2) the 95% paired interval on its true like rate at 10 minus popularity's has a lower bound above zero, where the true like rate is known only because this is a simulation; (3) across all seven models, the Spearman correlation between NDCG@10 on held-out clicks and the true like rate is at least 0.80, meaning the offline metric can be trusted to choose between models. The 0.80 bar is an assumption fixed before results.",
+    "checks": {
+      "beats_popularity_on_observed_ndcg": true,
+      "beats_popularity_on_true_like_rate": true,
+      "offline_metric_orders_models_like_truth": false
+    },
+    "passed": false
+  },
+  "traps": {
+    "random_split_inflates_scores": {
+      "ndcg10_random_split": {
+        "random": 0.015223735339463954,
+        "popularity": 0.12458179096266751,
+        "recent_popularity": 0.10772641126755177,
+        "item_knn": 0.13676063018944748,
+        "svd": 0.1301346126439642,
+        "svd_ips": 0.09784531454990394,
+        "oracle": 0.03388751965628577
+      },
+      "ndcg10_temporal_test": {
+        "random": 0.012405347444321365,
+        "popularity": 0.10705597431072836,
+        "recent_popularity": 0.12322922249300022,
+        "item_knn": 0.11746519690739705,
+        "svd": 0.10385868888096092,
+        "svd_ips": 0.07941280256664322,
+        "oracle": 0.03506034580532036
+      },
+      "note": "A random split lets the model train on clicks from after the ones it is tested on. Scores rise and the gap between models changes."
+    },
+    "sampled_metrics": {
+      "by_model": {
+        "random": {
+          "sampled_hit10": 0.10517213477173663,
+          "full_hit10": 0.07059679767103348
+        },
+        "popularity": {
+          "sampled_hit10": 0.46653997997274393,
+          "full_hit10": 0.4395924308588064
+        },
+        "recent_popularity": {
+          "sampled_hit10": 0.5183714038100116,
+          "full_hit10": 0.4861717612809316
+        },
+        "item_knn": {
+          "sampled_hit10": 0.4726712058027881,
+          "full_hit10": 0.4737991266375546
+        },
+        "svd": {
+          "sampled_hit10": 0.4399410565911337,
+          "full_hit10": 0.4294032023289665
+        },
+        "svd_ips": {
+          "sampled_hit10": 0.37877996020495375,
+          "full_hit10": 0.3529839883551674
+        },
+        "oracle": {
+          "sampled_hit10": 0.259806135226762,
+          "full_hit10": 0.18922852983988356
+        }
+      },
+      "spearman_sampled_vs_full": 1.0,
+      "note": "Ranking each click against 100 random items raises the hit rate of poorly ranked models most, and can reorder models (Krichene and Rendle, KDD 2020). In this run it did not reorder them."
+    },
+    "observed_metric_rewards_the_logging_policy": {
+      "observed_order": [
+        "recent_popularity",
+        "item_knn",
+        "popularity",
+        "svd",
+        "svd_ips",
+        "oracle",
+        "random"
+      ],
+      "true_order": [
+        "oracle",
+        "svd_ips",
+        "svd",
+        "random",
+        "item_knn",
+        "recent_popularity",
+        "popularity"
+      ],
+      "oracle_observed_ndcg10": 0.03506034580532036,
+      "popularity_observed_ndcg10": 0.10705597431072836,
+      "spearman_observed_vs_true": -0.6785714285714287,
+      "note": "Held-out clicks were exposed by a policy that favours popular items, so a model that shows popular items is rewarded whether or not users like them."
+    },
+    "cold_start_ceiling": {
+      "share_of_test_clicks_on_items_unseen_in_training": 0.06453416843753496,
+      "note": "No model trained on the past can recommend these. It caps recall."
+    },
+    "exposure_sweep": [
+      {
+        "exposure_strength": 0.0,
+        "spearman_observed_vs_true": 0.9285714285714288,
+        "observed_order": [
+          "oracle",
+          "svd",
+          "svd_ips",
+          "item_knn",
+          "popularity",
+          "recent_popularity",
+          "random"
+        ],
+        "true_order": [
+          "oracle",
+          "svd_ips",
+          "svd",
+          "item_knn",
+          "recent_popularity",
+          "popularity",
+          "random"
+        ],
+        "oracle_observed_ndcg": 0.044654769861975446,
+        "popularity_observed_ndcg": 0.018332555491718864
+      },
+      {
+        "exposure_strength": 0.75,
+        "spearman_observed_vs_true": -0.3571428571428572,
+        "observed_order": [
+          "recent_popularity",
+          "item_knn",
+          "svd",
+          "popularity",
+          "svd_ips",
+          "oracle",
+          "random"
+        ],
+        "true_order": [
+          "oracle",
+          "svd_ips",
+          "svd",
+          "item_knn",
+          "random",
+          "recent_popularity",
+          "popularity"
+        ],
+        "oracle_observed_ndcg": 0.046398273492437206,
+        "popularity_observed_ndcg": 0.06381140585217082
+      },
+      {
+        "exposure_strength": 1.5,
+        "spearman_observed_vs_true": -0.6785714285714287,
+        "observed_order": [
+          "recent_popularity",
+          "item_knn",
+          "popularity",
+          "svd",
+          "svd_ips",
+          "oracle",
+          "random"
+        ],
+        "true_order": [
+          "oracle",
+          "svd_ips",
+          "svd",
+          "random",
+          "item_knn",
+          "recent_popularity",
+          "popularity"
+        ],
+        "oracle_observed_ndcg": 0.03106667734300644,
+        "popularity_observed_ndcg": 0.1413221536410404
+      },
+      {
+        "exposure_strength": 2.5,
+        "spearman_observed_vs_true": -0.6785714285714287,
+        "observed_order": [
+          "recent_popularity",
+          "popularity",
+          "item_knn",
+          "svd_ips",
+          "svd",
+          "oracle",
+          "random"
+        ],
+        "true_order": [
+          "oracle",
+          "svd",
+          "svd_ips",
+          "random",
+          "recent_popularity",
+          "item_knn",
+          "popularity"
+        ],
+        "oracle_observed_ndcg": 0.01392251637318088,
+        "popularity_observed_ndcg": 0.2339106602373421
+      }
+    ]
+  },
+  "caveats": [
+    "Everything is simulated. Taste is a low-rank signal plus drift, exposure is a popularity softmax, and clicks are Bernoulli. The sizes of the effects describe this setup, not any real catalogue.",
+    "True value is only known because the simulator knows it. In real life the equivalent is an online experiment, which this project does not run.",
+    "Clicks are the only signal. There are no dwell times, ratings, purchases, sessions or context.",
+    "Models are small classical baselines (popularity, item-kNN, SVD). No neural, sequential or two-tower model, and no tuning of ranks or neighbourhoods.",
+    "The inverse-popularity weight uses a fixed exponent of 0.5 chosen before results. A real exposure model would estimate propensities.",
+    "The 0.80 Spearman bar is an assumption. With seven models a correlation has a wide interval.",
+    "Feedback loops (today's recommendations changing tomorrow's logs) are not simulated."
+  ]
+}

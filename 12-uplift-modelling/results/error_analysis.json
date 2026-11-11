@@ -1,0 +1,124 @@
+{
+  "headline_learner": "ct_gbm",
+  "selection_reason": "highest area under the uplift curve (AUUC) on dev among the four learners",
+  "dev_auuc": {
+    "s_linear": 0.03899989916088965,
+    "s_gbm": 0.03972799199342363,
+    "t_gbm": 0.039588229372145206,
+    "ct_gbm": 0.040465785749802856
+  },
+  "segments": [
+    {
+      "segment": "offer lowers buying",
+      "share_of_customers": 0.350585,
+      "mean_true_effect": -0.06479193578411815,
+      "headline_treats": 0.0447109830711525,
+      "profit_per_customer_if_treat_all": -1.8369240403437532
+    },
+    {
+      "segment": "offer helps but not enough to pay",
+      "share_of_customers": 0.174785,
+      "mean_true_effect": 0.017400660788799545,
+      "headline_treats": 0.49500815287353034,
+      "profit_per_customer_if_treat_all": -0.19750127520148356
+    },
+    {
+      "segment": "offer pays",
+      "share_of_customers": 0.47463,
+      "mean_true_effect": 0.20595297698625709,
+      "headline_treats": 0.9028927796388766,
+      "profit_per_customer_if_treat_all": 3.93831307334936
+    }
+  ],
+  "calibration_by_decile": [
+    {
+      "decile_of_predicted_uplift": 1,
+      "mean_predicted": -0.12918897222056935,
+      "mean_true": -0.10699903021060314
+    },
+    {
+      "decile_of_predicted_uplift": 2,
+      "mean_predicted": -0.05287697411006152,
+      "mean_true": -0.06615769481856809
+    },
+    {
+      "decile_of_predicted_uplift": 3,
+      "mean_predicted": -0.016926732193726715,
+      "mean_true": -0.019331293843111524
+    },
+    {
+      "decile_of_predicted_uplift": 4,
+      "mean_predicted": 0.008116465017017535,
+      "mean_true": 0.005659967630752505
+    },
+    {
+      "decile_of_predicted_uplift": 5,
+      "mean_predicted": 0.034689284393458614,
+      "mean_true": 0.03315774954330953
+    },
+    {
+      "decile_of_predicted_uplift": 6,
+      "mean_predicted": 0.06922736552074109,
+      "mean_true": 0.07057005002218175
+    },
+    {
+      "decile_of_predicted_uplift": 7,
+      "mean_predicted": 0.11188317034222724,
+      "mean_true": 0.11056494325211581
+    },
+    {
+      "decile_of_predicted_uplift": 8,
+      "mean_predicted": 0.1526898041522356,
+      "mean_true": 0.15707194878480454
+    },
+    {
+      "decile_of_predicted_uplift": 9,
+      "mean_predicted": 0.2003471758213418,
+      "mean_true": 0.21706092550215728
+    },
+    {
+      "decile_of_predicted_uplift": 10,
+      "mean_predicted": 0.3140932383320352,
+      "mean_true": 0.37885514270357934
+    }
+  ],
+  "cost_sensitivity": [
+    {
+      "cost_per_offer": 1.0,
+      "threshold": 0.02,
+      "treat_share": 0.60056,
+      "true_profit_headline": 4.237609365573941,
+      "true_profit_treat_all": 2.9038877578041236,
+      "true_profit_oracle": 4.446678667435158
+    },
+    {
+      "cost_per_offer": 2.0,
+      "threshold": 0.04,
+      "treat_share": 0.530735,
+      "true_profit_headline": 3.6806911614525086,
+      "true_profit_treat_all": 1.9038877578041238,
+      "true_profit_oracle": 3.93831307334936
+    },
+    {
+      "cost_per_offer": 5.0,
+      "threshold": 0.1,
+      "treat_share": 0.379195,
+      "true_profit_headline": 2.3210334159351924,
+      "true_profit_treat_all": -1.0961122421958764,
+      "true_profit_oracle": 2.744216807981715
+    },
+    {
+      "cost_per_offer": 10.0,
+      "threshold": 0.2,
+      "treat_share": 0.149555,
+      "true_profit_headline": 0.9884812967275511,
+      "true_profit_treat_all": -6.096112242195876,
+      "true_profit_oracle": 1.4566809341433773
+    }
+  ],
+  "base_rates": {
+    "p0_mean": 0.1770991704411523,
+    "p1_mean": 0.2551769255972348,
+    "share_negative_effect": 0.350585
+  }
+}

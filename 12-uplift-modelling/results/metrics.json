@@ -1,0 +1,405 @@
+{
+  "project": "12-uplift-modelling",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "train": 20000,
+    "dev": 10000,
+    "test": 20000,
+    "population": 200000,
+    "treated_share_test": 0.50145,
+    "conversion_rate_test": 0.21815,
+    "sha256": "074d609f788d05476fb63a531acb0d6446efe701e3b53f170f6f740190a42591"
+  },
+  "assumptions": {
+    "value_per_conversion": 50.0,
+    "cost_per_offer": 2.0,
+    "threshold": 0.04,
+    "budget_share": 0.3,
+    "treatment_share": 0.5
+  },
+  "policies": {
+    "s_linear": {
+      "treat_share": 0.53195,
+      "estimated_profit": {
+        "value": 3.7011,
+        "ci95": [
+          3.2021325,
+          4.26895
+        ]
+      },
+      "true_profit_test_rows": 3.5171760610620835,
+      "true_profit_population": 3.5223166458269595,
+      "mean_true_effect_of_those_treated": 0.172237092247846,
+      "share_treated_with_negative_effect": 0.07058934110348716,
+      "qini_coefficient": {
+        "value": 0.018637651053149115,
+        "ci95": [
+          0.017003262139198522,
+          0.020489300791838413
+        ]
+      },
+      "auuc_test": 0.03970743592928992,
+      "dev_auuc": 0.03899989916088965,
+      "corr_with_true_effect": 0.8043092684848551,
+      "true_profit_top_budget_population": 3.0958999670951015
+    },
+    "s_gbm": {
+      "treat_share": 0.55,
+      "estimated_profit": {
+        "value": 3.86,
+        "ci95": [
+          3.2847250000000003,
+          4.3717425
+        ]
+      },
+      "true_profit_test_rows": 3.5990363664672613,
+      "true_profit_population": 3.596500821011809,
+      "mean_true_effect_of_those_treated": 0.17087404968971862,
+      "share_treated_with_negative_effect": 0.0710909090909091,
+      "qini_coefficient": {
+        "value": 0.019035670572085023,
+        "ci95": [
+          0.01730881349569454,
+          0.02065870181725906
+        ]
+      },
+      "auuc_test": 0.04010545544822583,
+      "dev_auuc": 0.03972799199342363,
+      "corr_with_true_effect": 0.7976499096027049,
+      "true_profit_top_budget_population": 3.112931820663657
+    },
+    "t_gbm": {
+      "treat_share": 0.562,
+      "estimated_profit": {
+        "value": 3.736,
+        "ci95": [
+          3.2836275,
+          4.2104574999999995
+        ]
+      },
+      "true_profit_test_rows": 3.5513737060631074,
+      "true_profit_population": 3.542762656666101,
+      "mean_true_effect_of_those_treated": 0.1663834059097191,
+      "share_treated_with_negative_effect": 0.07224199288256228,
+      "qini_coefficient": {
+        "value": 0.019553111994777425,
+        "ci95": [
+          0.01789544912887585,
+          0.0212654508530631
+        ]
+      },
+      "auuc_test": 0.04062289687091823,
+      "dev_auuc": 0.039588229372145206,
+      "corr_with_true_effect": 0.8144148113896879,
+      "true_profit_top_budget_population": 3.084040972458144
+    },
+    "ct_gbm": {
+      "treat_share": 0.5308,
+      "estimated_profit": {
+        "value": 3.9684,
+        "ci95": [
+          3.4662125,
+          4.4828675
+        ]
+      },
+      "true_profit_test_rows": 3.6636602623633583,
+      "true_profit_population": 3.6806911614525086,
+      "mean_true_effect_of_those_treated": 0.1780429639172328,
+      "share_treated_with_negative_effect": 0.03212132629992464,
+      "qini_coefficient": {
+        "value": 0.019651436683218657,
+        "ci95": [
+          0.017922116329155323,
+          0.021456907720790126
+        ]
+      },
+      "auuc_test": 0.04072122155935946,
+      "dev_auuc": 0.040465785749802856,
+      "corr_with_true_effect": 0.8333651868934435,
+      "true_profit_top_budget_population": 3.1658618513377808
+    },
+    "treat_none": {
+      "treat_share": 0.0,
+      "estimated_profit": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "true_profit_test_rows": 0.0,
+      "true_profit_population": 0.0,
+      "mean_true_effect_of_those_treated": null,
+      "share_treated_with_negative_effect": null
+    },
+    "treat_all": {
+      "treat_share": 1.0,
+      "estimated_profit": {
+        "value": 2.265,
+        "ci95": [
+          1.652125,
+          2.94025
+        ]
+      },
+      "true_profit_test_rows": 1.9188860729320396,
+      "true_profit_population": 1.9038877578041238,
+      "mean_true_effect_of_those_treated": 0.07837772145864079,
+      "share_treated_with_negative_effect": 0.3497
+    },
+    "random_budget": {
+      "treat_share": 0.2975,
+      "estimated_profit": {
+        "value": 0.74,
+        "ci95": [
+          0.34935,
+          1.1028374999999997
+        ]
+      },
+      "true_profit_test_rows": 0.5832089109839641,
+      "true_profit_population": 0.5711663273412371,
+      "mean_true_effect_of_those_treated": 0.07920732174682112,
+      "share_treated_with_negative_effect": 0.35092436974789915
+    },
+    "response_budget": {
+      "treat_share": 0.3,
+      "estimated_profit": {
+        "value": 2.4,
+        "ci95": [
+          1.94699,
+          2.9014849999999996
+        ]
+      },
+      "true_profit_test_rows": 2.1720674164317986,
+      "true_profit_population": 2.1502745282810536,
+      "mean_true_effect_of_those_treated": 0.1848044944287866,
+      "share_treated_with_negative_effect": 0.18133333333333335
+    },
+    "oracle": {
+      "treat_share": 0.4755,
+      "estimated_profit": {
+        "value": 4.189,
+        "ci95": [
+          3.6654025,
+          4.714874999999999
+        ]
+      },
+      "true_profit_test_rows": 3.932198365272199,
+      "true_profit_population": 3.93831307334936,
+      "mean_true_effect_of_those_treated": 0.2053921499588727,
+      "share_treated_with_negative_effect": 0.0
+    }
+  },
+  "headline": {
+    "learner": "ct_gbm",
+    "selected_by": "highest area under the uplift curve (AUUC) on dev among the four learners",
+    "metric": "incremental_profit_per_customer",
+    "value": 3.9684,
+    "ci95": [
+      3.4662125,
+      4.4828675
+    ],
+    "ci_method": "percentile bootstrap over test customers, 500 resamples; inverse-probability weighted",
+    "minus_treat_all": {
+      "value": 1.7034,
+      "ci95": [
+        1.36379,
+        2.057145
+      ]
+    },
+    "qini_coefficient": {
+      "value": 0.019651436683218657,
+      "ci95": [
+        0.017922116329155323,
+        0.021456907720790126
+      ]
+    },
+    "true_profit_population": 3.6806911614525086
+  },
+  "gate": {
+    "rule": "Pass only if all three hold on the randomised test set for the headline model, which is picked on dev as the candidate (s_linear, s_gbm, t_gbm, ct_gbm) with the highest area under the uplift curve (AUUC): (1) the 95% bootstrap interval on the incremental profit per customer of treating when predicted uplift exceeds cost over value has a lower bound above zero, so it beats treating nobody; (2) the 95% paired interval on that profit minus the profit of treating everyone has a lower bound above zero, so it beats blanket offers; (3) the 95% interval on the Qini coefficient has a lower bound above zero, so the ranking beats random targeting. Profit is estimated by inverse-probability weighting with the known randomisation. The cost and value are assumptions fixed before results.",
+    "checks": {
+      "beats_treating_nobody": true,
+      "beats_treating_everybody": true,
+      "ranking_beats_random_targeting": true
+    },
+    "passed": true
+  },
+  "traps": {
+    "response_model_instead_of_uplift": {
+      "budget_share": 0.3,
+      "true_profit_uplift_model": 3.1658618513377808,
+      "true_profit_response_model": 2.1502745282810536,
+      "true_profit_random": 0.5711663273412371,
+      "true_profit_oracle": 3.6280750016413825,
+      "mean_true_effect_targeted_uplift_model": 0.25105745675585206,
+      "mean_true_effect_targeted_response_model": 0.18335163521873693,
+      "mean_true_effect_everyone": 0.07807775515608248,
+      "note": "A model of who will buy picks customers who buy anyway. It is not a model of who the offer changes."
+    },
+    "optimistic_profit_estimate": {
+      "headline": "ct_gbm",
+      "estimated_on_training_rows": {
+        "value": 3.9107,
+        "ci95": [
+          3.4131575,
+          4.4897075
+        ]
+      },
+      "estimated_on_dev": {
+        "value": 4.1132,
+        "ci95": [
+          3.37738,
+          4.8272699999999995
+        ]
+      },
+      "best_dev_estimate_among_candidates": 4.279,
+      "estimated_on_test": {
+        "value": 3.9684,
+        "ci95": [
+          3.4662125,
+          4.4828675
+        ]
+      },
+      "true_on_test_rows": 3.6636602623633583,
+      "true_on_population": 3.6806911614525086,
+      "treat_all_estimated_vs_true_population": [
+        2.265,
+        1.9038877578041238
+      ],
+      "oracle_estimated_vs_true_population": [
+        4.189,
+        3.93831307334936
+      ],
+      "note": "An estimate from the rows a model was fitted on, or the best of several candidates on the rows used to choose, is expected to be optimistic. Compare each with the true value. Absolute estimates from one sample share that sample's luck, so compare policies by paired differences."
+    },
+    "offers_that_followed_buying_signals": {
+      "naive_effect_in_observational_data": 0.2600635988986154,
+      "naive_effect_in_trial": 0.07459217529550008,
+      "true_average_effect": 0.0784709228532921,
+      "share_offered_observational": 0.5014,
+      "true_profit_population": {
+        "s_linear": {
+          "trained_on_trial": 3.5223166458269595,
+          "trained_on_observational": 2.9595161593278765
+        },
+        "s_gbm": {
+          "trained_on_trial": 3.596500821011809,
+          "trained_on_observational": 2.812837622180352
+        },
+        "t_gbm": {
+          "trained_on_trial": 3.542762656666101,
+          "trained_on_observational": 3.1107020120964735
+        },
+        "ct_gbm": {
+          "trained_on_trial": 3.6806911614525086,
+          "trained_on_observational": 2.971183530533145
+        }
+      },
+      "note": "When past offers went to likely buyers and some of what made them likely is not in the data, a learner reads that as the effect of the offer."
+    },
+    "data_needed": [
+      {
+        "train_customers": 2000,
+        "replications": 3,
+        "mean_true_profit": {
+          "s_linear": 3.424922283925475,
+          "s_gbm": 3.396500799223483,
+          "t_gbm": 2.991841226203793,
+          "ct_gbm": 2.7045222100915223
+        },
+        "min_true_profit": {
+          "s_linear": 3.334680424753422,
+          "s_gbm": 3.3503906865053397,
+          "t_gbm": 2.9334811926548765,
+          "ct_gbm": 2.5582512581556025
+        }
+      },
+      {
+        "train_customers": 5000,
+        "replications": 3,
+        "mean_true_profit": {
+          "s_linear": 3.439326496942067,
+          "s_gbm": 3.3721498869197633,
+          "t_gbm": 3.2225870911679606,
+          "ct_gbm": 2.975688551486639
+        },
+        "min_true_profit": {
+          "s_linear": 3.429745539352838,
+          "s_gbm": 3.2499767396983112,
+          "t_gbm": 3.156549662246453,
+          "ct_gbm": 2.938403995050597
+        }
+      },
+      {
+        "train_customers": 20000,
+        "replications": 3,
+        "mean_true_profit": {
+          "s_linear": 3.4823636848271264,
+          "s_gbm": 3.4012470611623975,
+          "t_gbm": 3.564489789177818,
+          "ct_gbm": 3.5325561374505785
+        },
+        "min_true_profit": {
+          "s_linear": 3.465642891886698,
+          "s_gbm": 3.2620365100927486,
+          "t_gbm": 3.5121660216112134,
+          "ct_gbm": 3.48442966837342
+        }
+      }
+    ],
+    "budget_curve": [
+      {
+        "share_treated": 0.1,
+        "headline": 1.6942757135178967,
+        "response_model": 0.9963182637262358,
+        "oracle": 2.01670752811026,
+        "random": 0.19038877578041238
+      },
+      {
+        "share_treated": 0.2,
+        "headline": 2.5795041834676753,
+        "response_model": 1.7037490131443698,
+        "oracle": 3.0558315957647375,
+        "random": 0.38077755156082477
+      },
+      {
+        "share_treated": 0.3,
+        "headline": 3.1658618513377808,
+        "response_model": 2.1502745282810536,
+        "oracle": 3.6280750016413825,
+        "random": 0.5711663273412371
+      },
+      {
+        "share_treated": 0.5,
+        "headline": 3.6716213716785204,
+        "response_model": 2.5172103926260707,
+        "oracle": 3.933308224464146,
+        "random": 0.9519438789020619
+      },
+      {
+        "share_treated": 0.7,
+        "headline": 3.466250466554046,
+        "response_model": 2.449238475262271,
+        "oracle": 3.630673795625816,
+        "random": 1.3327214304628865
+      }
+    ]
+  },
+  "caveats": [
+    "Everything is simulated. The effect of an offer, the size of the hidden driver and the economics are chosen by the author, so the sizes of the results describe this setup, not any retailer.",
+    "The trial is large (20,000 customers per split) and the effect is strong and smooth. Real uplift is often small against noise and needs far more data than a response model.",
+    "The value of a conversion and the cost of an offer are assumptions. The cost sensitivity table shows how the targeted share moves.",
+    "Only a one-off binary offer with a binary outcome. No dose, timing, fatigue, multiple offers or long-run effects.",
+    "The class-transformation learner is valid only because the trial gives the offer to exactly half. It would be wrong for other randomisation rates.",
+    "The learners are untuned, with fixed settings chosen before results.",
+    "True profit uses the simulator's effects. In practice the nearest equivalent is a later randomised holdout, which this project does not run."
+  ]
+}
