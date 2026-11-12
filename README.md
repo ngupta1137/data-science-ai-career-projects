@@ -57,6 +57,8 @@ make check                             # lint, layout gate, tests (no network ne
 
 Individual steps: `make lint`, `make gate`, `make test`.
 
+Working with a coding agent? [AGENTS.md](AGENTS.md) holds the rules every agent must follow here, and [docs/HANDOFF.md](docs/HANDOFF.md) holds the open tasks.
+
 Each project folder has its own README with the commands to download data, train, and evaluate. Library versions are pinned in `requirements.txt` to the versions the code was tested on.
 
 ## Repository layout
