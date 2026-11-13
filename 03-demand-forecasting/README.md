@@ -41,7 +41,7 @@ Three baselines (repeat the last value, repeat the same weekday last week, mean 
 ## Run
 
 ```bash
-pip install -r ../requirements.txt
+pip install -r ../requirements.txt                     # Windows PowerShell: pip install -r ..\requirements.txt
 python -m demand_forecast.download_data --write-checksum   # first time only, then commit data/CHECKSUMS.txt
 python -m demand_forecast.train                             # writes results/
 python -m demand_forecast.report                            # renders reports/ from results/

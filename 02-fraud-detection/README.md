@@ -51,7 +51,7 @@ A constant baseline, logistic regression, and histogram gradient boosting. No cl
 ## Run
 
 ```bash
-pip install -r ../requirements.txt
+pip install -r ../requirements.txt                     # Windows PowerShell: pip install -r ..\requirements.txt
 python -m fraud_detection.download_data --write-checksum   # first time only, then commit data/CHECKSUMS.txt
 python -m fraud_detection.train                             # writes results/
 python -m fraud_detection.report                            # renders reports/ from results/
