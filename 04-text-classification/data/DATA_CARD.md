@@ -3,7 +3,7 @@
 ## Source
 The 20 Newsgroups collection, distributed with scikit-learn (`sklearn.datasets.fetch_20newsgroups`). Usenet posts from the 1990s across 20 newsgroups. The official train and test split is by posting date.
 
-Reference to verify before release: the scikit-learn documentation page for the dataset lists its original source and citation. Check it there.
+Reference: Lang, K. "Newsweeder: Learning to filter netnews." Proceedings of the 12th International Conference on Machine Learning, 1995, pp. 331-339.
 
 ## Terms
 Not stated in this repository. The data is **not** committed. `python -m text_classification.download_data` fetches it through scikit-learn and writes one CSV with two versions of each post. Check the scikit-learn and original source terms before redistributing anything derived from it.
