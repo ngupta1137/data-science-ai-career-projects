@@ -9,6 +9,7 @@ This page routes you to projects in this repository. Every project describes a s
 These projects use a simulation shaped around this domain's own decision.
 
 - [Credit scorecard](../15-credit-scorecard): Score a credit application when outcomes are only seen for loans you approved, and measure the price of learning from a random sample.
+- [Claims frequency and severity](../16-claims-frequency-severity): Price auto insurance policies by segment using a two-part frequency-severity model.
 
 ## Projects that carry over from the core set
 

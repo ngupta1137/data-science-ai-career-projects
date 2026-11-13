@@ -21,6 +21,7 @@ Key: **main** means start here for this domain, **also** means useful second, **
 | [13 Promotion lift](../13-promotion-lift) | domain project |  |  |  |  |  |  |
 | [14 Out-of-stock detection](../14-out-of-stock-detection) | domain project |  |  |  |  |  |  |
 | [15 Credit scorecard](../15-credit-scorecard) |  | domain project |  |  |  |  |  |
+| [16 Claims frequency and severity](../16-claims-frequency-severity) |  | domain project |  |  |  |  |  |
 
 ## Domain guides
 
