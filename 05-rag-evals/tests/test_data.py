@@ -56,10 +56,10 @@ def test_committed_files_match_regenerated(docs, questions):
 
 def test_verify_checksums_detects_tampering(tmp_path):
     corpus, qs, sums = tmp_path / "corpus.jsonl", tmp_path / "questions.jsonl", tmp_path / "S.txt"
-    corpus.write_text("a\n")
-    qs.write_text("b\n")
+    corpus.write_bytes(b"a\n")
+    qs.write_bytes(b"b\n")
     sums.write_text(checksum_text("a\n", "b\n"))
     assert data.verify_checksums(corpus, qs, sums)
-    corpus.write_text("changed\n")
+    corpus.write_bytes(b"changed\n")
     with pytest.raises(data.DataValidationError):
         data.verify_checksums(corpus, qs, sums)
