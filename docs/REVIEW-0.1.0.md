@@ -45,9 +45,9 @@ Per release instructions, no new work is performed here. Every item is labelled 
 ## Project 05: RAG with Evals
 
 - **Question**: The pipeline passes its minimum bar gate, but has a confidence ranking AUC of 0.379 (worse than random guessing) and correctly refuses only 1 out of 16 unanswerable questions (6.25%). Does clearing this gate demonstrate a viable RAG system or merely a retriever that reliably hallucinates on unanswerable inputs?
-- **Committed evidence**: Yes. The committed decision memo is completely candid: it explicitly states that the gate is a low bar and not a ship decision, identifies answered_unanswerable as the dominant failure mode (15 out of 16 cases), and proves that confidence scores cannot be thresholded to fix refusal.
-- **Classification**: **wording**
-- **Remedy**: Retitle the memo section from "Does this pipeline clear the minimum bar?" to state clearly that the pipeline is unfit for operational deployment until an upstream refusal mechanism is implemented.
+- **Committed evidence**: No. While the decision memo honestly acknowledges the failure (reporting answered_unanswerable on 15 of 16 questions and an inverted confidence AUC of 0.379), the committed evidence demonstrates that the current pipeline cannot reliably distinguish answerable from unanswerable queries.
+- **Classification**: **new work**
+- **Remedy**: Building an effective refusal mechanism (such as semantic entailment checks, calibrated confidence scoring, or an upstream query routing classifier) and validating it on unanswerable queries is new engineering work.
 
 ---
 
@@ -99,9 +99,9 @@ Per release instructions, no new work is performed here. Every item is labelled 
 ## Project 11: Recommender Evaluation
 
 - **Question**: If offline NDCG@10 on logged clicks exhibits a negative correlation (-0.68) with true user satisfaction and ranks the oracle model near the bottom, does logged offline evaluation provide any reliable signal for choosing recommender algorithms?
-- **Committed evidence**: Yes. The committed evidence answers this question by failing the gate. It proves that popularity bias in logging policies inverts offline evaluation, rewarding algorithms that replicate exposure bias rather than those that discover true user preferences.
-- **Classification**: **wording**
-- **Remedy**: Add an explicit recommendation in the decision memo stating that unweighted offline ranking metrics on logged feedback must be prohibited as shipping gates without randomized exploration or inverse propensity correction.
+- **Committed evidence**: No. While the committed evidence diagnoses the failure mechanism by failing the gate, offline unweighted ranking provides zero reliable signal for production deployment decisions.
+- **Classification**: **new work**
+- **Remedy**: Building an unbiased evaluation pipeline (deploying randomized exploration traffic to log propensity scores, fitting an inverse propensity score estimator, or running an online A/B test) is new engineering work.
 
 ---
 
@@ -126,6 +126,6 @@ Per release instructions, no new work is performed here. Every item is labelled 
 ## Project 14: Out-of-Stock Detection
 
 - **Question**: If 86.4% of store visits dispatched by the model find fully stocked shelves (precision 0.136), how long before store managers and stock clerks lose all trust in the system and stop performing shelf audits?
-- **Committed evidence**: Yes. The decision memo directly answers this by failing the decision gate on precision. It explains that despite generating positive net economic value in theory (+1.11 per store per day), extreme overconfidence (predicted probability 0.733 vs true 0.136) causes massive visit wastage, and recommends capping visits and calibrating against actual audit data before deployment.
-- **Classification**: **wording**
-- **Remedy**: State prominently in the decision memo that frontline operational adoption requires a minimum precision threshold, and theoretical positive expected value is useless if false alarms cause staff to abandon the audit list.
+- **Committed evidence**: No. The committed evidence measures the low precision (0.136) and notes that visits are wasted, but nothing in the repository measures manager behavior, worker compliance over time, or the operational tipping point where store clerks abandon the audit list.
+- **Classification**: **new work**
+- **Remedy**: Developing a calibrated probability model from audited visits, designing a dynamically tuned visit policy that enforces an operational precision floor, and validating frontline adoption in pilot stores is new work.
