@@ -27,7 +27,7 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 |---|---|---|---|
 | 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Built on California Housing. Gate passed |
 | 02 | [Fraud detection](02-fraud-detection) | Imbalanced classification, PR-AUC, calibration, cost-based decisions, time-based splits | Built on credit card fraud data. Gate passed |
-| 03 | [Demand forecasting](03-demand-forecasting) | Rolling-origin backtests, horizon-safe features, MASE | Code and tests written. Metrics not yet generated |
+| 03 | [Demand forecasting](03-demand-forecasting) | Rolling-origin backtests, horizon-safe features, MASE | Built on Bike Sharing data. Gate failed, reported as is |
 | 04 | [Text classification](04-text-classification) | TF-IDF baselines, macro-F1, metadata leakage, confusion analysis | Code and tests written. Metrics not yet generated. Transformer comparison designed, not built |
 | 05 | [RAG with evals](05-rag-evals) | Retrieval recall@k, MRR, refusal, failure taxonomy | Built and run on a generated corpus. Results committed, describe that corpus only |
 | 06 | [Experiment analysis](06-experiment-analysis) | False positive rate, CUPED, power, peeking, multiple metrics | Built on simulated experiments with a known truth. Gate passed |

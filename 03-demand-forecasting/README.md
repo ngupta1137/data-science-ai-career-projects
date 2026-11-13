@@ -1,6 +1,6 @@
 # Project 03: Demand forecasting
 
-**Status: code and tests written. Metrics not yet generated.** Every number in the reports comes from `results/`, and `results/` is empty until the pipeline has run on the real data.
+**Status: built on Bike Sharing (UCI). The decision gate FAILED, and that is reported as is.** Every number in the reports comes from `results/metrics.json`.
 
 ## Decision context
 A weekly plan for how many bikes to position and how many staff to schedule. The person acting on it is an operations planner who needs each day of the next week forecast one week in advance. Over-forecasting wastes bikes and staff. Under-forecasting loses rentals. The decision gate is fixed in `demand_forecast/config.py` before any result is seen.
@@ -26,6 +26,9 @@ Forecast 7 days ahead. At each origin the model is fitted on all earlier days an
 
 ## Models
 Three baselines (repeat the last value, repeat the same weekday last week, mean of the last 28 days), ridge regression, and histogram gradient boosting. Features are calendar facts and past demand at least 7 days old. A test checks that changing the last 6 days of demand does not change any feature.
+
+## Process note (read this)
+- The decision gate failed on the real dataset: headline ridge regression achieved a test MAE of 984.63, which did not reliably beat the 28-day rolling mean baseline (test MAE 961.02), yielding a 95% bootstrap interval on the MAE gap spanning zero (-95.9 to 41.6). In accordance with repository rules, this result is reported as is without post hoc tuning.
 
 ## Not done
 - No weather inputs. Weather is not known 7 days ahead, and a real system would need a weather forecast.
