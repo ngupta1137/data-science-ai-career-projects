@@ -32,4 +32,4 @@ No real clickstream, catalogue or users. 11 has no online test and no off-policy
 
 ## Status of the projects
 
-See the table in the [root README](../README.md). Projects 01 to 04 have no generated metrics yet. Projects 07 to 11 failed their own decision gates, and say so.
+Each project's status and decision-gate verdict are in the table in the [root README](../README.md). Failed gates are reported as failed.
