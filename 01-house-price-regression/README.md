@@ -26,6 +26,7 @@ Constant baselines (mean, median), ridge regression, and histogram gradient boos
 
 ## Process note (read this)
 - Removed generation of `test_predictions.csv` in `results/`. Repository rules and `check_release.py` block committing CSV data artifacts.
+- Weakest claim: The decision gate requires only that the headline model beat a constant mean baseline (RMSE 1.1657 vs 0.6799), which is a low bar. A typical prediction error of $68,000 in 1990 dollars remains large for individual block groups. Additionally, 0.5-degree spatial grid blocks prevent exact point leakage but still allow spatial autocorrelation across cell boundaries.
 
 ## Not done
 - No time-based validation. The data is a single snapshot.

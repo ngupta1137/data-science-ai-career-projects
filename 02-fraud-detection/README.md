@@ -39,6 +39,7 @@ A constant baseline, logistic regression, and histogram gradient boosting. No cl
 ## Process note (read this)
 - OpenML dataset ID in `config.py` was updated from 1597 to 42175. OpenML 1597 strips the `Time` column, which caused `validate_frame` to fail. OpenML 42175 (https://www.openml.org/d/42175) preserves `Time` and contains the identical 284,807 transactions and 492 fraud cases.
 - Independent verification against the original ULB Machine Learning Group source page (https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud): published figures are 284,807 transactions and 492 frauds. Committed `results/metrics.json` reports exactly 284,807 rows and 492 frauds (fraud rate 0.001727). The row count and fraud count match the published source figures exactly.
+- Weakest claim: Row-level bootstrap intervals treat transactions as independent, ignoring clustering by cardholder or merchant, making confidence intervals artificially narrow. Furthermore, probability calibration and threshold selection rely on only 28 fraud events in the validation set, and the 79.4% cost saving assumes fixed review costs ($5) without analyst capacity limits or chargeback penalty fees.
 
 ## Not done
 - No per-card or per-merchant features. The data is anonymised and has no card identifier.
