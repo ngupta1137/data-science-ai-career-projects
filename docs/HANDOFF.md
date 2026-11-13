@@ -2,6 +2,13 @@
 
 Status as of 2026-11-12. Read [AGENTS.md](../AGENTS.md) first; its rules apply to every task below. Do the tasks in order. One branch and one pull request per task.
 
+## Environment notes
+
+- The owner works on Windows PowerShell. `make` is not available. Run the same checks directly: `ruff check .`, `ruff format --check .`, `python tools/check_release.py --ci`, `python -m pytest`. Activate the venv with `.venv\Scripts\Activate.ps1`.
+- Write test files with `write_bytes` when a hash depends on exact bytes; `write_text` changes line endings on Windows.
+- Full-run reproduction tests must compare floats with a tolerance and everything else exactly. Copy `_assert_close` from `13-promotion-lift/tests/test_pipeline.py`. Never loosen a gate check comparison.
+- The full test run takes several minutes. Run a single project with `python -m pytest NN-folder`.
+
 ## Where things stand
 
 | Item | State |
@@ -31,7 +38,8 @@ git fetch origin && git checkout wip/15-credit-scorecard
 1. Write `15-credit-scorecard/README.md` following `14-out-of-stock-detection/README.md`. Status line: simulated, gate FAILED, reported as is. Domain: banking-insurance. Process note must say: no model on recorded features beat the old policy because the old policy used an applicant trait the data never recorded; recalibration on the random sample beat the naive model; the test set knows every outcome, which no lender has.
 2. Write `15-credit-scorecard/data/DATA_CARD.md` from `credit_score/config.py` and `credit_score/data.py`, following project 14's card.
 3. In `credit_score/report.py`, the "What this means" paragraph says the recalibrated model "brings the predicted default rate within the band". Make that clause depend on `checks["calibrated_on_approved"]` so it cannot go stale.
-4. Set `STATUS` to `built`, rerun `train` and `report`, wire it (pyproject, then `tools/wire_domain_project.py` with domain `banking-insurance`), run `make check`, open a pull request into `main`.
+4. Its `tests/test_pipeline.py` reproduction test compares results exactly. Switch it to `_assert_close` as described in Environment notes.
+5. Set `STATUS` to `built`, rerun `train` and `report`, wire it (pyproject, then `tools/wire_domain_project.py` with domain `banking-insurance`), run `make check`, open a pull request into `main`.
 
 ## Task 3: build projects 16 to 26
 
