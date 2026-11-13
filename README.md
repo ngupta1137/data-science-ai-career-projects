@@ -2,8 +2,7 @@
 
 End-to-end projects for people building a career in data science and AI. Each project ships with code, a data access script, tests, committed metrics, and error analysis, so you can reproduce every number and see where the model fails.
 
-**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 04 have code and tests but no generated metrics. Projects 05 to 15 are built on generated or simulated data with committed results. The table below says which is which.
-**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 14 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 14 are built on generated or simulated data. The table below says which is which.
+**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 15 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 15 are built on generated or simulated data. The table below says which is which.
 
 <!-- DOI badge goes here after the first Zenodo release -->
 
@@ -48,6 +47,8 @@ Roadmap, not part of the claim above: a recommender. It is only added if the pro
 
 ## How to run
 
+### POSIX (Linux, macOS)
+
 ```bash
 git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
 cd data-science-ai-career-projects
@@ -58,6 +59,23 @@ make check                             # lint, layout gate, tests (no network ne
 ```
 
 Individual steps: `make lint`, `make gate`, `make test`.
+
+### Windows (PowerShell)
+
+On Windows PowerShell where `make` is typically not installed:
+
+```powershell
+git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
+cd data-science-ai-career-projects
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+
+ruff check .
+ruff format --check .
+python tools/check_release.py --ci
+python -m pytest
+```
 
 Working with a coding agent? [AGENTS.md](AGENTS.md) holds the rules every agent must follow here, and [docs/HANDOFF.md](docs/HANDOFF.md) holds the open tasks.
 

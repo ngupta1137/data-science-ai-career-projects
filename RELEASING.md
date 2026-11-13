@@ -24,12 +24,9 @@ One concept DOI for this repository. One version DOI per release.
 
 | Version | Content |
 |---|---|
-| v0.1.0 | Scaffold, project 01, project 02. Proves the template. |
-| v0.2.0 | Projects 03 to 05. |
-| v0.3.0 | Projects 06 to 08. |
-| v0.4.0 | Projects 09 to 12. |
-| v1.0.0 | After a hostile review of projects 01 to 12. |
-| v1.1.0 | Roadmap projects, only if the projects above passed the bar. |
+| v0.1.0 | Fourteen reference projects (01 to 14): 01 to 04 on real public data, 05 to 14 on generated or simulated data. Gates failed: 03, 07, 08, 09, 10, 11, 14 (reported as is). No LLM called in 09 and 10. |
+| v0.2.0 | Domain projects (15 onward). |
+| v1.0.0 | Post-review stabilization. |
 
 ## Do not
 

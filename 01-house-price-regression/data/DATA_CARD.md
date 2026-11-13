@@ -1,12 +1,14 @@
 # Data card: California Housing
 
 ## Source
-The California Housing dataset distributed with scikit-learn (`sklearn.datasets.fetch_california_housing`). It is built from the 1990 U.S. census, one row per census block group.
+The California Housing dataset distributed with scikit-learn (`sklearn.datasets.fetch_california_housing`), originally derived from the 1990 U.S. census (one row per census block group) and archived at StatLib.
+- Source page: https://www.dcc.fc.up.pt/~ltorgo/Regression/cal_housing.html
+- Scikit-learn documentation: https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset
 
 Original reference: Pace, R. Kelley, and Ronald Barry. "Sparse Spatial Autoregressions." Statistics and Probability Letters, 33(3), 1997, pp. 291-297.
 
 ## Terms
-Not stated in this repository. The data is **not** committed here. `python -m house_price.download_data` fetches it through scikit-learn, which verifies the archive against its own checksum. Check the scikit-learn documentation for the current terms before redistributing anything derived from it.
+Derived from 1990 U.S. Census public data. Distributed with scikit-learn under BSD 3-Clause. The data is **not** committed here: `python -m house_price.download_data` fetches it through scikit-learn, which verifies the archive against its own checksum. Verify the exact terms on the source page before redistributing anything derived from it.
 
 ## Shape
 Documented by scikit-learn: 20,640 rows, 8 numeric features, 1 target. `house_price/config.py` enforces the row count, and `house_price/data.py` enforces ranges and rejects missing values.
