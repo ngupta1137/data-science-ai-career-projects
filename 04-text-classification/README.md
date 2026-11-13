@@ -26,6 +26,9 @@ The official split is by posting date, so the test set is later than the trainin
 ## Models
 A majority-class baseline, then TF-IDF with Naive Bayes, logistic regression, and a linear SVM. Models are chosen by validation macro-F1. The gate asks whether a heavier model beats Naive Bayes by an interval that excludes zero, so complexity has to pay for itself.
 
+## Process note (read this)
+- Weakest claim: The decision gate requires beating a 20-class majority baseline (macro-F1 0.0050), which is a very low bar. Naive Bayes was selected by validation macro-F1 (0.7647 vs 0.7568 for LinearSVC), but on the holdout test set LinearSVC attained a higher macro-F1 (0.6805 vs 0.6761). Additionally, semantically adjacent categories such as talk.religion.misc (F1 0.213) remain heavily confused with soc.religion.christian.
+
 ## Not done
 - **No transformer comparison.** Fine-tuning a transformer needs a deep learning stack, a GPU for reasonable time, and model downloads. It is designed but not built here, and it is not claimed. It is the natural next step once this baseline has committed numbers.
 - No probability calibration. LinearSVC does not give probabilities.

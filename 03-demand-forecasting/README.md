@@ -29,6 +29,7 @@ Three baselines (repeat the last value, repeat the same weekday last week, mean 
 
 ## Process note (read this)
 - The decision gate failed on the real dataset: headline ridge regression achieved a test MAE of 984.63, which did not reliably beat the 28-day rolling mean baseline (test MAE 961.02), yielding a 95% bootstrap interval on the MAE gap spanning zero (-95.9 to 41.6). In accordance with repository rules, this result is reported as is without post hoc tuning.
+- Weakest claim: The test setup excludes weather features because weather forecasts 7 days ahead were not available in the historical dataset. Omitting weather (the primary external driver of bike rental demand) fundamentally limits predictive power, allowing a simple 28-day historical average to match or beat both ridge regression and gradient boosting.
 
 ## Not done
 - No weather inputs. Weather is not known 7 days ahead, and a real system would need a weather forecast.

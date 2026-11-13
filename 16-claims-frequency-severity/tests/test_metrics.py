@@ -51,4 +51,3 @@ def test_rmse():
     b = np.array([1.0, 2.0, 5.0])
     # diff = [0, 0, -2], sq = [0, 0, 4], mean = 4/3, sqrt = 1.15470
     assert metrics.rmse(a, b) == pytest.approx(np.sqrt(4.0 / 3.0))
-
