@@ -4,13 +4,7 @@
 
 This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
-## Projects built for this domain
-
-These projects use a simulation shaped around this domain's own decision.
-
-- [Claims frequency and severity](../16-claims-frequency-severity): Price auto insurance policies by segment using a two-part frequency-severity model.
-
-## Projects that carry over from the core set
+## Start here
 
 1. [Fraud detection](../02-fraud-detection): Rare-event classification: PR-AUC, calibration, cost-based thresholds, time-based splits.
 2. [Fairness and model risk audit](../08-fairness-audit): Audit an approval policy by group, and see what a fix costs in utility.
@@ -28,7 +22,7 @@ These projects use a simulation shaped around this domain's own decision.
 
 ## What does not transfer
 
-No real transactions, credit files or claims. Fraud in 02 uses a public dataset that has not yet been run here. The fairness audit in 08 has two groups and one definition (equal opportunity). It is a learning aid, not a fair-lending or compliance method. Take regulatory questions to counsel and your model risk function.
+No real transactions, credit files or claims. Fraud in 02 uses a public benchmark dataset (credit card fraud). The fairness audit in 08 has two groups and one definition (equal opportunity). It is a learning aid, not a fair-lending or compliance method. Take regulatory questions to counsel and your model risk function.
 
 ## Questions to ask in this domain
 
