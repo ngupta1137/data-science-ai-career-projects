@@ -38,7 +38,7 @@ A majority-class baseline, then TF-IDF with Naive Bayes, logistic regression, an
 ## Run
 
 ```bash
-pip install -r ../requirements.txt
+pip install -r ../requirements.txt                     # Windows PowerShell: pip install -r ..\requirements.txt
 python -m text_classification.download_data --write-checksum   # first time only, then commit data/CHECKSUMS.txt
 python -m text_classification.train                             # writes results/
 python -m text_classification.report                            # renders reports/ from results/

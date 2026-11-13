@@ -46,6 +46,8 @@ Roadmap, not part of the claim above: a recommender. It is only added if the pro
 
 ## How to run
 
+### POSIX (Linux, macOS)
+
 ```bash
 git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
 cd data-science-ai-career-projects
@@ -56,6 +58,23 @@ make check                             # lint, layout gate, tests (no network ne
 ```
 
 Individual steps: `make lint`, `make gate`, `make test`.
+
+### Windows (PowerShell)
+
+On Windows PowerShell where `make` is typically not installed:
+
+```powershell
+git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
+cd data-science-ai-career-projects
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+
+ruff check .
+ruff format --check .
+python tools/check_release.py --ci
+python -m pytest
+```
 
 Working with a coding agent? [AGENTS.md](AGENTS.md) holds the rules every agent must follow here, and [docs/HANDOFF.md](docs/HANDOFF.md) holds the open tasks.
 

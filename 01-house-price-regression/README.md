@@ -37,11 +37,11 @@ Constant baselines (mean, median), ridge regression, and histogram gradient boos
 ## Run
 
 ```bash
-pip install -r ../requirements.txt
+pip install -r ../requirements.txt                     # Windows PowerShell: pip install -r ..\requirements.txt
 python -m house_price.download_data --write-checksum   # first time only, then commit data/CHECKSUMS.txt
 python -m house_price.train                             # writes results/
 python -m house_price.report                            # renders reports/ from results/
-python -m pytest                                # tests; no network needed
+python -m pytest                                        # tests; no network needed
 ```
 
 `python -m house_price.train --fast` runs a tiny search for smoke tests. Its output is marked `fast_mode: true` and the release gate rejects it.
