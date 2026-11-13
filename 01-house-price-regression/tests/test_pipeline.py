@@ -20,7 +20,6 @@ def test_pipeline_runs_and_writes_valid_results(tmp_path):
     for name in (
         "metrics.json",
         "error_analysis.json",
-        "test_predictions.csv",
         "pred_vs_actual.png",
         "residuals_vs_predicted.png",
     ):

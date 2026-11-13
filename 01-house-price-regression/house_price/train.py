@@ -268,15 +268,6 @@ def run(
     (results_dir / "error_analysis.json").write_text(
         json.dumps(_clean(error_analysis), indent=2) + "\n", encoding="utf-8"
     )
-    pd.DataFrame(
-        {
-            "row": test_idx,
-            "cell": g_test,
-            "actual": y_test,
-            "predicted": headline_pred,
-            "price_band": bands,
-        }
-    ).to_csv(results_dir / "test_predictions.csv", index=False)
     _save_plots(y_test, headline_pred, results_dir, headline_name)
     return metrics
 

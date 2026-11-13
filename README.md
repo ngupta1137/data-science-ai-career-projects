@@ -25,7 +25,7 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 
 | # | Project | Skill it teaches | Status |
 |---|---|---|---|
-| 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Code and tests written. Metrics not yet generated |
+| 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Built on California Housing. Gate passed |
 | 02 | [Fraud detection](02-fraud-detection) | Imbalanced classification, PR-AUC, calibration, cost-based decisions, time-based splits | Code and tests written. Metrics not yet generated |
 | 03 | [Demand forecasting](03-demand-forecasting) | Rolling-origin backtests, horizon-safe features, MASE | Code and tests written. Metrics not yet generated |
 | 04 | [Text classification](04-text-classification) | TF-IDF baselines, macro-F1, metadata leakage, confusion analysis | Code and tests written. Metrics not yet generated. Transformer comparison designed, not built |
