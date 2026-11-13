@@ -19,4 +19,5 @@
 - Project 12 (uplift modelling): built on simulated customers with a known effect. The gate passed in a well-powered setup; the README states the limits.
 - Project 13 (promotion lift): built on a simulated grocery chain. The pre-set gate passed; at 200 stores the right method gives a definite answer in about three campaigns in four, which the README states.
 - Project 14 (out-of-stock detection): built on a simulated chain. The pre-set gate failed on visit precision and the result is reported as is, with a labelled post hoc calibration table.
+- Project 16 (claims frequency-severity): built on simulated policies. Gate passed.
 - Agent rules (`AGENTS.md`), task handoff (`docs/HANDOFF.md`) and `tools/wire_domain_project.py` for wiring new domain projects.

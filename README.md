@@ -8,7 +8,7 @@ End-to-end projects for people building a career in data science and AI. Each pr
 
 ## What this is
 
-- Fourteen reference projects, each built to the standard in [docs/evidence-standard.md](docs/evidence-standard.md).
+- Sixteen reference projects, each built to the standard in [docs/evidence-standard.md](docs/evidence-standard.md).
 - A baseline first, a leakage trap shown and fixed, error analysis by segment, and a decision memo for each.
 - Self-study material. Run it, break it, compare your numbers to the committed ones.
 
@@ -39,8 +39,9 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 | 12 | [Uplift modelling](12-uplift-modelling) | Qini and AUUC, IPW profit, response-model trap, data needed | Built on simulated customers with a known effect. Gate passed, with caveats in the README |
 | 13 | [Promotion lift](13-promotion-lift) | Difference-in-differences on category profit, cannibalisation, pull-forward, stores needed | Built on a simulated grocery chain. Gate passed, with caveats in the README |
 | 14 | [Out-of-stock detection](14-out-of-stock-detection) | Empty-shelf chance from sales gaps, value-ranked visits under a budget, calibration | Built on a simulated chain. Gate failed, reported as is |
+| 16 | [Claims frequency and severity](16-claims-frequency-severity) | Exposure weighting, two-part Poisson-Gamma, decile loss ratios | Built on simulated policies. Gate passed, with caveats in the README |
 
-Projects 05 to 14 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 onward are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
+Projects 05 to 16 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 onward are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
 
 Roadmap, not part of the claim above: a recommender. It is only added if the projects above meet the bar.
 
