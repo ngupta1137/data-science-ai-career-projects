@@ -1,12 +1,13 @@
 # Data card: Bike Sharing (daily)
 
 ## Source
-The Bike Sharing dataset from the UCI Machine Learning Repository, daily file (`day.csv`), covering two years of a bike rental system. Hourly data exists in the same archive and is not used. The download URL is in `demand_forecast/config.py` and must be verified before release.
+The Bike Sharing dataset from the UCI Machine Learning Repository, daily file (`day.csv`), covering two years of a bike rental system (Capital Bikeshare, Washington D.C., 2011-2012). Hourly data exists in the same archive and is not used.
+- Source page: https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
 
-Reference: Fanaee-T, H., and Gama, J. "Event labeling combining ensemble detectors and background knowledge." Progress in Artificial Intelligence, 2013.
+Reference: Fanaee-T, H., and Gama, J. "Event labeling combining ensemble detectors and background knowledge." Progress in Artificial Intelligence, 2(2), 2014, pp. 113-127.
 
 ## Terms
-Not restated here. UCI datasets state their license on the dataset page. Verify it there before redistributing anything derived from this data. The data is **not** committed: `python -m demand_forecast.download_data` fetches it and the code rejects the file if the committed checksum does not match.
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0) on the UCI repository. Verify the exact terms on the source page before redistributing anything derived from this data. The data is **not** committed: `python -m demand_forecast.download_data` fetches it and the code rejects the file if the committed checksum does not match.
 
 ## Shape
 Documented by the source: 731 rows, one per day. `demand_forecast/config.py` enforces the row count and `demand_forecast/data.py` enforces the schema, non-negative counts, consecutive dates, and the identity below.

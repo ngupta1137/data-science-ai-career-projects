@@ -1,12 +1,14 @@
 # Data card: 20 Newsgroups
 
 ## Source
-The 20 Newsgroups collection, distributed with scikit-learn (`sklearn.datasets.fetch_20newsgroups`). Usenet posts from the 1990s across 20 newsgroups. The official train and test split is by posting date.
+The 20 Newsgroups collection, distributed with scikit-learn (`sklearn.datasets.fetch_20newsgroups`). Usenet posts from the 1990s across 20 newsgroups, using the date-sorted "bydate" distribution prepared by Jason Rennie.
+- Source page: http://qwone.com/~jason/20Newsgroups/
+- Scikit-learn documentation: https://scikit-learn.org/stable/datasets/real_world.html#the-20-newsgroups-text-dataset
 
 Reference: Lang, K. "Newsweeder: Learning to filter netnews." Proceedings of the 12th International Conference on Machine Learning, 1995, pp. 331-339.
 
 ## Terms
-Not stated in this repository. The data is **not** committed. `python -m text_classification.download_data` fetches it through scikit-learn and writes one CSV with two versions of each post. Check the scikit-learn and original source terms before redistributing anything derived from it.
+Historical Usenet postings from 1995 collected for research. No explicit single license applies to all posts. Verify the exact terms on the source page before redistributing anything derived from it. The data is **not** committed. `python -m text_classification.download_data` fetches it through scikit-learn and writes one CSV with two versions of each post.
 
 ## Shape
 Documented by scikit-learn: 18,846 posts, 11,314 train and 7,532 test, 20 classes. `text_classification/config.py` enforces these counts and `text_classification/data.py` enforces the schema and that every class appears in both splits.
