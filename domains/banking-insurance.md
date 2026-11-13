@@ -22,7 +22,7 @@ This page routes you to projects in this repository. Every project describes a s
 
 ## What does not transfer
 
-No real transactions, credit files or claims. Fraud in 02 uses a public dataset that has not yet been run here. The fairness audit in 08 has two groups and one definition (equal opportunity). It is a learning aid, not a fair-lending or compliance method. Take regulatory questions to counsel and your model risk function.
+No real transactions, credit files or claims. Fraud in 02 uses a public benchmark dataset (credit card fraud). The fairness audit in 08 has two groups and one definition (equal opportunity). It is a learning aid, not a fair-lending or compliance method. Take regulatory questions to counsel and your model risk function.
 
 ## Questions to ask in this domain
 

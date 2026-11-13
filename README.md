@@ -40,7 +40,7 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 | 13 | [Promotion lift](13-promotion-lift) | Difference-in-differences on category profit, cannibalisation, pull-forward, stores needed | Built on a simulated grocery chain. Gate passed, with caveats in the README |
 | 14 | [Out-of-stock detection](14-out-of-stock-detection) | Empty-shelf chance from sales gaps, value-ranked visits under a budget, calibration | Built on a simulated chain. Gate failed, reported as is |
 
-Projects 05 to 14 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 onward are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
+Projects 05 to 14 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 and 14 are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
 
 Roadmap, not part of the claim above: a recommender. It is only added if the projects above meet the bar.
 
