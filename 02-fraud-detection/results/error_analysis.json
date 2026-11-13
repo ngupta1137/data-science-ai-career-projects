@@ -1,0 +1,65 @@
+{
+  "model": "hist_gradient_boosting",
+  "policy": "per-transaction expected cost, sigmoid calibration, review cost 5.0",
+  "overall": {
+    "n": 85442,
+    "fraud": 108,
+    "flagged": 75,
+    "recall": 0.37037037037037035,
+    "missed_fraud_amount": 2626.89
+  },
+  "by_amount_band": {
+    "amount_above_fit_p90": {
+      "n": 8293,
+      "fraud": 20,
+      "flagged": 50,
+      "recall": 0.85,
+      "missed_fraud_amount": 2089.24
+    },
+    "amount_below_fit_median": {
+      "n": 44080,
+      "fraud": 65,
+      "flagged": 5,
+      "recall": 0.07692307692307693,
+      "missed_fraud_amount": 137.12999999999997
+    },
+    "amount_median_to_p90": {
+      "n": 33069,
+      "fraud": 23,
+      "flagged": 20,
+      "recall": 0.782608695652174,
+      "missed_fraud_amount": 400.52
+    }
+  },
+  "by_time_third": {
+    "test_third_1": {
+      "n": 28481,
+      "fraud": 33,
+      "flagged": 26,
+      "recall": 0.5151515151515151,
+      "missed_fraud_amount": 143.70000000000002,
+      "pr_auc": 0.7938015927929155
+    },
+    "test_third_2": {
+      "n": 28481,
+      "fraud": 53,
+      "flagged": 27,
+      "recall": 0.2641509433962264,
+      "missed_fraud_amount": 1720.9299999999998,
+      "pr_auc": 0.8330794928598367
+    },
+    "test_third_3": {
+      "n": 28480,
+      "fraud": 22,
+      "flagged": 22,
+      "recall": 0.4090909090909091,
+      "missed_fraud_amount": 762.26,
+      "pr_auc": 0.6680941507685529
+    }
+  },
+  "amount_band_edges_from_fit": [
+    21.87,
+    201.0
+  ],
+  "lowest_recall_amount_band_min_10_fraud": "amount_below_fit_median"
+}

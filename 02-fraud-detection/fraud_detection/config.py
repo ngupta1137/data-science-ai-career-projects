@@ -16,7 +16,8 @@ CHECKSUM_FILE = DATA_DIR / "CHECKSUMS.txt"
 
 # OpenML id for the ULB credit card fraud dataset. Verify at download time: the script
 # checks the column names and, when set, the documented row and fraud counts.
-OPENML_DATA_ID = 1597
+# Note: OpenML 1597 strips the Time column; OpenML 42175 preserves Time and all 284,807 rows.
+OPENML_DATA_ID = 42175
 
 SEED = 42
 TARGET = "Class"
