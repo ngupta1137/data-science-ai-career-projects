@@ -84,4 +84,5 @@ def test_full_run_reproduces_committed_results(tmp_path):
     again, _ = train.run_pipeline(results_dir=out, fast_mode=False)
     _assert_close(again["policies"], committed["policies"])
     _assert_close(again["headline"], committed["headline"])
+    _assert_close(again["traps"], committed["traps"])
     assert again["gate"] == committed["gate"]
