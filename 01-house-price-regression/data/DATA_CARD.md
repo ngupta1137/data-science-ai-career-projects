@@ -3,7 +3,7 @@
 ## Source
 The California Housing dataset distributed with scikit-learn (`sklearn.datasets.fetch_california_housing`). It is built from the 1990 U.S. census, one row per census block group.
 
-Original reference (verify before release): Pace, R. Kelley, and Ronald Barry. "Sparse Spatial Autoregressions." Statistics and Probability Letters, 33(3), 1997, pp. 291-297.
+Original reference: Pace, R. Kelley, and Ronald Barry. "Sparse Spatial Autoregressions." Statistics and Probability Letters, 33(3), 1997, pp. 291-297.
 
 ## Terms
 Not stated in this repository. The data is **not** committed here. `python -m house_price.download_data` fetches it through scikit-learn, which verifies the archive against its own checksum. Check the scikit-learn documentation for the current terms before redistributing anything derived from it.

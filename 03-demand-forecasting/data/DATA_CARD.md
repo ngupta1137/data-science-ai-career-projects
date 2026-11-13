@@ -3,7 +3,7 @@
 ## Source
 The Bike Sharing dataset from the UCI Machine Learning Repository, daily file (`day.csv`), covering two years of a bike rental system. Hourly data exists in the same archive and is not used. The download URL is in `demand_forecast/config.py` and must be verified before release.
 
-Reference to verify before release: Fanaee-T, H., and Gama, J. "Event labeling combining ensemble detectors and background knowledge." Progress in Artificial Intelligence, 2013.
+Reference: Fanaee-T, H., and Gama, J. "Event labeling combining ensemble detectors and background knowledge." Progress in Artificial Intelligence, 2013.
 
 ## Terms
 Not restated here. UCI datasets state their license on the dataset page. Verify it there before redistributing anything derived from this data. The data is **not** committed: `python -m demand_forecast.download_data` fetches it and the code rejects the file if the committed checksum does not match.

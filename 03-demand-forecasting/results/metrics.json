@@ -1,0 +1,132 @@
+{
+  "project": "03-demand-forecasting",
+  "data_source": "bike_sharing_uci",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "data": {
+    "rows": 731,
+    "sha256": "a6bcf826782d3c0fbfdcbeead17cd0884185a0dafe8ff10cd48a874ee7ba18be"
+  },
+  "backtest": {
+    "horizon_days": 7,
+    "initial_train_days": 365,
+    "step_days": 7,
+    "origins": 52,
+    "tuning_origins": 26,
+    "test_origins": 26,
+    "test_days": 182,
+    "mase_scale_seasonal_naive_mae": 866.6462962962963
+  },
+  "models": {
+    "baseline_naive_last": {
+      "tuning_mae": 1233.0164835164835,
+      "test_mae": 1232.5274725274726,
+      "test_rmse": 1702.5078496212516,
+      "test_smape_percent": 23.129538913890098,
+      "test_mase": 1.4221805110052483,
+      "test_bias": 131.9010989010989,
+      "best_params": {}
+    },
+    "baseline_seasonal_naive_7": {
+      "tuning_mae": 1090.7912087912089,
+      "test_mae": 1132.2142857142858,
+      "test_rmse": 1652.0017444713137,
+      "test_smape_percent": 23.26344374343877,
+      "test_mase": 1.3064318056315731,
+      "test_bias": 196.51098901098902,
+      "best_params": {}
+    },
+    "baseline_mean_28": {
+      "tuning_mae": 946.1681711145998,
+      "test_mae": 961.0219780219782,
+      "test_rmse": 1407.9049107227954,
+      "test_smape_percent": 19.12269322625937,
+      "test_mase": 1.1088975769342189,
+      "test_bias": 313.27747252747247,
+      "best_params": {}
+    },
+    "ridge": {
+      "tuning_mae": 888.6060009659959,
+      "test_mae": 984.6287377849886,
+      "test_rmse": 1375.496393324533,
+      "test_smape_percent": 19.66262484601748,
+      "test_mase": 1.1361367861293616,
+      "test_bias": 40.820842074187674,
+      "best_params": {
+        "alpha": 10.0
+      }
+    },
+    "hist_gradient_boosting": {
+      "tuning_mae": 956.4996908907461,
+      "test_mae": 999.012245218023,
+      "test_rmse": 1395.693470441363,
+      "test_smape_percent": 20.020099684806542,
+      "test_mase": 1.1527335309542157,
+      "test_bias": 97.03827781815794,
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 4,
+        "max_iter": 200,
+        "min_samples_leaf": 10
+      }
+    }
+  },
+  "headline": {
+    "model": "ridge",
+    "selected_by": "lowest tuning-fold MAE",
+    "metric": "mae",
+    "value": 984.6287377849886,
+    "ci95": [
+      777.9951693285044,
+      1236.465573320844
+    ],
+    "ci_method": "block bootstrap over 26 forecast blocks, 1000 resamples"
+  },
+  "best_baseline": {
+    "model": "baseline_mean_28",
+    "selected_by": "lowest tuning-fold MAE",
+    "test_mae": 961.0219780219782
+  },
+  "gap_best_baseline_minus_headline_ci95": [
+    -95.91451131076894,
+    41.639547164685254
+  ],
+  "gate": {
+    "rule": "Pass if the lower bound of the 95% block-bootstrap interval on the test MAE gap (best baseline MAE minus headline model MAE) is above zero. The headline model and the best baseline are both chosen on the tuning folds, never on the test folds.",
+    "passed": false
+  },
+  "traps": {
+    "same_day_components": {
+      "test_mae_with_leak": 47.82807682985375,
+      "test_mae_honest": 984.6287377849886,
+      "difference": -936.8006609551348,
+      "note": "casual + registered equals the target on the same day, so the model reads the answer."
+    },
+    "short_lag": {
+      "test_mae_with_leak": 807.8279383689578,
+      "test_mae_honest": 984.6287377849886,
+      "difference": -176.80079941603083,
+      "note": "lag 1 and lag 2 are unknown 7 days ahead. Using them scores a forecast nobody could make."
+    },
+    "random_kfold": {
+      "random_5fold_mae": 782.1898002490104,
+      "rolling_origin_test_mae": 984.6287377849886,
+      "difference": 202.4389375359782,
+      "note": "Shuffled folds train on days after the day being scored. Different rows, so this compares designs."
+    }
+  },
+  "caveats": [
+    "The data is two years of one city. It cannot show how a model behaves over more years or in other places.",
+    "Weather is excluded because it is not known 7 days ahead. A real system would use weather forecasts, which this project does not.",
+    "Forecast intervals are not produced. Point forecasts only.",
+    "Only about half a year of test blocks is scored, so intervals are wide.",
+    "The same-day and short-lag variants are deliberately wrong. Their scores are shown to measure the damage, not as results."
+  ]
+}

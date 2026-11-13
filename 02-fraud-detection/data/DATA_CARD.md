@@ -3,7 +3,7 @@
 ## Source
 Credit card transactions made by European cardholders over two days in September 2013, published by the ULB Machine Learning Group. This project fetches it from OpenML (`config.OPENML_DATA_ID`) through scikit-learn.
 
-Reference to verify before release: Dal Pozzolo, A., Caelen, O., Johnson, R. A., and Bontempi, G. "Calibrating Probability with Undersampling for Unbalanced Classification." IEEE Symposium Series on Computational Intelligence, 2015.
+Reference: Dal Pozzolo, A., Caelen, O., Johnson, R. A., and Bontempi, G. "Calibrating Probability with Undersampling for Unbalanced Classification." IEEE Symposium Series on Computational Intelligence, 2015.
 
 ## Terms
 Not restated here. The dataset is commonly listed under an open database license with the contents under a database contents license. Verify the exact terms on the source page before redistributing anything derived from it. The data is **not** committed here: `python -m fraud_detection.download_data` fetches it, and the code rejects the file if the committed checksum does not match.

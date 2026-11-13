@@ -1,0 +1,253 @@
+{
+  "project": "02-fraud-detection",
+  "data_source": "creditcard_openml",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "data": {
+    "rows": 284807,
+    "sha256": "ee3241bfc42ce15ec94587056623ca8720f24b7c7746c39dc7d17f1e75657168",
+    "fraud_rows": 492,
+    "fraud_rate": 0.001727485630620034,
+    "duplicate_rows": 1081
+  },
+  "split": {
+    "strategy": "time-ordered: fit, then validation, then test",
+    "fit_rows": 159492,
+    "val_rows": 39873,
+    "test_rows": 85442,
+    "fit_fraud": 356,
+    "val_fraud": 28,
+    "test_fraud": 108,
+    "test_fraud_rate": 0.0012640153554457996
+  },
+  "models": {
+    "baseline_prior": {
+      "val_pr_auc": 0.000702229578913049,
+      "test_pr_auc": 0.0012640153554457996,
+      "test_roc_auc": 0.5,
+      "test_brier": 0.001263354783095577,
+      "best_params": {}
+    },
+    "logistic": {
+      "val_pr_auc": 0.5950555160552697,
+      "test_pr_auc": 0.6806735414240733,
+      "test_roc_auc": 0.9777659072107945,
+      "test_brier": 0.0006701096971653652,
+      "best_params": {
+        "model__C": 0.01
+      }
+    },
+    "hist_gradient_boosting": {
+      "val_pr_auc": 0.6535422468386701,
+      "test_pr_auc": 0.7847085785756405,
+      "test_roc_auc": 0.9834345912228116,
+      "test_brier": 0.00044061040955462055,
+      "best_params": {
+        "l2_regularization": 1.0,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 31
+      }
+    }
+  },
+  "headline": {
+    "model": "hist_gradient_boosting",
+    "selected_by": "highest PR-AUC on validation",
+    "metric": "pr_auc",
+    "value": 0.7847085785756405,
+    "ci95": [
+      0.7119139497545343,
+      0.8554548272324772
+    ],
+    "ci_method": "row bootstrap, 1000 resamples"
+  },
+  "baseline": {
+    "model": "baseline_prior",
+    "test_pr_auc": 0.0012640153554457996
+  },
+  "calibration": {
+    "calibrator_used_for_policy": "sigmoid (Platt), fixed in advance because validation holds few fraud rows",
+    "val_fraud_rows": 28,
+    "test_brier_raw": 0.00044061040955462055,
+    "test_brier_sigmoid": 0.0004282126274127665,
+    "test_brier_isotonic": 0.00042892875123615176,
+    "test_brier_constant_prevalence": 0.001263354783095577,
+    "test_calibration_ratio_raw": 0.9766885461064888,
+    "test_calibration_ratio_sigmoid": 0.9123263713439848,
+    "test_calibration_ratio_isotonic": 0.8380104539177972,
+    "reliability_sigmoid": [
+      {
+        "n": 8545,
+        "mean_predicted": 3.172453987733392e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8545,
+        "mean_predicted": 3.5199395860038013e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 3.926235564673064e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 4.554490691619129e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 5.3546621670376024e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 6.524205103393596e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 8.430646607143701e-05,
+        "observed_rate": 0.0,
+        "fraud_count": 0
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 0.00012220987667778933,
+        "observed_rate": 0.00023408239700374532,
+        "fraud_count": 2
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 0.00021917856832217778,
+        "observed_rate": 0.0005852059925093633,
+        "fraud_count": 5
+      },
+      {
+        "n": 8544,
+        "mean_predicted": 0.010835992753178508,
+        "observed_rate": 0.011821161048689138,
+        "fraud_count": 101
+      }
+    ]
+  },
+  "assumptions": {
+    "missed_fraud_cost": "transaction amount",
+    "flag_cost": "fixed review cost per flagged transaction",
+    "review_costs_tested": [
+      1.0,
+      5.0,
+      20.0
+    ],
+    "review_cost_base": 5.0
+  },
+  "cost_by_review_cost": {
+    "1.0": {
+      "flag_nothing": 14566.58,
+      "flag_everything": 85442.0,
+      "global_threshold_tuned_on_val": 2946.19,
+      "per_transaction_sigmoid": 2897.9700000000003,
+      "per_transaction_isotonic": 2936.0699999999997,
+      "oracle_threshold_tuned_on_test": 2661.5999999999967,
+      "val_threshold": 0.0046571809251514835,
+      "flagged_share_global": 0.005348657568877133,
+      "flagged_share_per_transaction": 0.003909084525174972,
+      "best_trivial": 14566.58,
+      "saving_vs_best_trivial_per_transaction": 0.8010535074121723
+    },
+    "5.0": {
+      "flag_nothing": 14566.58,
+      "flag_everything": 427210.0,
+      "global_threshold_tuned_on_val": 3453.19,
+      "per_transaction_sigmoid": 3001.89,
+      "per_transaction_isotonic": 3060.19,
+      "oracle_threshold_tuned_on_test": 3133.5999999999967,
+      "val_threshold": 0.040037222595566635,
+      "flagged_share_global": 0.001369349968399616,
+      "flagged_share_per_transaction": 0.0008777884412818052,
+      "best_trivial": 14566.58,
+      "saving_vs_best_trivial_per_transaction": 0.7939193688566568
+    },
+    "20.0": {
+      "flag_nothing": 14566.58,
+      "flag_everything": 1708840.0,
+      "global_threshold_tuned_on_val": 6169.49,
+      "per_transaction_sigmoid": 4152.67,
+      "per_transaction_isotonic": 3710.82,
+      "oracle_threshold_tuned_on_test": 4903.599999999997,
+      "val_threshold": 0.6544373621879737,
+      "flagged_share_global": 0.0010416422836544087,
+      "flagged_share_per_transaction": 0.0005383769106528405,
+      "best_trivial": 14566.58,
+      "saving_vs_best_trivial_per_transaction": 0.7149179834937233
+    }
+  },
+  "cost_gap_global_minus_per_transaction_ci95": [
+    44.13524999999987,
+    1188.0179999999991
+  ],
+  "operating_points": {
+    "top_0.001_share": {
+      "recall": 0.6944444444444444,
+      "note": "illustrative review budget, not a target"
+    },
+    "top_0.005_share": {
+      "recall": 0.8425925925925926,
+      "note": "illustrative review budget, not a target"
+    },
+    "top_0.01_share": {
+      "recall": 0.8611111111111112,
+      "note": "illustrative review budget, not a target"
+    }
+  },
+  "gate": {
+    "rule": "Pass only if both hold on the test set: (1) the lower bound of the headline model's 95% bootstrap interval on PR-AUC is above the PR-AUC of the constant baseline (which equals the test fraud rate); (2) at the base review cost, the per-transaction expected-cost policy costs less than both trivial policies (flag nothing, flag everything).",
+    "pr_auc_interval_above_baseline": true,
+    "per_transaction_policy_beats_trivial": true,
+    "passed": true
+  },
+  "traps": {
+    "accuracy": {
+      "constant_legit_accuracy": 0.9987359846445542,
+      "model_accuracy_at_global_threshold": 0.9992860654010908,
+      "model_recall_at_global_threshold": 0.7592592592592593,
+      "note": "A model that flags nothing scores the constant accuracy and catches no fraud."
+    },
+    "threshold_on_test": {
+      "review_cost": 5.0,
+      "cost_with_threshold_tuned_on_val": 3453.19,
+      "cost_with_threshold_tuned_on_test": 3133.5999999999967,
+      "optimism": 319.59000000000333,
+      "note": "Tuning the threshold on test rows shows a cost you could not have achieved in advance."
+    },
+    "random_split": {
+      "model": "hist_gradient_boosting",
+      "same_hyperparameters": true,
+      "random_split_test_pr_auc": 0.8787893761667873,
+      "time_split_test_pr_auc": 0.7847085785756405,
+      "difference": -0.09408079759114685,
+      "note": "The two test sets contain different rows, so this compares evaluation designs, not identical rows."
+    }
+  },
+  "caveats": [
+    "The cost model is an assumption: a missed fraud costs its amount, a flag costs a fixed review cost. Real costs differ.",
+    "The interval resamples rows as if independent. Transactions on one card are correlated, so the true uncertainty is wider.",
+    "The test period is about one day of data. It cannot show how the model behaves over months of drift.",
+    "The V1 to V28 features are PCA outputs computed on the whole dataset, including the test period, before this project saw them. That leak cannot be undone here.",
+    "Duplicate rows are kept. The count is recorded in the data section of metrics.json.",
+    "Hyperparameters, calibration, and the threshold all use the same validation split, so validation scores are optimistic. Test scores are not."
+  ]
+}

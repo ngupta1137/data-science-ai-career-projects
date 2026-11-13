@@ -1,6 +1,6 @@
 # Project 02: Fraud detection
 
-**Status: code and tests written. Metrics not yet generated.** Every number in the reports comes from `results/`, and `results/` is empty until the pipeline has run on the real data.
+**Status: built on Credit Card Fraud (ULB / OpenML). The decision gate PASSED.** Every number in the reports comes from `results/metrics.json`.
 
 ## Decision context
 A screen that decides which card transactions go to a human reviewer. The person acting on it is a fraud operations lead. A missed fraud costs the transaction amount. A flag costs reviewer time whether or not the transaction is fraud. The decision gate is fixed in `fraud_detection/config.py` before any result is seen.
@@ -35,6 +35,9 @@ Because a monotone calibration does not change a global threshold's ranking, cal
 
 ## Models
 A constant baseline, logistic regression, and histogram gradient boosting. No class weights or resampling, because both distort the probabilities the cost rule uses.
+
+## Process note (read this)
+- OpenML dataset ID in `config.py` was updated from 1597 to 42175. OpenML 1597 strips the `Time` column, which caused `validate_frame` to fail. OpenML 42175 preserves `Time` and contains the identical 284,807 transactions and 492 fraud cases.
 
 ## Not done
 - No per-card or per-merchant features. The data is anonymised and has no card identifier.

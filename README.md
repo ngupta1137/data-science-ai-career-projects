@@ -3,6 +3,7 @@
 End-to-end projects for people building a career in data science and AI. Each project ships with code, a data access script, tests, committed metrics, and error analysis, so you can reproduce every number and see where the model fails.
 
 **Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 04 have code and tests but no generated metrics. Projects 05 to 15 are built on generated or simulated data with committed results. The table below says which is which.
+**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 14 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 14 are built on generated or simulated data. The table below says which is which.
 
 <!-- DOI badge goes here after the first Zenodo release -->
 
@@ -25,10 +26,10 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 
 | # | Project | Skill it teaches | Status |
 |---|---|---|---|
-| 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Code and tests written. Metrics not yet generated |
-| 02 | [Fraud detection](02-fraud-detection) | Imbalanced classification, PR-AUC, calibration, cost-based decisions, time-based splits | Code and tests written. Metrics not yet generated |
-| 03 | [Demand forecasting](03-demand-forecasting) | Rolling-origin backtests, horizon-safe features, MASE | Code and tests written. Metrics not yet generated |
-| 04 | [Text classification](04-text-classification) | TF-IDF baselines, macro-F1, metadata leakage, confusion analysis | Code and tests written. Metrics not yet generated. Transformer comparison designed, not built |
+| 01 | [House price regression](01-house-price-regression) | Baselines, spatial leakage, RMSE/MAE/R2, residual analysis | Built on California Housing. Gate passed |
+| 02 | [Fraud detection](02-fraud-detection) | Imbalanced classification, PR-AUC, calibration, cost-based decisions, time-based splits | Built on credit card fraud data. Gate passed |
+| 03 | [Demand forecasting](03-demand-forecasting) | Rolling-origin backtests, horizon-safe features, MASE | Built on Bike Sharing data. Gate failed, reported as is |
+| 04 | [Text classification](04-text-classification) | TF-IDF baselines, macro-F1, metadata leakage, confusion analysis | Built on 20 Newsgroups. Gate passed. Transformer comparison designed, not built |
 | 05 | [RAG with evals](05-rag-evals) | Retrieval recall@k, MRR, refusal, failure taxonomy | Built and run on a generated corpus. Results committed, describe that corpus only |
 | 06 | [Experiment analysis](06-experiment-analysis) | False positive rate, CUPED, power, peeking, multiple metrics | Built on simulated experiments with a known truth. Gate passed |
 | 07 | [Model monitoring and drift](07-model-monitoring) | PSI and KS monitors, calibrated thresholds, detection delay, concept drift | Built on simulated streams. Gate failed, reported as is |
