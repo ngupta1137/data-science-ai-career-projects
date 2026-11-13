@@ -31,4 +31,4 @@ No real inventory, lead times, capacity limits or hierarchies. A forecast is onl
 
 ## Status of the projects
 
-See the table in the [root README](../README.md). Projects 01 to 04 have no generated metrics yet. Projects 07 to 11 failed their own decision gates, and say so.
+Each project's status and decision-gate verdict are in the table in the [root README](../README.md). Failed gates are reported as failed.

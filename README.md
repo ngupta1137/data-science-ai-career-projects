@@ -2,7 +2,7 @@
 
 End-to-end projects for people building a career in data science and AI. Each project ships with code, a data access script, tests, committed metrics, and error analysis, so you can reproduce every number and see where the model fails.
 
-**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 14 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 14 are built on generated or simulated data. The table below says which is which.
+**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 16 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 16 are built on generated or simulated data. The table below says which is which.
 
 <!-- DOI badge goes here after the first Zenodo release -->
 
@@ -39,6 +39,7 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 | 12 | [Uplift modelling](12-uplift-modelling) | Qini and AUUC, IPW profit, response-model trap, data needed | Built on simulated customers with a known effect. Gate passed, with caveats in the README |
 | 13 | [Promotion lift](13-promotion-lift) | Difference-in-differences on category profit, cannibalisation, pull-forward, stores needed | Built on a simulated grocery chain. Gate passed, with caveats in the README |
 | 14 | [Out-of-stock detection](14-out-of-stock-detection) | Empty-shelf chance from sales gaps, value-ranked visits under a budget, calibration | Built on a simulated chain. Gate failed, reported as is |
+| 15 | [Credit scorecard](15-credit-scorecard) | Reject bias, random approval sample, recalibration, cost of learning | Built on simulated applicants with reject bias. Gate failed, reported as is |
 | 16 | [Claims frequency and severity](16-claims-frequency-severity) | Exposure weighting, two-part Poisson-Gamma, decile loss ratios | Built on simulated policies. Gate passed, with caveats in the README |
 
 Projects 05 to 16 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 onward are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
@@ -46,6 +47,8 @@ Projects 05 to 16 run offline on data the code generates, because a simulation w
 Roadmap, not part of the claim above: a recommender. It is only added if the projects above meet the bar.
 
 ## How to run
+
+### POSIX (Linux, macOS)
 
 ```bash
 git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
@@ -57,6 +60,23 @@ make check                             # lint, layout gate, tests (no network ne
 ```
 
 Individual steps: `make lint`, `make gate`, `make test`.
+
+### Windows (PowerShell)
+
+On Windows PowerShell where `make` is typically not installed:
+
+```powershell
+git clone https://github.com/ngupta1137/data-science-ai-career-projects.git
+cd data-science-ai-career-projects
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+
+ruff check .
+ruff format --check .
+python tools/check_release.py --ci
+python -m pytest
+```
 
 Working with a coding agent? [AGENTS.md](AGENTS.md) holds the rules every agent must follow here, and [docs/HANDOFF.md](docs/HANDOFF.md) holds the open tasks.
 

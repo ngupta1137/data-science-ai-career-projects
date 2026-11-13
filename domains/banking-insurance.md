@@ -8,6 +8,7 @@ This page routes you to projects in this repository. Every project describes a s
 
 These projects use a simulation shaped around this domain's own decision.
 
+- [Credit scorecard](../15-credit-scorecard): Score a credit application when outcomes are only seen for loans you approved, and measure the price of learning from a random sample.
 - [Claims frequency and severity](../16-claims-frequency-severity): Price auto insurance policies by segment using a two-part frequency-severity model.
 
 ## Projects that carry over from the core set
@@ -28,7 +29,7 @@ These projects use a simulation shaped around this domain's own decision.
 
 ## What does not transfer
 
-No real transactions, credit files or claims. Fraud in 02 uses a public dataset that has not yet been run here. The fairness audit in 08 has two groups and one definition (equal opportunity). It is a learning aid, not a fair-lending or compliance method. Take regulatory questions to counsel and your model risk function.
+No real transactions, credit files or claims. Fraud in 02 uses a public benchmark dataset (credit card fraud). The fairness audit in 08 has two groups and one definition (equal opportunity). It is a learning aid, not a fair-lending or compliance method. Take regulatory questions to counsel and your model risk function.
 
 ## Questions to ask in this domain
 
@@ -39,4 +40,4 @@ No real transactions, credit files or claims. Fraud in 02 uses a public dataset 
 
 ## Status of the projects
 
-See the table in the [root README](../README.md). Projects 01 to 04 have no generated metrics yet. Projects 07 to 11 failed their own decision gates, and say so.
+Each project's status and decision-gate verdict are in the table in the [root README](../README.md). Failed gates are reported as failed.

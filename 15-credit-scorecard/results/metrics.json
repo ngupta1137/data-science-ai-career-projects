@@ -1,0 +1,215 @@
+{
+  "project": "15-credit-scorecard",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "history": 40000,
+    "history_approved": 25076,
+    "history_random_approved": 2057,
+    "test": 40000,
+    "test_default_rate_all": 0.190725,
+    "test_old_approval_rate": 0.604,
+    "sha256": "12cb593b2ea7a17c1128c8d020a6445249d17306118887000be461556c55e020"
+  },
+  "assumptions": {
+    "margin": 0.15,
+    "loss": 0.6,
+    "approve_below": 0.19999999999999998,
+    "random_approve_share": 0.05
+  },
+  "models": {
+    "old_policy": {
+      "approval_rate": 0.604,
+      "default_rate_approved": 0.08406456953642384,
+      "profit_per_applicant": {
+        "value": 0.05251875,
+        "ci95": [
+          0.05084156250000001,
+          0.054082593750000005
+        ]
+      }
+    },
+    "accepted_only": {
+      "approval_rate": 0.794375,
+      "default_rate_approved": 0.11675845790715972,
+      "profit_per_applicant": {
+        "value": 0.04959375,
+        "ci95": [
+          0.04751240625,
+          0.05171259375
+        ]
+      },
+      "gini_all_applicants": 0.5638251264862026,
+      "gini_old_approved_only": 0.36070319421286934,
+      "calibration_all": 0.7831446318370248,
+      "calibration_approved": 0.7615294818321796,
+      "calibration_old_approved": 1.0338753646410337,
+      "calibration_old_declined": 0.6921774795817653,
+      "minus_old_policy": {
+        "value": -0.0029249999999999988,
+        "ci95": [
+          -0.004601437499999999,
+          -0.00141253125
+        ]
+      }
+    },
+    "ipw": {
+      "approval_rate": 0.810625,
+      "default_rate_approved": 0.121017733230532,
+      "profit_per_applicant": {
+        "value": 0.04801875,
+        "ci95": [
+          0.0458475,
+          0.05003371875
+        ]
+      },
+      "gini_all_applicants": 0.5606147472011669,
+      "gini_old_approved_only": 0.3563408543151667,
+      "calibration_all": 0.8339297457768078,
+      "calibration_approved": 0.85301403731406,
+      "calibration_old_approved": 1.1998987124938985,
+      "calibration_old_declined": 0.7011532235541548,
+      "minus_old_policy": {
+        "value": -0.004499999999999999,
+        "ci95": [
+          -0.006142687499999999,
+          -0.002920874999999999
+        ]
+      }
+    },
+    "random_sample_only": {
+      "approval_rate": 0.656875,
+      "default_rate_approved": 0.09252140818268316,
+      "profit_per_applicant": {
+        "value": 0.05295,
+        "ci95": [
+          0.051172218750000005,
+          0.05474634375000001
+        ]
+      },
+      "gini_all_applicants": 0.5615520833615517,
+      "gini_old_approved_only": 0.3442812242853599,
+      "calibration_all": 0.9719895759834839,
+      "calibration_approved": 0.936529966380069,
+      "calibration_old_approved": 1.217941492021203,
+      "calibration_old_declined": 0.8827562173781592,
+      "minus_old_policy": {
+        "value": 0.00043125000000000016,
+        "ci95": [
+          -0.0008514374999999995,
+          0.00167625
+        ]
+      }
+    },
+    "recalibrated": {
+      "approval_rate": 0.7235,
+      "default_rate_approved": 0.10328265376641327,
+      "profit_per_applicant": {
+        "value": 0.05248125,
+        "ci95": [
+          0.050650968750000004,
+          0.054413625
+        ]
+      },
+      "gini_all_applicants": 0.5638251264862026,
+      "gini_old_approved_only": 0.36070319421286934,
+      "calibration_all": 0.9481333567506905,
+      "calibration_approved": 0.8112964550386599,
+      "calibration_old_approved": 1.1269217206499853,
+      "calibration_old_declined": 0.8832674819597888,
+      "minus_old_policy": {
+        "value": -3.749999999999947e-05,
+        "ci95": [
+          -0.0014175937499999994,
+          0.0014325000000000004
+        ]
+      }
+    },
+    "oracle": {
+      "approval_rate": 0.678025,
+      "default_rate_approved": 0.08104420928431842,
+      "profit_per_applicant": {
+        "value": 0.06049124999999999,
+        "ci95": [
+          0.058728656250000004,
+          0.0621414375
+        ]
+      }
+    }
+  },
+  "headline": {
+    "model": "recalibrated",
+    "metric": "profit_per_applicant",
+    "value": 0.05248125,
+    "ci95": [
+      0.050650968750000004,
+      0.054413625
+    ],
+    "ci_method": "percentile bootstrap over test applicants, 1000 resamples; differences paired",
+    "minus_old_policy": {
+      "value": -3.749999999999947e-05,
+      "ci95": [
+        -0.0014175937499999994,
+        0.0014325000000000004
+      ]
+    },
+    "minus_accepted_only": {
+      "value": 0.0028874999999999994,
+      "ci95": [
+        0.0020399999999999997,
+        0.0037163437499999996
+      ]
+    },
+    "calibration_approved": 0.8112964550386599
+  },
+  "gate": {
+    "rule": "Pass only if all three hold on fresh applications with every outcome known, for the recalibrated model (scores from approved applicants, recalibrated on a random sample of approvals), fixed before results as the headline, approving when the predicted default chance is below margin over margin plus loss: (1) the 95% paired bootstrap interval on its profit per applicant minus the old policy's has a lower bound above zero; (2) the same against the model trained on approved applicants only has a lower bound above zero; (3) among the applicants it approves, its mean predicted default chance divided by the true default rate lies between 0.8 and 1.25.",
+    "checks": {
+      "beats_old_policy": false,
+      "beats_accepted_only_model": true,
+      "calibrated_on_approved": true
+    },
+    "passed": false
+  },
+  "traps": {
+    "evaluate_on_approved_only": {
+      "gini_all_applicants": 0.5638251264862026,
+      "gini_old_approved_only": 0.36070319421286934,
+      "calibration_old_approved": 1.0338753646410337,
+      "calibration_old_declined": 0.6921774795817653,
+      "note": "On the loans you can check, the model looks calibrated. On the applicants it would newly approve, it is not."
+    },
+    "weighting_cannot_fix_what_was_not_recorded": {
+      "calibration_old_declined_accepted_only": 0.6921774795817653,
+      "calibration_old_declined_ipw": 0.7011532235541548,
+      "calibration_old_declined_recalibrated": 0.8832674819597888,
+      "note": "Weighting by the chance of approval given recorded features fixes selection on those features only."
+    },
+    "small_unbiased_sample": {
+      "random_sample_only_gini": 0.5615520833615517,
+      "recalibrated_gini": 0.5638251264862026,
+      "note": "The random sample alone is unbiased but too small to rank well; it is best used to recalibrate."
+    },
+    "cost_of_learning": {
+      "random_approvals_in_history": 2057,
+      "of_which_old_policy_declined": 840,
+      "default_rate_of_those": 0.3523809523809524,
+      "profit_on_those_per_loan": -0.1142857142857143,
+      "cost_per_history_applicant": 0.0024
+    }
+  },
+  "caveats": [
+    "Everything is simulated. The default model, the unrecorded trait, the old policy and the economics are chosen by the author, so the sizes describe this setup, not any lender.",
+    "The test set knows whether every applicant would have defaulted. No lender has that. It is how this project can score the methods; in practice only the random sample gives a partial view.",
+    "Loans are the same size and term. No pricing by risk, no recoveries over time, no prepayment, no economic cycle.",
+    "The random sample approves applicants the old policy would have declined. That costs money and needs governance and, in many places, legal review. This project prices the cost and nothing else.",
+    "Nothing here is a fair-lending or regulatory method. See project 08 for a group audit, and take legal questions to counsel.",
+    "Models are untuned with settings fixed before results."
+  ]
+}
