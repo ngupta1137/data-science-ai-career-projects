@@ -14,7 +14,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["house_price", "fraud_detection", "demand_forecast", "text_classification", "rag_eval", "experiment_analysis", "drift_monitor", "fairness_audit", "llm_judge_eval", "extraction_eval", "recsys_eval", "uplift_eval", "promo_lift", "oos_detect"]
+known-first-party = ["house_price", "fraud_detection", "demand_forecast", "text_classification", "rag_eval", "experiment_analysis", "drift_monitor", "fairness_audit", "llm_judge_eval", "extraction_eval", "recsys_eval", "uplift_eval", "promo_lift", "oos_detect", "claims_pricing"]
 
 [tool.ruff.lint.per-file-ignores]
 "*/tests/*" = ["B011"]
@@ -35,6 +35,6 @@ testpaths = [
     "08-fairness-audit/tests",
     "09-llm-judge-eval/tests",
     "10-structured-extraction/tests",
-    "11-recommender-eval/tests", "12-uplift-modelling/tests", "13-promotion-lift/tests", "14-out-of-stock-detection/tests",
+    "11-recommender-eval/tests", "12-uplift-modelling/tests", "13-promotion-lift/tests", "14-out-of-stock-detection/tests", "16-claims-frequency-severity/tests",
 ]
-pythonpath = ["01-house-price-regression", "02-fraud-detection", "03-demand-forecasting", "04-text-classification", "05-rag-evals", "06-experiment-analysis", "07-model-monitoring", "08-fairness-audit", "09-llm-judge-eval", "10-structured-extraction", "11-recommender-eval", "12-uplift-modelling", "13-promotion-lift", "14-out-of-stock-detection"]
+pythonpath = ["01-house-price-regression", "02-fraud-detection", "03-demand-forecasting", "04-text-classification", "05-rag-evals", "06-experiment-analysis", "07-model-monitoring", "08-fairness-audit", "09-llm-judge-eval", "10-structured-extraction", "11-recommender-eval", "12-uplift-modelling", "13-promotion-lift", "14-out-of-stock-detection", "16-claims-frequency-severity"]
