@@ -85,6 +85,26 @@ def test_eligible_users_have_history_and_holdout(fast):
     assert 500 < analysis["eligible_users"] <= config.N_USERS
 
 
+def _assert_close(a, b, path="result"):
+    """Equal up to floating-point noise. Booleans, strings and counts must match exactly.
+
+    Numerical libraries can differ in the last digits between machines, so floats get a
+    relative tolerance of 1e-6. Gate checks are compared exactly, so no verdict can move.
+    """
+    if isinstance(a, dict):
+        assert a.keys() == b.keys(), path
+        for k in a:
+            _assert_close(a[k], b[k], f"{path}.{k}")
+    elif isinstance(a, list):
+        assert len(a) == len(b), path
+        for i, (x, y) in enumerate(zip(a, b, strict=True)):
+            _assert_close(x, y, f"{path}[{i}]")
+    elif isinstance(a, float) and isinstance(b, float):
+        assert a == pytest.approx(b, rel=1e-6, abs=1e-9), path
+    else:
+        assert a == b, path
+
+
 def test_full_run_reproduces_committed_results(tmp_path):
     committed = config.RESULTS_DIR / "metrics.json"
     if not committed.exists() or json.loads(committed.read_text())["fast_mode"]:
@@ -92,5 +112,5 @@ def test_full_run_reproduces_committed_results(tmp_path):
     again = train.run(tmp_path, fast=False, data_sha256=data.fingerprint())
     saved = json.loads(committed.read_text())
     cleaned = train._clean(again)
-    assert cleaned["models"] == saved["models"]
+    _assert_close(cleaned["models"], saved["models"])
     assert cleaned["gate"]["checks"] == saved["gate"]["checks"]

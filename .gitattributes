@@ -1,0 +1,4 @@
+# Keep line endings the same on every machine. Files that are hashed (checksums, generated
+# data) must not be rewritten to CRLF on Windows, or their SHA-256 changes.
+* text=auto eol=lf
+*.png binary
