@@ -1,7 +1,7 @@
 """Fit four default models on past applications and score them on fresh applicants with known outcomes.
 
-    python -m credit_score.train          # full run
-    python -m credit_score.train --fast   # smaller samples, marked
+python -m credit_score.train          # full run
+python -m credit_score.train --fast   # smaller samples, marked
 """
 
 from __future__ import annotations
@@ -32,7 +32,11 @@ CAVEATS = [
 
 
 def _versions() -> dict:
-    return {"python": platform.python_version(), "numpy": np.__version__, "scikit-learn": sklearn.__version__}
+    return {
+        "python": platform.python_version(),
+        "numpy": np.__version__,
+        "scikit-learn": sklearn.__version__,
+    }
 
 
 def _clean(value):
@@ -53,7 +57,9 @@ def _rng(seed: int, tag: str) -> np.random.Generator:
     return np.random.default_rng([seed, zlib.crc32(tag.encode())])
 
 
-def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha256: str | None = None) -> dict:
+def run(
+    results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha256: str | None = None
+) -> dict:
     results_dir.mkdir(parents=True, exist_ok=True)
     n_hist = 10_000 if fast else config.N_HISTORY
     n_test = 10_000 if fast else config.N_TEST
@@ -67,13 +73,18 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
     fitted = {n: cls().fit(hist, seed) for n, cls in models.MODELS.items()}
     preds = {n: m.predict(test.x) for n, m in fitted.items()}
     old = test.old_approve
-    terms = {"old_policy": metrics.profit_terms(old, test.y), "oracle": metrics.profit_terms(test.pd < thr, test.y)}
+    terms = {
+        "old_policy": metrics.profit_terms(old, test.y),
+        "oracle": metrics.profit_terms(test.pd < thr, test.y),
+    }
     for n, p in preds.items():
         terms[n] = metrics.profit_terms(p < thr, test.y)
 
     table = {}
     for n in ("old_policy", *config.MODELS, "oracle"):
-        appr = old == 1 if n == "old_policy" else (test.pd < thr if n == "oracle" else preds[n] < thr)
+        appr = (
+            old == 1 if n == "old_policy" else (test.pd < thr if n == "oracle" else preds[n] < thr)
+        )
         row = {
             "approval_rate": float(appr.mean()),
             "default_rate_approved": float(test.y[appr].mean()) if appr.any() else None,
@@ -86,10 +97,18 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
                     "gini_all_applicants": metrics.gini(test.y, p),
                     "gini_old_approved_only": metrics.gini(test.y[old == 1], p[old == 1]),
                     "calibration_all": metrics.calibration_ratio(p, test.y),
-                    "calibration_approved": metrics.calibration_ratio(p[appr], test.y[appr]) if appr.any() else None,
-                    "calibration_old_approved": metrics.calibration_ratio(p[old == 1], test.y[old == 1]),
-                    "calibration_old_declined": metrics.calibration_ratio(p[old == 0], test.y[old == 0]),
-                    "minus_old_policy": metrics.boot_ci(terms[n] - terms["old_policy"], _rng(seed, f"diff|{n}"), n_boot),
+                    "calibration_approved": metrics.calibration_ratio(p[appr], test.y[appr])
+                    if appr.any()
+                    else None,
+                    "calibration_old_approved": metrics.calibration_ratio(
+                        p[old == 1], test.y[old == 1]
+                    ),
+                    "calibration_old_declined": metrics.calibration_ratio(
+                        p[old == 0], test.y[old == 0]
+                    ),
+                    "minus_old_policy": metrics.boot_ci(
+                        terms[n] - terms["old_policy"], _rng(seed, f"diff|{n}"), n_boot
+                    ),
                 }
             )
         table[n] = row
@@ -108,8 +127,12 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
         "random_approvals_in_history": int((hist.random_approve == 1).sum()),
         "of_which_old_policy_declined": int(rand_only.sum()),
         "default_rate_of_those": float(hist.y[rand_only].mean()),
-        "profit_on_those_per_loan": float(metrics.profit_terms(np.ones(rand_only.sum()), hist.y[rand_only]).mean()),
-        "cost_per_history_applicant": float(-metrics.profit_terms(rand_only, hist.y).sum() / n_hist),
+        "profit_on_those_per_loan": float(
+            metrics.profit_terms(np.ones(rand_only.sum()), hist.y[rand_only]).mean()
+        ),
+        "cost_per_history_applicant": float(
+            -metrics.profit_terms(rand_only, hist.y).sum() / n_hist
+        ),
     }
 
     size_rows = []
@@ -140,7 +163,19 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
         p = preds[n]
         q = np.quantile(p, np.linspace(0.1, 0.9, 9))
         b = np.digitize(p, q)
-        dec_rows.append({"model": n, "rows": [{"decile": int(k) + 1, "mean_predicted": float(p[b == k].mean()), "true_rate": float(test.y[b == k].mean())} for k in range(10)]})
+        dec_rows.append(
+            {
+                "model": n,
+                "rows": [
+                    {
+                        "decile": int(k) + 1,
+                        "mean_predicted": float(p[b == k].mean()),
+                        "true_rate": float(test.y[b == k].mean()),
+                    }
+                    for k in range(10)
+                ],
+            }
+        )
 
     traps = {
         "evaluate_on_approved_only": {
@@ -151,7 +186,9 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
             "note": "On the loans you can check, the model looks calibrated. On the applicants it would newly approve, it is not.",
         },
         "weighting_cannot_fix_what_was_not_recorded": {
-            "calibration_old_declined_accepted_only": table["accepted_only"]["calibration_old_declined"],
+            "calibration_old_declined_accepted_only": table["accepted_only"][
+                "calibration_old_declined"
+            ],
             "calibration_old_declined_ipw": table["ipw"]["calibration_old_declined"],
             "calibration_old_declined_recalibrated": table[h]["calibration_old_declined"],
             "note": "Weighting by the chance of approval given recorded features fixes selection on those features only.",
@@ -179,7 +216,12 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
             "test_old_approval_rate": float(old.mean()),
             "sha256": data_sha256,
         },
-        "assumptions": {"margin": config.MARGIN, "loss": config.LOSS, "approve_below": thr, "random_approve_share": config.RANDOM_APPROVE_SHARE},
+        "assumptions": {
+            "margin": config.MARGIN,
+            "loss": config.LOSS,
+            "approve_below": thr,
+            "random_approve_share": config.RANDOM_APPROVE_SHARE,
+        },
         "models": table,
         "headline": {
             "model": h,
@@ -195,8 +237,12 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
         "traps": traps,
         "caveats": CAVEATS,
     }
-    (results_dir / "metrics.json").write_text(json.dumps(_clean(out), indent=2) + "\n", encoding="utf-8")
-    (results_dir / "error_analysis.json").write_text(json.dumps(_clean(analysis), indent=2) + "\n", encoding="utf-8")
+    (results_dir / "metrics.json").write_text(
+        json.dumps(_clean(out), indent=2) + "\n", encoding="utf-8"
+    )
+    (results_dir / "error_analysis.json").write_text(
+        json.dumps(_clean(analysis), indent=2) + "\n", encoding="utf-8"
+    )
     _plot(dec_rows, results_dir)
     return out
 
@@ -204,7 +250,12 @@ def run(results_dir: Path, fast: bool = False, seed: int = config.SEED, data_sha
 def _plot(dec_rows: list, results_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.5, 5))
     for r in dec_rows:
-        ax.plot([x["mean_predicted"] for x in r["rows"]], [x["true_rate"] for x in r["rows"]], "o-", label=r["model"])
+        ax.plot(
+            [x["mean_predicted"] for x in r["rows"]],
+            [x["true_rate"] for x in r["rows"]],
+            "o-",
+            label=r["model"],
+        )
     m = max(max(x["true_rate"], x["mean_predicted"]) for r in dec_rows for x in r["rows"])
     ax.plot([0, m], [0, m], "--", color="grey", label="perfect")
     ax.set_xlabel("mean predicted default chance (decile)")
@@ -218,14 +269,20 @@ def _plot(dec_rows: list, results_dir: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Credit scorecard with reject bias.")
     parser.add_argument("--fast", action="store_true", help="smoke-test mode, results are marked")
-    parser.add_argument("--write-checksum", action="store_true", help="write the generator fingerprint")
+    parser.add_argument(
+        "--write-checksum", action="store_true", help="write the generator fingerprint"
+    )
     args = parser.parse_args()
     if args.write_checksum:
         data.write_fingerprint()
     digest = data.verify_fingerprint()
     m = run(config.RESULTS_DIR, fast=args.fast, data_sha256=digest)
     for n, r in m["models"].items():
-        print(n, {k: v for k, v in r.items() if k not in ("profit_per_applicant", "minus_old_policy")}, r["profit_per_applicant"])
+        print(
+            n,
+            {k: v for k, v in r.items() if k not in ("profit_per_applicant", "minus_old_policy")},
+            r["profit_per_applicant"],
+        )
     print("gate", m["gate"]["checks"], m["gate"]["passed"])
 
 

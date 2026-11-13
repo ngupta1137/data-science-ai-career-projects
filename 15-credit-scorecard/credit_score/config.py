@@ -31,7 +31,9 @@ LOSS = 0.60  # lost on a loan that defaults
 APPROVE_BELOW = MARGIN / (MARGIN + LOSS)  # approve when predicted default chance is below this
 
 MODELS = ("accepted_only", "ipw", "random_sample_only", "recalibrated")
-HEADLINE = "recalibrated"  # fixed before results: accepted-only scores recalibrated on the random sample
+HEADLINE = (
+    "recalibrated"  # fixed before results: accepted-only scores recalibrated on the random sample
+)
 CALIBRATION_BAND = (0.8, 1.25)  # predicted over true default rate among approved
 N_BOOT = 1000
 

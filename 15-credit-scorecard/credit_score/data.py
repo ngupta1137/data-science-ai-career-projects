@@ -45,10 +45,20 @@ class Applicants:
 
 
 def true_logit(x: np.ndarray, u: np.ndarray) -> np.ndarray:
-    return -2.0 + 0.9 * x[:, 0] + 0.6 * x[:, 1] - 0.5 * x[:, 2] + 0.4 * x[:, 0] * x[:, 1] + 0.5 * (x[:, 3] > 1) + config.HIDDEN_ON_DEFAULT * u
+    return (
+        -2.0
+        + 0.9 * x[:, 0]
+        + 0.6 * x[:, 1]
+        - 0.5 * x[:, 2]
+        + 0.4 * x[:, 0] * x[:, 1]
+        + 0.5 * (x[:, 3] > 1)
+        + config.HIDDEN_ON_DEFAULT * u
+    )
 
 
-def generate(rng: np.random.Generator, n: int, random_share: float = config.RANDOM_APPROVE_SHARE) -> Applicants:
+def generate(
+    rng: np.random.Generator, n: int, random_share: float = config.RANDOM_APPROVE_SHARE
+) -> Applicants:
     x = rng.standard_normal((n, config.N_FEATURES))
     u = rng.standard_normal(n)
     pd = sigmoid(true_logit(x, u))
@@ -76,7 +86,9 @@ def validate(a: Applicants) -> None:
 
 def fingerprint(seed: int = 0) -> str:
     a = generate(np.random.default_rng(seed), 300)
-    blob = np.concatenate([np.round(a.x, 6).ravel(), np.round(a.pd, 6), a.y, a.old_approve, a.random_approve])
+    blob = np.concatenate(
+        [np.round(a.x, 6).ravel(), np.round(a.pd, 6), a.y, a.old_approve, a.random_approve]
+    )
     return hashlib.sha256(blob.astype(float).tobytes()).hexdigest()
 
 
@@ -91,5 +103,7 @@ def verify_fingerprint(path: Path = CHECKSUM_FILE) -> str:
     if path.exists():
         expected = path.read_text(encoding="utf-8").split()[0]
         if expected != digest:
-            raise DataValidationError(f"generator fingerprint mismatch: expected {expected}, got {digest}")
+            raise DataValidationError(
+                f"generator fingerprint mismatch: expected {expected}, got {digest}"
+            )
     return digest

@@ -118,7 +118,7 @@
       "random_loans": 400,
       "mean_profit_per_applicant": 0.05187900000000001,
       "min_profit_per_applicant": 0.050647500000000005,
-      "mean_calibration_approved": 0.8019166093421243,
+      "mean_calibration_approved": 0.801916609342124,
       "worst_calibration_approved": 0.6454095609115484
     },
     {
@@ -127,7 +127,7 @@
       "random_loans": 800,
       "mean_profit_per_applicant": 0.052327500000000006,
       "min_profit_per_applicant": 0.051307500000000006,
-      "mean_calibration_approved": 0.8021891281472001,
+      "mean_calibration_approved": 0.8021891281472,
       "worst_calibration_approved": 0.6818432760232612
     },
     {
@@ -145,7 +145,7 @@
       "random_loans": 4000,
       "mean_profit_per_applicant": 0.05300475,
       "min_profit_per_applicant": 0.052575,
-      "mean_calibration_approved": 0.8878487943615145,
+      "mean_calibration_approved": 0.8878487943615143,
       "worst_calibration_approved": 0.8409564494241256
     }
   ]

@@ -7,7 +7,9 @@ from credit_score import config, metrics
 def test_profit_terms_hand_computed():
     approve = np.array([1, 1, 0])
     y = np.array([0, 1, 1])
-    assert metrics.profit_terms(approve, y).tolist() == pytest.approx([config.MARGIN, -config.LOSS, 0.0])
+    assert metrics.profit_terms(approve, y).tolist() == pytest.approx(
+        [config.MARGIN, -config.LOSS, 0.0]
+    )
 
 
 def test_threshold_is_break_even():

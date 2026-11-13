@@ -4,7 +4,7 @@
   "fast_mode": false,
   "seed": 42,
   "versions": {
-    "python": "3.13.18",
+    "python": "3.13.7",
     "numpy": "2.5.3",
     "scikit-learn": "1.9.1"
   },

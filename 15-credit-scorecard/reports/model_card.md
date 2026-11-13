@@ -69,4 +69,4 @@ Each cell: mean predicted / true default rate.
 - Models are untuned with settings fixed before results.
 
 ## Versions
-Seed 42. Python 3.13.18, numpy 2.5.3, scikit-learn 1.9.1.
+Seed 42. Python 3.13.7, numpy 2.5.3, scikit-learn 1.9.1.

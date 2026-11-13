@@ -4,7 +4,13 @@
 
 This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
-## Start here
+## Projects built for this domain
+
+These projects use a simulation shaped around this domain's own decision.
+
+- [Credit scorecard](../15-credit-scorecard): Score a credit application when outcomes are only seen for loans you approved, and measure the price of learning from a random sample.
+
+## Projects that carry over from the core set
 
 1. [Fraud detection](../02-fraud-detection): Rare-event classification: PR-AUC, calibration, cost-based thresholds, time-based splits.
 2. [Fairness and model risk audit](../08-fairness-audit): Audit an approval policy by group, and see what a fix costs in utility.

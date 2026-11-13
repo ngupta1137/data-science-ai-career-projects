@@ -10,7 +10,9 @@ from .data import Applicants
 
 
 def _gbm(seed: int) -> HistGradientBoostingClassifier:
-    return HistGradientBoostingClassifier(max_iter=200, learning_rate=0.05, max_leaf_nodes=15, min_samples_leaf=50, random_state=seed)
+    return HistGradientBoostingClassifier(
+        max_iter=200, learning_rate=0.05, max_leaf_nodes=15, min_samples_leaf=50, random_state=seed
+    )
 
 
 def _logit(p: np.ndarray) -> np.ndarray:
@@ -79,4 +81,9 @@ class Recalibrated(Model):
         return self.cal.predict_proba(_logit(self.base.predict(x))[:, None])[:, 1]
 
 
-MODELS = {"accepted_only": AcceptedOnly, "ipw": Ipw, "random_sample_only": RandomSampleOnly, "recalibrated": Recalibrated}
+MODELS = {
+    "accepted_only": AcceptedOnly,
+    "ipw": Ipw,
+    "random_sample_only": RandomSampleOnly,
+    "recalibrated": Recalibrated,
+}

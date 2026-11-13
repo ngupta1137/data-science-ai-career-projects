@@ -20,6 +20,7 @@ Key: **main** means start here for this domain, **also** means useful second, **
 | [12 Uplift modelling](../12-uplift-modelling) | main |  | main | also |  |  |  |
 | [13 Promotion lift](../13-promotion-lift) | domain project |  |  |  |  |  |  |
 | [14 Out-of-stock detection](../14-out-of-stock-detection) | domain project |  |  |  |  |  |  |
+| [15 Credit scorecard](../15-credit-scorecard) |  | domain project |  |  |  |  |  |
 
 ## Domain guides
 

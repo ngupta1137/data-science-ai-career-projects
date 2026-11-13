@@ -31,17 +31,42 @@ def test_accepted_only_under_predicts_on_declined(fast):
 
 def test_recalibration_moves_toward_truth(fast):
     mm = fast[0]["models"]
-    assert abs(mm["recalibrated"]["calibration_all"] - 1) < abs(mm["accepted_only"]["calibration_all"] - 1)
+    assert abs(mm["recalibrated"]["calibration_all"] - 1) < abs(
+        mm["accepted_only"]["calibration_all"] - 1
+    )
 
 
 def test_oracle_is_best(fast):
     mm = fast[0]["models"]
-    assert all(mm["oracle"]["profit_per_applicant"]["value"] >= r["profit_per_applicant"]["value"] for r in mm.values())
+    assert all(
+        mm["oracle"]["profit_per_applicant"]["value"] >= r["profit_per_applicant"]["value"]
+        for r in mm.values()
+    )
 
 
 def test_gate_is_conjunction(fast):
     g = fast[0]["gate"]
     assert g["passed"] == all(g["checks"].values()) and len(g["checks"]) == 3
+
+
+def _assert_close(a, b, path="result"):
+    """Equal up to floating-point noise. Booleans, strings and counts must match exactly.
+
+    Numerical libraries can differ in the last digits between machines, so floats get a
+    relative tolerance of 1e-6. Gate checks are compared exactly, so no verdict can move.
+    """
+    if isinstance(a, dict):
+        assert a.keys() == b.keys(), path
+        for k in a:
+            _assert_close(a[k], b[k], f"{path}.{k}")
+    elif isinstance(a, list):
+        assert len(a) == len(b), path
+        for i, (x, y) in enumerate(zip(a, b, strict=True)):
+            _assert_close(x, y, f"{path}[{i}]")
+    elif isinstance(a, float) and isinstance(b, float):
+        assert a == pytest.approx(b, rel=1e-6, abs=1e-9), path
+    else:
+        assert a == b, path
 
 
 def test_full_run_reproduces_committed_results(tmp_path):
@@ -50,5 +75,5 @@ def test_full_run_reproduces_committed_results(tmp_path):
         pytest.skip("no committed full-run results yet")
     again = train._clean(train.run(tmp_path, fast=False, data_sha256=data.fingerprint()))
     saved = json.loads(committed.read_text())
-    assert again["models"] == saved["models"]
+    _assert_close(again["models"], saved["models"])
     assert again["gate"] == saved["gate"]
