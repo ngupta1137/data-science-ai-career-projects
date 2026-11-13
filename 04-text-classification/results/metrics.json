@@ -1,0 +1,304 @@
+{
+  "project": "04-text-classification",
+  "data_source": "newsgroups_sklearn",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "data": {
+    "rows": 18846,
+    "sha256": "ea3c341e3648249d8d7189c33595e81e516481d456e1471a45ace6e7761d9de7",
+    "classes": 20,
+    "train_rows": 11314,
+    "test_rows": 7532
+  },
+  "split": {
+    "fit_rows": 9051,
+    "val_rows": 2263,
+    "test_rows": 7532,
+    "test_selection": "official test set, later in time than the training set"
+  },
+  "models": {
+    "baseline_majority": {
+      "val_macro_f1": 0.005035669324381032,
+      "test_accuracy": 0.05297397769516728,
+      "test_macro_f1": 0.005030891438658429,
+      "best_params": {}
+    },
+    "tfidf_nb": {
+      "val_macro_f1": 0.7646750154261643,
+      "test_accuracy": 0.6951672862453532,
+      "test_macro_f1": 0.6760947448689693,
+      "best_params": {
+        "clf__alpha": 0.03
+      }
+    },
+    "tfidf_logreg": {
+      "val_macro_f1": 0.7465243455487371,
+      "test_accuracy": 0.6801646309081253,
+      "test_macro_f1": 0.6699681798562663,
+      "best_params": {
+        "clf__C": 10.0
+      }
+    },
+    "tfidf_linear_svc": {
+      "val_macro_f1": 0.7568210615375668,
+      "test_accuracy": 0.6953000531067446,
+      "test_macro_f1": 0.6805162125796381,
+      "best_params": {
+        "clf__C": 0.3
+      }
+    }
+  },
+  "headline": {
+    "model": "tfidf_nb",
+    "selected_by": "highest macro-F1 on validation",
+    "metric": "macro_f1",
+    "value": 0.6760947448689693,
+    "ci95": [
+      0.6657654396227021,
+      0.6863577007658599
+    ],
+    "ci_method": "document bootstrap, 1000 resamples"
+  },
+  "baseline": {
+    "model": "baseline_majority",
+    "test_macro_f1": 0.005030891438658429
+  },
+  "gain_over_naive_bayes_ci95": null,
+  "gate": {
+    "rule": "Pass if both hold on the test set: (1) the lower bound of the headline model's 95% bootstrap interval on macro-F1 is above the majority-class baseline's macro-F1; (2) unless the headline is the Naive Bayes model itself, the lower bound of the 95% paired bootstrap interval on macro-F1 gain over Naive Bayes is above zero, so that any extra complexity is shown to pay for itself.",
+    "interval_above_majority_baseline": true,
+    "gain_over_naive_bayes_interval_above_zero_or_headline_is_naive_bayes": true,
+    "passed": true
+  },
+  "traps": {
+    "metadata_kept": {
+      "test_macro_f1_metadata_kept": 0.8251732319908068,
+      "test_macro_f1_metadata_removed": 0.6760947448689693,
+      "difference": 0.14907848712183758,
+      "top_features_metadata_kept": {
+        "alt.atheism": [
+          "the",
+          "of",
+          "keith",
+          "that",
+          "to",
+          "edu",
+          "you",
+          "is"
+        ],
+        "comp.graphics": [
+          "the",
+          "graphics",
+          "to",
+          "of",
+          "for",
+          "and",
+          "is",
+          "in"
+        ],
+        "comp.os.ms-windows.misc": [
+          "windows",
+          "the",
+          "to",
+          "it",
+          "edu",
+          "is",
+          "dos",
+          "and"
+        ],
+        "comp.sys.ibm.pc.hardware": [
+          "the",
+          "to",
+          "and",
+          "it",
+          "drive",
+          "is",
+          "of",
+          "with"
+        ],
+        "comp.sys.mac.hardware": [
+          "the",
+          "mac",
+          "apple",
+          "to",
+          "edu",
+          "of",
+          "is",
+          "and"
+        ],
+        "comp.windows.x": [
+          "the",
+          "to",
+          "window",
+          "of",
+          "mit",
+          "and",
+          "motif",
+          "is"
+        ],
+        "misc.forsale": [
+          "sale",
+          "for",
+          "edu",
+          "the",
+          "offer",
+          "and",
+          "shipping",
+          "to"
+        ],
+        "rec.autos": [
+          "car",
+          "the",
+          "to",
+          "and",
+          "in",
+          "of",
+          "cars",
+          "com"
+        ],
+        "rec.motorcycles": [
+          "bike",
+          "the",
+          "dod",
+          "to",
+          "com",
+          "and",
+          "in",
+          "of"
+        ],
+        "rec.sport.baseball": [
+          "the",
+          "edu",
+          "he",
+          "baseball",
+          "in",
+          "to",
+          "of",
+          "and"
+        ],
+        "rec.sport.hockey": [
+          "the",
+          "hockey",
+          "team",
+          "ca",
+          "game",
+          "in",
+          "to",
+          "of"
+        ],
+        "sci.crypt": [
+          "clipper",
+          "key",
+          "the",
+          "encryption",
+          "chip",
+          "to",
+          "of",
+          "that"
+        ],
+        "sci.electronics": [
+          "the",
+          "to",
+          "of",
+          "and",
+          "is",
+          "in",
+          "edu",
+          "for"
+        ],
+        "sci.med": [
+          "the",
+          "of",
+          "to",
+          "is",
+          "and",
+          "pitt",
+          "it",
+          "in"
+        ],
+        "sci.space": [
+          "space",
+          "the",
+          "of",
+          "to",
+          "nasa",
+          "in",
+          "and",
+          "edu"
+        ],
+        "soc.religion.christian": [
+          "god",
+          "the",
+          "of",
+          "to",
+          "that",
+          "and",
+          "is",
+          "in"
+        ],
+        "talk.politics.guns": [
+          "the",
+          "gun",
+          "to",
+          "of",
+          "in",
+          "that",
+          "and",
+          "you"
+        ],
+        "talk.politics.mideast": [
+          "israel",
+          "the",
+          "israeli",
+          "of",
+          "to",
+          "in",
+          "and",
+          "that"
+        ],
+        "talk.politics.misc": [
+          "the",
+          "of",
+          "to",
+          "in",
+          "that",
+          "and",
+          "you",
+          "com"
+        ],
+        "talk.religion.misc": [
+          "the",
+          "of",
+          "to",
+          "that",
+          "is",
+          "and",
+          "in",
+          "god"
+        ]
+      },
+      "share_of_top_features_absent_from_clean_vocabulary": 0.0,
+      "note": "Headers, footers, and quoted replies identify the poster and thread, not the topic."
+    },
+    "vectorizer_fit_on_test": {
+      "test_macro_f1_vectorizer_fit_on_test": 0.6795484722585571,
+      "test_macro_f1_honest": 0.6760947448689693,
+      "difference": 0.003453727389587824,
+      "note": "Fitting vocabulary and IDF on test text lets test statistics shape the features."
+    }
+  },
+  "caveats": [
+    "The interval resamples documents as if independent. Crossposted and quoted posts are not independent, so it is somewhat too narrow.",
+    "Posts are from 1990s Usenet. Vocabulary and topics do not transfer to current text.",
+    "Models are fitted on the fit rows only, not refitted on fit plus validation, so test scores are slightly conservative.",
+    "A transformer comparison is not built in this version. See the project README.",
+    "The metadata trap result is for the headline model and these hyperparameters. Other models may leak more or less."
+  ]
+}

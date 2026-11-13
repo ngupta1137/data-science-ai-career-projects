@@ -1,6 +1,6 @@
 # Project 04: Text classification
 
-**Status: code and tests written. Metrics not yet generated.** Every number in the reports comes from `results/`, and `results/` is empty until the pipeline has run on the real data.
+**Status: built on 20 Newsgroups. The decision gate PASSED.** Every number in the reports comes from `results/metrics.json`.
 
 ## Decision context
 A first-pass router that sends each post to the right topic area. The person acting on it is a community or support lead. A misrouted post reaches the wrong reviewers and waits. The decision gate is fixed in `text_classification/config.py` before any result is seen.

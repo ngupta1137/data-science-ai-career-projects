@@ -1,6 +1,6 @@
 # Project 01: House price regression
 
-**Status: code and tests written. Metrics not yet generated.** Every number in the reports comes from `results/`, and `results/` is empty until the pipeline has run on the real data.
+**Status: built on California Housing. The decision gate PASSED.** Every number in the reports comes from `results/metrics.json`.
 
 ## Decision context
 A first-pass screen that estimates median house value for a block group. The person acting on it is an analyst deciding which areas need a closer look. A wrong estimate wastes review time or hides an area that needed attention. The decision gate is fixed in `house_price/config.py` before any result is seen.
@@ -23,6 +23,9 @@ Rows in the same 0.5 degree cell stay together in train or test. Cross-validatio
 
 ## Models
 Constant baselines (mean, median), ridge regression, and histogram gradient boosting. Ridge and boosting are tuned with a small grid under grouped cross-validation. Nothing is tuned on the test rows.
+
+## Process note (read this)
+- Removed generation of `test_predictions.csv` in `results/`. Repository rules and `check_release.py` block committing CSV data artifacts.
 
 ## Not done
 - No time-based validation. The data is a single snapshot.
@@ -53,5 +56,5 @@ python -m pytest                                # tests; no network needed
 | `house_price/train.py` | Search, test scoring, trap, error analysis, plots |
 | `house_price/report.py` | Renders the model card and decision memo from `results/` |
 | `tests/` | Metric hand-checks, leakage, validation, end-to-end smoke test |
-| `results/` | `metrics.json`, `error_analysis.json`, `test_predictions.csv`, plots |
+| `results/` | `metrics.json`, `error_analysis.json`, plots |
 | `reports/` | `model_card.md`, `decision_memo.md` |
