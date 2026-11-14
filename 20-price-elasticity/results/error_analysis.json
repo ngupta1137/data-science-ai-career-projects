@@ -1,0 +1,31 @@
+{
+  "project": "20-price-elasticity",
+  "fast_mode": false,
+  "category_breakdown": {
+    "electronics": {
+      "oracle_profit": 31593.02,
+      "naive_profit": 13846.53,
+      "two_sls_profit": 30798.19,
+      "naive_recovery_pct": 43.83,
+      "two_sls_recovery_pct": 97.48
+    },
+    "apparel": {
+      "oracle_profit": 125666.26,
+      "naive_profit": 79922.49,
+      "two_sls_profit": 125651.7,
+      "naive_recovery_pct": 63.6,
+      "two_sls_recovery_pct": 99.99
+    },
+    "home_living": {
+      "oracle_profit": 243309.21,
+      "naive_profit": 195642.22,
+      "two_sls_profit": 237109.12,
+      "naive_recovery_pct": 80.41,
+      "two_sls_recovery_pct": 97.45
+    }
+  },
+  "post_hoc_study": {
+    "status": "designed_after_results_does_not_change_verdict",
+    "observation": "Endogeneity attenuation bias is strongest in product categories with volatile demand surges (e.g., Electronics), where dynamic markups produce severe OLS error."
+  }
+}

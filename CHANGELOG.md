@@ -25,4 +25,5 @@
 - Project 17 (marketing mix model): built on simulated multi-channel time series with carryover adstock and Hill saturation. Pre-set gate failed on holdout forecast R^2 and reported as is.
 - Project 18 (multi-touch attribution): built on simulated multi-touch customer journeys with counterfactual removal effects. Pre-set gate failed on share MAE and reported as is.
 - Project 19 (search ranking): built on simulated search queries and click logs with position examination decay. Pre-set gate passed with Inverse Propensity Scoring beating the production baseline by +0.0425 True NDCG@10.
+- Project 20 (price elasticity): built on simulated retail transactions with simultaneous demand shocks. Pre-set gate passed with Two-Stage Least Squares correcting price endogeneity and recovering 98.25% of oracle gross profit.
 - Agent rules (`AGENTS.md`), task handoff (`docs/HANDOFF.md`) and `tools/wire_domain_project.py` for wiring new domain projects.
