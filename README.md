@@ -2,13 +2,13 @@
 
 End-to-end projects for people building a career in data science and AI. Each project ships with code, a data access script, tests, committed metrics, and error analysis, so you can reproduce every number and see where the model fails.
 
-**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 16 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 16 are built on generated or simulated data. The table below says which is which.
+**Status: pre-release scaffold.** Nothing here has been released or archived yet. Projects 01 to 17 are built with committed results. Projects 01 to 04 run on real public datasets, while projects 05 to 17 are built on generated or simulated data. The table below says which is which.
 
 <!-- DOI badge goes here after the first Zenodo release -->
 
 ## What this is
 
-- Sixteen reference projects, each built to the standard in [docs/evidence-standard.md](docs/evidence-standard.md).
+- Seventeen reference projects, each built to the standard in [docs/evidence-standard.md](docs/evidence-standard.md).
 - A baseline first, a leakage trap shown and fixed, error analysis by segment, and a decision memo for each.
 - Self-study material. Run it, break it, compare your numbers to the committed ones.
 
@@ -41,8 +41,9 @@ Prefer to start from your field? See [domains/](domains/README.md) for guides by
 | 14 | [Out-of-stock detection](14-out-of-stock-detection) | Empty-shelf chance from sales gaps, value-ranked visits under a budget, calibration | Built on a simulated chain. Gate failed, reported as is |
 | 15 | [Credit scorecard](15-credit-scorecard) | Reject bias, random approval sample, recalibration, cost of learning | Built on simulated applicants with reject bias. Gate failed, reported as is |
 | 16 | [Claims frequency and severity](16-claims-frequency-severity) | Exposure weighting, two-part Poisson-Gamma, decile loss ratios | Built on simulated policies. Gate passed, with caveats in the README |
+| 17 | [Marketing mix model](17-marketing-mix-model) | Adstock carryover, Hill saturation, correlated spend, budget reallocation | Built on simulated marketing time series. Gate failed, reported as is |
 
-Projects 05 to 16 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 onward are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
+Projects 05 to 17 run offline on data the code generates, because a simulation with a known truth is the only way to count how often a method is wrong. Their results describe those simulations, not real systems. Projects 13 onward are built for one domain each; [domains/](domains/README.md) groups them. Every project that failed its own pre-set decision gate says so in the status column above and in its decision memo.
 
 Roadmap, not part of the claim above: a recommender. It is only added if the projects above meet the bar.
 
