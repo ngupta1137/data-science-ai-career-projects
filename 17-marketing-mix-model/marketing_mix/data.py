@@ -19,7 +19,9 @@ class MarketingData:
     spend: dict[str, np.ndarray]  # channel -> shape (T,)
     revenue: np.ndarray  # total observed weekly revenue ($), shape (T,)
     true_base: np.ndarray  # organic baseline sales ($), shape (T,)
-    true_effects: dict[str, np.ndarray]  # channel -> true incremental weekly revenue ($), shape (T,)
+    true_effects: dict[
+        str, np.ndarray
+    ]  # channel -> true incremental weekly revenue ($), shape (T,)
     true_incremental: np.ndarray  # sum of true channel contributions ($), shape (T,)
 
     def __len__(self) -> int:
@@ -32,7 +34,7 @@ def geometric_adstock(spend: np.ndarray, alpha: float, l_max: int = 12) -> np.nd
     Weights w_l = alpha^l for l = 0 ... l_max, normalized to sum to 1.
     This preserves the total volume of spend while distributing it across weeks.
     """
-    weights = np.array([alpha**l for l in range(l_max + 1)])
+    weights = np.array([alpha**lag for lag in range(l_max + 1)])
     weights = weights / np.sum(weights)
 
     # Convolve with reflection/zero-padding
@@ -92,7 +94,9 @@ def generate(rng: np.random.Generator, n_weeks: int) -> MarketingData:
 
     # Search: performance queries follow TV flighting + organic seasonality + search budget
     # Correlation with TV is intentionally substantial (~0.65) to reflect real marketing alignment
-    search_latent = 0.55 * (tv_spend - 30_000.0) / 15_000.0 + 0.45 * rng.normal(0, 1.0, size=n_weeks)
+    search_latent = 0.55 * (tv_spend - 30_000.0) / 15_000.0 + 0.45 * rng.normal(
+        0, 1.0, size=n_weeks
+    )
     search_spend = np.clip(18_000.0 + 6_000.0 * search_latent, 6_000.0, 36_000.0)
 
     # Social: periodic flights and independent promotional pushes
@@ -158,16 +162,16 @@ def validate(data: MarketingData) -> None:
     # Check correlation between TV and search spend is within expected range [0.45, 0.85]
     corr_tv_search = float(np.corrcoef(data.spend["tv"], data.spend["search"])[0, 1])
     if not (0.40 <= corr_tv_search <= 0.85):
-        raise ValueError(f"TV-Search correlation {corr_tv_search:.3f} outside expected range [0.40, 0.85]")
+        raise ValueError(
+            f"TV-Search correlation {corr_tv_search:.3f} outside expected range [0.40, 0.85]"
+        )
 
 
 def fingerprint(n_weeks: int = 20, seed: int = config.SEED) -> str:
     """Compute deterministic SHA-256 fingerprint for simulator data generation."""
     rng = np.random.default_rng(seed)
     data = generate(rng, n_weeks)
-    parts = [
-        f"{float(data.revenue[i]):.4f}" for i in range(n_weeks)
-    ] + [
+    parts = [f"{float(data.revenue[i]):.4f}" for i in range(n_weeks)] + [
         f"{float(data.spend[ch][i]):.4f}" for ch in config.CHANNELS for i in range(n_weeks)
     ]
     raw = "|".join(parts).encode("utf-8")

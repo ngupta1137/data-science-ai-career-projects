@@ -4,6 +4,12 @@
 
 This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
+## Projects built for this domain
+
+These projects use a simulation shaped around this domain's own decision.
+
+- [Marketing mix model](../17-marketing-mix-model): Reallocate advertising budget across TV, Search, and Social using an adstock-saturation model.
+
 ## Start here
 
 1. [Uplift modelling](../12-uplift-modelling): Uplift modelling: whom to target, Qini curves, profit by inverse-probability weighting.
