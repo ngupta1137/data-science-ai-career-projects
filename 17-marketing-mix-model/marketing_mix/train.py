@@ -149,8 +149,8 @@ def run_pipeline(results_dir: Path | None = None, fast_mode: bool = False) -> tu
         "linear_projected_lift_ratio_at_2x": 2.0,
         "true_saturation_lift_ratio_at_2x": round(true_search_diminish_ratio, 3),
         "finding": (
-            f"Under linear assumptions, doubling Search spend projects a 2.00x revenue increase, "
-            f"whereas true Hill diminishing returns yield only {true_search_diminish_ratio:.2f}x return."
+            "Under linear assumptions, doubling Search spend projects a 2.00x revenue increase, "
+            "whereas true Hill diminishing returns yield diminishing marginal return."
         ),
     }
 
@@ -163,9 +163,9 @@ def run_pipeline(results_dir: Path | None = None, fast_mode: bool = False) -> tu
         "naive_search_recommended_spend": round(w_naive["search"], 1),
         "mmm_search_recommended_spend": round(w_mmm["search"], 1),
         "finding": (
-            f"TV and Search spend are synchronized (correlation {corr_tv_search:.3f}); naive OLS suffers "
-            f"multicollinearity, inverting Search's slope to {naive_search_slope:.4f} and cutting Search spend to minimum "
-            f"(${w_naive['search']:,.0f}) compared to balanced MMM allocation (${w_mmm['search']:,.0f})."
+            "TV and Search spend are synchronized; naive OLS suffers multicollinearity, "
+            "inverting Search's slope and cutting Search spend to minimum compared to "
+            "balanced MMM allocation."
         ),
     }
 

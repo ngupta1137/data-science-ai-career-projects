@@ -127,14 +127,14 @@
       "search_spend_2x": 38033.0,
       "linear_projected_lift_ratio_at_2x": 2.0,
       "true_saturation_lift_ratio_at_2x": 1.321,
-      "finding": "Under linear assumptions, doubling Search spend projects a 2.00x revenue increase, whereas true Hill diminishing returns yield only 1.32x return."
+      "finding": "Under linear assumptions, doubling Search spend projects a 2.00x revenue increase, whereas true Hill diminishing returns yield diminishing marginal return."
     },
     "correlated_spend_bias": {
       "tv_search_spend_correlation": 0.5628,
       "naive_search_slope": -0.0606,
       "naive_search_recommended_spend": 5000.0,
       "mmm_search_recommended_spend": 20595.8,
-      "finding": "TV and Search spend are synchronized (correlation 0.563); naive OLS suffers multicollinearity, inverting Search's slope to -0.0606 and cutting Search spend to minimum ($5,000) compared to balanced MMM allocation ($20,596)."
+      "finding": "TV and Search spend are synchronized; naive OLS suffers multicollinearity, inverting Search's slope and cutting Search spend to minimum compared to balanced MMM allocation."
     }
   },
   "caveats": [
