@@ -1,0 +1,213 @@
+{
+  "project": "18-multi-touch-attribution",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "data": {
+    "train_journeys": 40000,
+    "test_journeys": 10000,
+    "channels": [
+      "display",
+      "social",
+      "search",
+      "email"
+    ],
+    "sha256": "b591b0aab2ef2ebb6106a98ec9b1243dc0440f520524d3bfe7985326e482d056"
+  },
+  "assumptions": {
+    "base_organic_logit": -2.2,
+    "reallocation_budget": 50000.0,
+    "channel_costs": {
+      "display": 0.5,
+      "social": 1.2,
+      "search": 2.5,
+      "email": 0.15
+    },
+    "channel_lifts": {
+      "display": 0.35,
+      "social": 0.45,
+      "search": 0.65,
+      "email": 0.5
+    }
+  },
+  "models": {
+    "last_touch": {
+      "channel_shares": {
+        "display": 0.1218,
+        "social": 0.2341,
+        "search": 0.3831,
+        "email": 0.261
+      },
+      "share_mae": 0.0522,
+      "share_spearman": 0.4,
+      "incremental_conversions": 4280.5,
+      "channel_spend": {
+        "display": 6087.9,
+        "social": 11706.3,
+        "search": 19157.2,
+        "email": 13048.5
+      }
+    },
+    "first_touch": {
+      "channel_shares": {
+        "display": 0.4175,
+        "social": 0.3423,
+        "search": 0.1963,
+        "email": 0.044
+      },
+      "share_mae": 0.1674,
+      "share_spearman": 0.2,
+      "incremental_conversions": 3830.8,
+      "channel_spend": {
+        "display": 20873.5,
+        "social": 17112.7,
+        "search": 9815.5,
+        "email": 2198.3
+      }
+    },
+    "linear": {
+      "channel_shares": {
+        "display": 0.2097,
+        "social": 0.2797,
+        "search": 0.3342,
+        "email": 0.1764
+      },
+      "share_mae": 0.0417,
+      "share_spearman": 1.0,
+      "incremental_conversions": 4407.6,
+      "channel_spend": {
+        "display": 10487.0,
+        "social": 13987.1,
+        "search": 16707.7,
+        "email": 8818.2
+      }
+    },
+    "position_based": {
+      "channel_shares": {
+        "display": 0.2452,
+        "social": 0.2852,
+        "search": 0.3083,
+        "email": 0.1613
+      },
+      "share_mae": 0.0546,
+      "share_spearman": 1.0,
+      "incremental_conversions": 4413.9,
+      "channel_spend": {
+        "display": 12259.4,
+        "social": 14257.8,
+        "search": 15415.8,
+        "email": 8067.0
+      }
+    },
+    "time_decay": {
+      "channel_shares": {
+        "display": 0.1784,
+        "social": 0.2657,
+        "search": 0.3522,
+        "email": 0.2036
+      },
+      "share_mae": 0.0393,
+      "share_spearman": 0.8,
+      "incremental_conversions": 4390.2,
+      "channel_spend": {
+        "display": 8921.8,
+        "social": 13287.2,
+        "search": 17611.5,
+        "email": 10179.5
+      }
+    },
+    "markov": {
+      "channel_shares": {
+        "display": 0.2243,
+        "social": 0.2782,
+        "search": 0.3034,
+        "email": 0.1941
+      },
+      "share_mae": 0.0571,
+      "share_spearman": 1.0,
+      "incremental_conversions": 4430.5,
+      "channel_spend": {
+        "display": 11212.8,
+        "social": 13909.7,
+        "search": 15170.6,
+        "email": 9707.0
+      }
+    },
+    "oracle": {
+      "channel_shares": {
+        "display": 0.1918,
+        "social": 0.2332,
+        "search": 0.4176,
+        "email": 0.1575
+      },
+      "share_mae": 0.0,
+      "share_spearman": 1.0,
+      "incremental_conversions": 4354.1,
+      "channel_spend": {
+        "display": 9589.9,
+        "social": 11658.2,
+        "search": 20877.9,
+        "email": 7874.0
+      }
+    }
+  },
+  "headline": {
+    "model": "markov",
+    "value": 0.0571,
+    "ci_95": [
+      0.0554,
+      0.059
+    ],
+    "ci_method": "percentile bootstrap over test journeys, 500 resamples"
+  },
+  "budget_allocation": {
+    "reallocation_budget": 50000.0,
+    "last_touch_conversions": 4280.5,
+    "markov_conversions": 4430.5,
+    "relative_gain": 0.035,
+    "relative_gain_pct": 3.5
+  },
+  "gate": {
+    "rule": "Pass only if all three hold for the first-order Markov attribution model, fixed before results as the headline: (1) the mean absolute error (MAE) across channel credit shares against true counterfactual Shapley credit is below 0.05 (5 percentage points); (2) the headline model achieves strictly lower share MAE than the naive last-touch baseline; (3) budget reallocation using headline credit shares yields at least a 5% increase in true incremental conversions over last-touch budget allocation on holdout test journeys.",
+    "checks": {
+      "channel_credit_mae_below_threshold": false,
+      "beats_last_touch_mae": false,
+      "reallocation_gain_at_least_5pct": false
+    },
+    "passed": false
+  },
+  "traps": {
+    "last_touch_bias": {
+      "display_true_credit_share": 0.1918,
+      "display_last_touch_share": 0.1218,
+      "search_true_credit_share": 0.4176,
+      "search_last_touch_share": 0.3831,
+      "email_true_credit_share": 0.1575,
+      "email_last_touch_share": 0.261,
+      "finding": "Last touch starves top-of-funnel Display and over-credits bottom-of-funnel Email and Search, missing that Display touches initiate customer consideration."
+    },
+    "ignoring_organic_baseline": {
+      "total_test_conversions": 2993,
+      "expected_organic_conversions": 1091.3,
+      "organic_conversion_share": 0.3646,
+      "finding": "Heuristic attribution assigns 100% of conversions to ad channels, ignoring that a large fraction of converting users would have converted organically with zero marketing touches."
+    },
+    "linear_dilution": {
+      "linear_display_share": 0.2097,
+      "true_display_share": 0.1918,
+      "linear_share_mae": 0.0417,
+      "finding": "Linear attribution spreads credit equally across all touchpoints (1/K), diluting decisive discovery and closing touches by over-crediting passive incidental touches."
+    }
+  },
+  "caveats": [
+    "All journeys and touches are generated by a synthetic Markov customer journey simulator.",
+    "Real customer paths include ad-blockers, multi-device cross-tracking loss, and cookie expiration.",
+    "Channels are modeled with fixed base costs; programmatic ad auctions exhibit dynamic bid pricing.",
+    "Removal effect Markov attribution assumes first-order state transitions without higher-order history memory."
+  ]
+}

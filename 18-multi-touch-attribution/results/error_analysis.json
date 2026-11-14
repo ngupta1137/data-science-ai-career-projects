@@ -1,0 +1,43 @@
+{
+  "project": "18-multi-touch-attribution",
+  "fast_mode": false,
+  "journey_length_segments": {
+    "length_1": {
+      "total_journeys": 2009,
+      "conversions": 330,
+      "conversion_rate": 0.1643
+    },
+    "length_2": {
+      "total_journeys": 1967,
+      "conversions": 462,
+      "conversion_rate": 0.2349
+    },
+    "length_3": {
+      "total_journeys": 2031,
+      "conversions": 666,
+      "conversion_rate": 0.3279
+    },
+    "length_4+": {
+      "total_journeys": 3993,
+      "conversions": 1535,
+      "conversion_rate": 0.3844
+    }
+  },
+  "channel_costs": {
+    "display": 0.5,
+    "social": 1.2,
+    "search": 2.5,
+    "email": 0.15
+  },
+  "channel_marginal_lifts": {
+    "display": 0.35,
+    "social": 0.45,
+    "search": 0.65,
+    "email": 0.5
+  },
+  "post_hoc_notes": [
+    {
+      "status": "Markov attribution partially recovers top-of-funnel credit compared to last touch, but remains constrained by first-order memoryless state representations."
+    }
+  ]
+}
