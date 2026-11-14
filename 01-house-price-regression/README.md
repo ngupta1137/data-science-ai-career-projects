@@ -13,7 +13,13 @@ A first-pass screen that estimates median house value for a block group. The per
 - Where a model fails, by price band, income, and location.
 
 ## Data
-California Housing, 1990 census block groups, via scikit-learn. Not committed. See `data/DATA_CARD.md` for terms, quirks, and what was not checked.
+California Housing, 1990 census block groups, fetched via scikit-learn.
+
+**Data storage best practice:** Following industry best practices, raw datasets are not committed to the GitHub repository to prevent repository bloat, respect upstream distribution terms, and keep cloning fast. Users pull the data directly from the canonical upstream source into their local `data/raw/` directory (which is gitignored) using the project download script:
+```bash
+python -m house_price.download_data --write-checksum
+```
+Canonical upstream source: StatLib / California Housing (https://www.dcc.fc.up.pt/~ltorgo/Regression/cal_housing.html). See `data/DATA_CARD.md` for terms, licensing, schema details, quirks, and cryptographic checksums in `data/CHECKSUMS.txt`.
 
 ## Split design
 Rows in the same 0.5 degree cell stay together in train or test. Cross-validation on the training rows uses the same grouping. The test rows are scored once, after the headline model is chosen by cross-validation.

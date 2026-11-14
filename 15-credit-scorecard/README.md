@@ -15,7 +15,9 @@ A lender wants to replace an existing approval policy with a machine learning sc
 - Why evaluating a scorecard only on approved loans overstates performance and hides miscalibration.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated loan applicants, credit bureau covariates, and default outcomes.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV applicant records are stored in git. Instead, the reproducible data generator in `credit_score/data.py` synthesizes applicants, approval selections, and defaults deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known reject inference counterfactuals. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured in `results/metrics.json` under `traps`:

@@ -13,7 +13,13 @@ A screen that decides which card transactions go to a human reviewer. The person
 - Why a threshold tuned on the test set is optimism, with the size of it measured.
 
 ## Data
-Credit card transactions from European cardholders, via OpenML through scikit-learn. Not committed. See `data/DATA_CARD.md` for terms, quirks, and what was not checked.
+Credit card transactions from European cardholders, via OpenML through scikit-learn.
+
+**Data storage best practice:** Following industry best practices, raw datasets are not committed to the GitHub repository to prevent repository bloat (this raw dataset is 150 MB), respect upstream distribution terms, and keep cloning fast. Users pull the data directly from the canonical upstream source into their local `data/raw/` directory (which is gitignored) using the project download script:
+```bash
+python -m fraud_detection.download_data --write-checksum
+```
+Canonical upstream source: MLG-ULB on Kaggle (https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) and OpenML (dataset ID 42175, https://www.openml.org/d/42175). See `data/DATA_CARD.md` for terms, licensing, schema details, quirks, and cryptographic checksums in `data/CHECKSUMS.txt`.
 
 ## Split design
 Time-ordered. The earliest rows fit the models, the next block chooses the model, fits the calibrator and picks the threshold, and the latest 30% is scored once.

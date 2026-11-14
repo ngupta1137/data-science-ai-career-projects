@@ -15,7 +15,9 @@ An omni-channel brand spends an average of over $80,000 per week across TV, Paid
 - Measuring the economic difference between predictive accuracy (holdout R^2) and decision value (incremental revenue gain under budget reallocation).
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated weekly marketing spend, revenue, carryover adstock decay, and Hill saturation.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV ad spend files are stored in git. Instead, the reproducible data generator in `marketing_mix/data.py` synthesizes multi-channel spend and revenue deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known true marginal ROIs and optimal budget curves. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured in `results/metrics.json` under `traps`:
