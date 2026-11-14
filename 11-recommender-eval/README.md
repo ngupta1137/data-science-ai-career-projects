@@ -14,7 +14,9 @@ A personalised recommender is proposed to replace a popularity list. The team ha
 - Why a random split and sampled metrics flatter models.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated user taste, drifting item popularity, and interaction logs.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV interaction logs are stored in git. Instead, the reproducible data generator in `recsys_eval/data.py` synthesizes user interactions deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known latent user affinities. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## Headline results (full run, test window)
 - Models ordered by observed NDCG@10: recent_popularity, item_knn, popularity, svd, svd_ips, oracle, random. By true like rate: oracle, svd_ips, svd, random, item_knn, recent_popularity, popularity. Spearman correlation between the two: -0.68.

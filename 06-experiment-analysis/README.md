@@ -14,7 +14,9 @@ A product analytics lead is choosing the default way the team analyses A/B tests
 - Why heavy tails and small samples break a normal approximation.
 
 ## Data
-Simulated, with a known true effect. See `data/DATA_CARD.md`.
+Simulated, with a known true effect.
+
+**Data storage best practice:** Following industry best practices for causal and decision-evaluation systems, no synthetic CSV artifacts are stored in git. Instead, the reproducible data generator in `experiment_analysis/data.py` synthesizes the dataset deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known counterfactual ground truth. See `data/DATA_CARD.md` for generation details and parameter distributions.
 
 ## The traps
 Measured and written to `results/metrics.json` under `traps`: peeking, ten metrics with no correction, skewed outcomes with few users, and a covariate that moves with treatment (CUPED then removes part of the real effect).

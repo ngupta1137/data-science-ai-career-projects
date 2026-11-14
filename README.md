@@ -83,6 +83,15 @@ Working with a coding agent? [AGENTS.md](AGENTS.md) holds the rules every agent 
 
 Each project folder has its own README with the commands to download data, train, and evaluate. Library versions are pinned in `requirements.txt` to the versions the code was tested on.
 
+## Data access and storage best practices
+
+Following data engineering best practices and open-source release standards, raw datasets and binary artifacts are not stored directly in this git repository:
+1. **Third-party datasets (Projects 01 to 04)**: Real-world public datasets (California Housing, Credit Card Fraud, Bike Sharing, 20 Newsgroups) are fetched directly from canonical upstream sources (scikit-learn, OpenML, UCI Machine Learning Repository) into local `data/raw/` directories using automated project download scripts (`python -m <package>.download_data`). The SHA-256 fingerprint of each raw file is verified against committed `data/CHECKSUMS.txt` files.
+2. **Evaluation benchmarks (Project 05)**: Lightweight evaluation corpora and questions are committed directly as JSONL text files (`data/corpus.jsonl`, `data/questions.jsonl`).
+3. **Simulated environments (Projects 06 to 17)**: Econometric, causal, and operational datasets are generated deterministically in memory with known mathematical ground truth via each project's `data.py` module from fixed seeds, eliminating external network dependencies while preventing repository bloat.
+
+Full upstream source locations, terms, licenses, and data cards are documented in each project's `data/DATA_CARD.md`.
+
 ## Repository layout
 
 One folder per project, the same shape every time. See [docs/repo-layout.md](docs/repo-layout.md) for the full tree and the rules the release gate enforces.

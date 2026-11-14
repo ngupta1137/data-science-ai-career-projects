@@ -14,7 +14,9 @@ A team wants to turn invoices into structured records (vendor, number, date, tot
 - How OCR noise sets a ceiling no extractor can beat.
 
 ## Data
-Generated. See `data/DATA_CARD.md`.
+Generated invoices with known field values and planted distractors.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV or raw invoice document artifacts are stored in git. Instead, the reproducible data generator in `extraction_eval/data.py` synthesizes documents deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known field spans and distractors. See `data/DATA_CARD.md` for generation details and template specifications.
 
 ## Headline results (full run, test sets)
 - Learned span ranker, seen templates: all five fields right on 100% of documents (95% interval 0.997 to 1.000). Do not read this as solved: the documents are cleaner than real ones.

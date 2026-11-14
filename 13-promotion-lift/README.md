@@ -16,7 +16,9 @@ A category manager asks: the promotion sold more units, so do we run it again? T
 - How picking promotion stores by hand breaks the right method.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated retail grocery chain sales and promotions.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV sales files are stored in git. Instead, the reproducible data generator in `promo_lift/data.py` synthesizes store-level sales and promotions deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known cannibalization, pull-forward, and true incremental profit. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured in `results/metrics.json` under `traps`: before and after without control, counting only the promoted item, manager-picked stores, and units up while profit is down.

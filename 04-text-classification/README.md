@@ -13,7 +13,13 @@ A first-pass router that sends each post to the right topic area. The person act
 - Why an interval on a text metric treats documents as independent, and what that misses.
 
 ## Data
-The 20 Newsgroups collection through scikit-learn: about 18,800 posts in 20 topics. Not committed. See `data/DATA_CARD.md` for terms, quirks, and what was not checked.
+The 20 Newsgroups collection through scikit-learn: about 18,800 posts in 20 topics.
+
+**Data storage best practice:** Following industry best practices, raw datasets are not committed to the GitHub repository to prevent repository bloat (this raw dataset is 58 MB), respect upstream distribution terms, and keep cloning fast. Users pull the data directly from the canonical upstream source into their local `data/raw/` directory (which is gitignored) using the project download script:
+```bash
+python -m text_classification.download_data --write-checksum
+```
+Canonical upstream source: Jason Rennie's 20 Newsgroups bydate archive (http://qwone.com/~jason/20Newsgroups/) via scikit-learn. See `data/DATA_CARD.md` for terms, licensing, schema details, quirks, and cryptographic checksums in `data/CHECKSUMS.txt`.
 
 ## Split design
 The official split is by posting date, so the test set is later than the training set and is used as given. A stratified random share of the training set is held out to choose the model. The test set is scored once.

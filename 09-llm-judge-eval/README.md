@@ -14,7 +14,9 @@ A team wants to use an LLM to pick the better of two answers, instead of paying 
 - How big a human-labelled set you need before an agreement number means anything.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`. To audit your own judge, see "Use it on real judge calls" below.
+Simulated answer pairs, human annotator panels, and judge verdicts.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV artifacts are stored in git. Instead, the reproducible data generator in `llm_judge_eval/data.py` synthesizes answer pairs and verdicts deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known latent qualities and planted biases. See `data/DATA_CARD.md` for generation details and parameter specifications. To audit your own judge, see "Use it on real judge calls" below.
 
 ## Headline results (full run, test set)
 - Single call in random order: agreement with the human consensus 0.761 (0.746 to 0.776). The gate asked for a lower bound of 0.80. A perfect judge scores 0.898 here, because the consensus errs.

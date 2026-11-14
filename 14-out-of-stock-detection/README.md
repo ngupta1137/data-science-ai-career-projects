@@ -15,7 +15,9 @@ A field team can check a fixed number of shelves a day. Which ones? The common r
 - How to check whether a predicted chance is calibrated, and what overconfidence costs.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated retail inventory, shelf visits, and phantom stockouts.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV inventory logs are stored in git. Instead, the reproducible data generator in `oos_detect/data.py` synthesizes store shelves, daily demand, and empty episodes deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known true daily demand and shelf states. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured in `results/metrics.json` under `traps`: zero sales read as zero demand, one rule for every shelf, and an alarm without value.

@@ -14,7 +14,9 @@ Send a discount to everyone, to nobody, or to a chosen group. A model of who wil
 - Why absolute profit estimates from one sample run above the truth, and why to compare policies by paired differences.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated customer base with known individual treatment effects.
+
+**Data storage best practice:** Following industry best practices for causal uplift modeling, no synthetic CSV customer files are stored in git. Instead, the reproducible data generator in `uplift_eval/data.py` synthesizes customers and potential outcomes deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known counterfactual response curves. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured and written to `results/metrics.json` under `traps`: response model instead of uplift, optimistic profit estimates, offers that followed buying signals, how much data is needed, profit by share offered, and sensitivity to the cost of an offer.

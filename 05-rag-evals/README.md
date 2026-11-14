@@ -13,7 +13,9 @@ A support lead wants a bot that answers policy questions with a value (days, wee
 - Why complexity must pay for itself: hybrid and LSA retrievers are compared to BM25 with a paired interval.
 
 ## Data
-Generated, committed, and checksummed. See `data/DATA_CARD.md`. 41 documents and 110 questions across six question types, split evenly into dev and test.
+Generated, committed, and checksummed: 41 documents and 110 questions across six question types, split evenly into dev and test.
+
+**Data storage best practice:** Unlike tabular or binary datasets that bloat repositories, evaluation benchmark text files (`data/corpus.jsonl` and `data/questions.jsonl`) are committed directly to version control under lightweight file limits. See `data/DATA_CARD.md` for generation details, checksums, and schema specifications.
 
 ## Pipeline
 1. Dev questions choose BM25 parameters, LSA dimensions, the headline retriever, and the abstention threshold.

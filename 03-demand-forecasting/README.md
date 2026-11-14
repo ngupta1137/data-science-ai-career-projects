@@ -13,7 +13,13 @@ A weekly plan for how many bikes to position and how many staff to schedule. The
 - How target leakage hides inside columns that look innocent.
 
 ## Data
-Daily bike sharing counts for two years, via the UCI repository. Not committed. See `data/DATA_CARD.md` for terms, quirks, and what was not checked.
+Daily bike sharing counts for two years, via the UCI Machine Learning Repository.
+
+**Data storage best practice:** Following industry best practices, raw datasets are not committed to the GitHub repository to avoid version-control bloat, respect upstream distribution terms, and keep cloning fast. Users pull the data directly from the canonical upstream source into their local `data/raw/` directory (which is gitignored) using the project download script:
+```bash
+python -m demand_forecast.download_data --write-checksum
+```
+Canonical upstream source: Capital Bikeshare / UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset). See `data/DATA_CARD.md` for terms, licensing, schema details, quirks, and cryptographic checksums in `data/CHECKSUMS.txt`.
 
 ## Backtest design
 Forecast 7 days ahead. At each origin the model is fitted on all earlier days and forecasts the next 7. The first half of the origins tunes hyperparameters and picks the headline model and the best baseline. The second half is the test, scored once. Test origins are all later than tuning origins.

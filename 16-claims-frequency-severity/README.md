@@ -15,7 +15,9 @@ An insurer needs to price personal auto insurance policies by segment to achieve
 - Measuring paired bootstrap improvements over a single compound Tweedie regression.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated motor insurance policies, claim counts, and claim severities.
+
+**Data storage best practice:** Following industry best practices, no synthetic CSV policy logs are stored in git. Instead, the reproducible data generator in `claims_pricing/data.py` synthesizes policyholders, exposure times, Poisson claim frequencies, and Gamma severities deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known actuarial risk profiles. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured in `results/metrics.json` under `traps`:

@@ -13,7 +13,9 @@ An ML platform owner has a deployed model and must choose a weekly monitor. A fa
 - Concept drift: why monitoring inputs alone cannot see it, and what delayed labels buy you.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated drifting data streams.
+
+**Data storage best practice:** Following industry best practices for monitoring systems, no synthetic CSV artifacts are stored in git. Instead, the reproducible data generator in `drift_monitor/data.py` synthesizes streaming batches deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known drift timestamps and magnitudes. See `data/DATA_CARD.md` for generation details and scenario specifications.
 
 ## The traps
 Measured and written to `results/metrics.json` under `traps`: fixed PSI cutoffs on small batches, a threshold moved across batch sizes, and a label-free monitor facing concept drift.

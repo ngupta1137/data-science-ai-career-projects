@@ -14,7 +14,9 @@ A model risk reviewer must decide whether an approval policy can be signed off. 
 - How a small subgroup limits what an audit can prove.
 
 ## Data
-Simulated. See `data/DATA_CARD.md`.
+Simulated applicant populations with planted disparities.
+
+**Data storage best practice:** Following industry best practices for algorithmic fairness audits, no synthetic CSV artifacts are stored in git. Instead, the reproducible data generator in `fairness_audit/data.py` synthesizes applicants deterministically in memory from fixed random seeds. This guarantees zero external download dependencies, prevents repository bloat, and provides exact known latent score distributions. See `data/DATA_CARD.md` for generation details and parameter specifications.
 
 ## The traps
 Measured and written to `results/metrics.json` under `traps`: unawareness, one overall AUC, thresholds tuned on test, a gap of zero from rejecting everyone, equalizing one metric moving the others, and a small group's wide interval.
