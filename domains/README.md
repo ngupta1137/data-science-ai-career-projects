@@ -26,6 +26,7 @@ Key: **main** means start here for this domain, **also** means useful second, **
 | [18 Multi-touch attribution](../18-multi-touch-attribution) |  |  | domain project |  |  |  |  |
 | [19 Search ranking](../19-search-ranking) |  |  |  | domain project |  |  |  |
 | [20 Price elasticity](../20-price-elasticity) |  |  |  | domain project |  |  |  |
+| [21 Clinical risk score](../21-clinical-risk-score) |  |  |  |  | domain project |  |  |
 
 ## Domain guides
 

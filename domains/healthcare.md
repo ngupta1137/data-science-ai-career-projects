@@ -4,7 +4,13 @@
 
 This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
-## Start here
+## Projects built for this domain
+
+These projects use a simulation shaped around this domain's own decision.
+
+- [Clinical risk score](../21-clinical-risk-score): Which patients to flag: Decision Curve Analysis and calibration prevent nurse outreach alert fatigue from high-AUC uncalibrated models
+
+## Projects that carry over from the core set
 
 1. [Text classification](../04-text-classification): Classify clinical or product text with a baseline, macro-F1 and a leakage check.
 2. [RAG with evals](../05-rag-evals): Retrieval and refusal for question answering over a document set.

@@ -4,7 +4,7 @@
 
 - Repository scaffold: license layout, citation metadata, CI (lint, gate, test), release gate with layout enforcement, evidence standard, repo layout document, Makefile, issue and PR templates, Dependabot.
 - One top-level folder per project, one uniquely named Python package per project, one `pytest` run from the root.
-- Eighteen reference projects: 01 to 04 on real public datasets, 05 to 18 on generated or simulated data.
+- Twenty-one reference projects: 01 to 04 on real public datasets, 05 to 21 on generated or simulated data.
 - Project 01 (house price regression): built on California Housing. Decision gate passed.
 - Project 02 (fraud detection): built on Credit Card Fraud dataset (OpenML 42175). Decision gate passed.
 - Project 03 (demand forecasting): built on Bike Sharing dataset. Pre-set decision gate failed on rolling-origin backtest and reported as is.
@@ -26,4 +26,5 @@
 - Project 18 (multi-touch attribution): built on simulated multi-touch customer journeys with counterfactual removal effects. Pre-set gate failed on share MAE and reported as is.
 - Project 19 (search ranking): built on simulated search queries and click logs with position examination decay. Pre-set gate passed with Inverse Propensity Scoring beating the production baseline by +0.0425 True NDCG@10.
 - Project 20 (price elasticity): built on simulated retail transactions with simultaneous demand shocks. Pre-set gate passed with Two-Stage Least Squares correcting price endogeneity and recovering 98.25% of oracle gross profit.
+- Project 21 (clinical risk score): built on simulated patient discharge records across hospital facilities. Pre-set gate passed with Decision Curve Analysis and calibration preventing transitional care nurse alert fatigue.
 - Agent rules (`AGENTS.md`), task handoff (`docs/HANDOFF.md`) and `tools/wire_domain_project.py` for wiring new domain projects.

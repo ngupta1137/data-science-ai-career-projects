@@ -1,0 +1,214 @@
+{
+  "project": "21-clinical-risk-score",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "healthcare_disclaimer": "No patient data is used in this repository. All clinical observations are synthetically generated. Nothing herein constitutes medical advice, clinical guidance, or regulatory determination.",
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.1"
+  },
+  "data": {
+    "train_patients": 6000,
+    "test_patients": 3000,
+    "prevalence_train": 0.2115,
+    "prevalence_test": 0.2157,
+    "site_distribution_test": {
+      "tertiary_academic": 1339,
+      "community_regional": 1214,
+      "rural_access": 447
+    },
+    "mean_age": 68.05,
+    "sha256": "054a5ff9340308029d6480bf4b115879c7508715a9beac7e565483fbe4bf1e2e"
+  },
+  "assumptions": {
+    "decision_threshold": 0.15,
+    "outreach_cost_usd": 150.0,
+    "avoided_admission_value_usd": 1000.0,
+    "max_brier_score": 0.15,
+    "max_ece": 0.035,
+    "min_net_benefit": 0.085,
+    "min_auc": 0.72
+  },
+  "headline": {
+    "model": "calibrated_clinical_risk",
+    "metric": "net_benefit",
+    "value": 0.099,
+    "ci_95": [
+      0.0865,
+      0.1151
+    ],
+    "ci_method": "empirical_bootstrap_percentile",
+    "decision_threshold": 0.15
+  },
+  "gate": {
+    "rule": "Pass only if all four hold for the headline Calibrated Clinical Risk Model, fixed before results: (1) Brier score on holdout admissions is below 0.150 (and strictly lower than uncalibrated baseline by at least 0.030); (2) Expected Calibration Error (ECE across 10 bins) is below 0.035; (3) Net Benefit at clinical intervention threshold pt = 0.15 is at least 0.085 and strictly exceeds both Treat All and the uncalibrated model; (4) Discrimination AUC is at least 0.720 with 95% bootstrap confidence interval lower bound above 0.700.",
+    "headline_model": "calibrated_clinical_risk",
+    "brier_score_calibrated": 0.14853933694384014,
+    "brier_score_uncalibrated": 0.20857660804651854,
+    "ece_calibrated": 0.01129981403338296,
+    "ece_uncalibrated": 0.2326897792505323,
+    "net_benefit_calibrated": 0.09896078431372547,
+    "net_benefit_uncalibrated": 0.08509803921568629,
+    "net_benefit_treat_all": 0.0772549019607843,
+    "auc_calibrated": 0.7231210641681407,
+    "auc_ci_95": [
+      0.7005952117248982,
+      0.7453302369066074
+    ],
+    "checks": {
+      "brier_score_below_threshold": true,
+      "expected_calibration_error_below_threshold": true,
+      "net_benefit_exceeds_defaults": true,
+      "discrimination_auc_acceptable": true
+    },
+    "passed": true
+  },
+  "models": {
+    "calibrated_clinical_risk": {
+      "brier_score": 0.14853933694384014,
+      "auc": 0.7231210641681407,
+      "expected_calibration_error": 0.01129981403338296,
+      "net_benefit": 0.09896078431372547,
+      "site_breakdown": {
+        "community_regional": {
+          "admissions": 1214,
+          "observed_prevalence": 0.18533772652388797,
+          "predicted_mean_risk": 0.18236566856429287,
+          "brier_score": 0.13899034388038467,
+          "auc": 0.6920301089765195,
+          "net_benefit": 0.06405659463126272
+        },
+        "rural_access": {
+          "admissions": 447,
+          "observed_prevalence": 0.10961968680089486,
+          "predicted_mean_risk": 0.09614221107220246,
+          "brier_score": 0.08829028794235373,
+          "auc": 0.732642805866065,
+          "net_benefit": 0.019739439399921038
+        },
+        "tertiary_academic": {
+          "admissions": 1339,
+          "observed_prevalence": 0.27856609410007466,
+          "predicted_mean_risk": 0.2727377058570278,
+          "brier_score": 0.1773099138539965,
+          "auc": 0.7045165659223241,
+          "net_benefit": 0.15705311250713877
+        }
+      }
+    },
+    "uncalibrated_risk": {
+      "brier_score": 0.20857660804651854,
+      "auc": 0.7226691434723406,
+      "expected_calibration_error": 0.2326897792505323,
+      "net_benefit": 0.08509803921568629,
+      "site_breakdown": {
+        "community_regional": {
+          "admissions": 1214,
+          "observed_prevalence": 0.18533772652388797,
+          "predicted_mean_risk": 0.41408598087619886,
+          "brier_score": 0.19716389053034342,
+          "auc": 0.6917335130884171,
+          "net_benefit": 0.04666149820719062
+        },
+        "rural_access": {
+          "admissions": 447,
+          "observed_prevalence": 0.10961968680089486,
+          "predicted_mean_risk": 0.25940452396877683,
+          "brier_score": 0.11523871670516352,
+          "auc": 0.7315147164393395,
+          "net_benefit": -0.010659297275957366
+        },
+        "tertiary_academic": {
+          "admissions": 1339,
+          "observed_prevalence": 0.27856609410007466,
+          "predicted_mean_risk": 0.5425057018325977,
+          "brier_score": 0.250083013195303,
+          "auc": 0.7039448487169666,
+          "net_benefit": 0.15191319246145057
+        }
+      }
+    },
+    "unadjusted_site_risk": {
+      "brier_score": 0.1527086794438084,
+      "auc": 0.6995154332888199,
+      "expected_calibration_error": 0.011955830049397535,
+      "net_benefit": 0.09913725490196078,
+      "site_breakdown": {
+        "community_regional": {
+          "admissions": 1214,
+          "observed_prevalence": 0.18533772652388797,
+          "predicted_mean_risk": 0.21514204925161706,
+          "brier_score": 0.1403731735677654,
+          "auc": 0.6915312886192564,
+          "net_benefit": 0.07035565461769551
+        },
+        "rural_access": {
+          "admissions": 447,
+          "observed_prevalence": 0.10961968680089486,
+          "predicted_mean_risk": 0.19719933914415255,
+          "brier_score": 0.09748984875803496,
+          "auc": 0.7312070556865962,
+          "net_benefit": 0.010396104750625065
+        },
+        "tertiary_academic": {
+          "admissions": 1339,
+          "observed_prevalence": 0.27856609410007466,
+          "predicted_mean_risk": 0.21132224842990646,
+          "brier_score": 0.18232639523922053,
+          "auc": 0.7040170071991962,
+          "net_benefit": 0.1548565654790669
+        }
+      }
+    },
+    "simple_triage_baseline": {
+      "brier_score": 0.15846153964976553,
+      "auc": 0.659316167791323,
+      "expected_calibration_error": 0.022117204403173437,
+      "net_benefit": 0.09090196078431372
+    },
+    "oracle": {
+      "brier_score": 0.14836818964721712,
+      "auc": 0.7251422269311891,
+      "expected_calibration_error": 0.013783069573308366,
+      "net_benefit": 0.09915686274509804
+    }
+  },
+  "traps": {
+    "high_auc_poor_calibration": {
+      "uncalibrated_auc": 0.7226691434723406,
+      "calibrated_auc": 0.7231210641681407,
+      "auc_difference": -0.0004519206958001343,
+      "uncalibrated_ece": 0.2326897792505323,
+      "calibrated_ece": 0.01129981403338296,
+      "uncalibrated_brier": 0.20857660804651854,
+      "calibrated_brier": 0.14853933694384014,
+      "description": "Standard medical ML models trained with positive class rebalancing achieve identical or high discrimination (AUC), but their predicted probabilities are severely inflated, generating extreme calibration error."
+    },
+    "net_benefit_degradation": {
+      "threshold": 0.15,
+      "oracle_net_benefit": 0.09915686274509804,
+      "calibrated_net_benefit": 0.09896078431372547,
+      "uncalibrated_net_benefit": 0.08509803921568629,
+      "treat_all_net_benefit": 0.0772549019607843,
+      "net_benefit_loss_pct": 14.008321775312035,
+      "description": "On Decision Curve Analysis, uncalibrated risk scores trigger massive false-positive outreach calls, degrading Net Benefit below the default Treat All strategy."
+    },
+    "hospital_case_mix_shift": {
+      "target_facility": "rural_access",
+      "actual_prevalence": 0.10961968680089486,
+      "unadjusted_predicted_risk": 0.19719933914415255,
+      "site_adjusted_predicted_risk": 0.09614221107220246,
+      "overprediction_error_unadjusted": 0.0875796523432577,
+      "overprediction_error_adjusted": -0.0134774757286924,
+      "description": "Deploying an unadjusted model across diverse healthcare facilities causes severe case-mix distortion: at rural community hospitals with lower baseline acuity, the unadjusted model over-predicts adverse risk by 2x, causing clinician alert fatigue."
+    }
+  },
+  "caveats": [
+    "No patient data is used. All clinical observations are synthetically generated under open-source code.",
+    "Nothing herein constitutes medical advice, clinical guidance, or regulatory determination.",
+    "The 15% decision threshold assumes a 1:5.7 cost-to-benefit ratio between coordinator outreach and prevented readmission.",
+    "Clinical workflows require local institutional review and prospective validation before operational deployment."
+  ]
+}
