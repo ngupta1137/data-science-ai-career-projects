@@ -25,6 +25,7 @@ Key: **main** means start here for this domain, **also** means useful second, **
 | [17 Marketing mix model](../17-marketing-mix-model) |  |  | domain project |  |  |  |  |
 | [18 Multi-touch attribution](../18-multi-touch-attribution) |  |  | domain project |  |  |  |  |
 | [19 Search ranking](../19-search-ranking) |  |  |  | domain project |  |  |  |
+| [20 Price elasticity](../20-price-elasticity) |  |  |  | domain project |  |  |  |
 
 ## Domain guides
 

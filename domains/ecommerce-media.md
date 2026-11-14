@@ -9,6 +9,7 @@ This page routes you to projects in this repository. Every project describes a s
 These projects use a simulation shaped around this domain's own decision.
 
 - [Search ranking](../19-search-ranking): Ship the new ranker: Inverse Propensity Scoring corrects position bias in logged clicks and prevents false-positive offline gains
+- [Price elasticity](../20-price-elasticity): Set the price: Two-Stage Least Squares corrects price endogeneity from demand shocks to optimize retail gross profit
 
 ## Projects that carry over from the core set
 
