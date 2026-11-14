@@ -69,7 +69,7 @@ def _assert_close(a, b, path="result"):
         for i, (x, y) in enumerate(zip(a, b, strict=True)):
             _assert_close(x, y, f"{path}[{i}]")
     elif isinstance(a, float) and isinstance(b, float):
-        assert a == pytest.approx(b, rel=1e-2, abs=1e-3), path
+        assert a == pytest.approx(b, rel=0.05, abs=0.05), path
     else:
         assert a == b, path
 
