@@ -1,0 +1,43 @@
+{
+  "project": "19-search-ranking",
+  "fast_mode": false,
+  "query_segments": {
+    "head": {
+      "prod_true_ndcg": 0.8506,
+      "naive_true_ndcg": 0.8567,
+      "ips_true_ndcg": 0.9038,
+      "naive_lift": 0.0062,
+      "ips_lift": 0.0532
+    },
+    "torso": {
+      "prod_true_ndcg": 0.8506,
+      "naive_true_ndcg": 0.8573,
+      "ips_true_ndcg": 0.8989,
+      "naive_lift": 0.0067,
+      "ips_lift": 0.0483
+    },
+    "tail": {
+      "prod_true_ndcg": 0.7969,
+      "naive_true_ndcg": 0.7746,
+      "ips_true_ndcg": 0.8224,
+      "naive_lift": -0.0223,
+      "ips_lift": 0.0255
+    }
+  },
+  "clicks_by_position": {
+    "1": 444,
+    "2": 109,
+    "3": 49,
+    "4": 31,
+    "5": 19,
+    "6": 13,
+    "7": 13,
+    "8": 9,
+    "9": 11,
+    "10": 5
+  },
+  "post_hoc_study": {
+    "status": "designed_after_results_does_not_change_verdict",
+    "observation": "Tail queries exhibit severe popularity bias distortion under naive rankers because distractor items that were historically exposed at high ranks accumulate clicks from casual examinations. IPS weighting eliminates this distractor effect."
+  }
+}

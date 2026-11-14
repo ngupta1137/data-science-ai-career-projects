@@ -4,7 +4,13 @@
 
 This page routes you to projects in this repository. Every project describes a simulation or a generated dataset, not this domain's real systems.
 
-## Start here
+## Projects built for this domain
+
+These projects use a simulation shaped around this domain's own decision.
+
+- [Search ranking](../19-search-ranking): Ship the new ranker: Inverse Propensity Scoring corrects position bias in logged clicks and prevents false-positive offline gains
+
+## Projects that carry over from the core set
 
 1. [Recommender evaluation](../11-recommender-eval): Recommender evaluation under popularity-biased logs, drift and sampled metrics.
 2. [Experiment analysis](../06-experiment-analysis): Online experiments and metric hygiene.

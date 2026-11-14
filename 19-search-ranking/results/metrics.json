@@ -1,0 +1,175 @@
+{
+  "project": "19-search-ranking",
+  "data_source": "simulated_known_truth",
+  "fast_mode": false,
+  "seed": 42,
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  },
+  "data": {
+    "train_queries": 3000,
+    "test_queries": 1000,
+    "candidates_per_query": 10,
+    "train_impressions": 30000,
+    "train_clicks": 2204,
+    "test_impressions": 10000,
+    "test_clicks": 703,
+    "sha256": "58b23011cab7e65ef85e6fc42feadb3d0ee214d1a5842fc7e530fe9e467424a9"
+  },
+  "assumptions": {
+    "position_decay_eta": 1.35,
+    "max_ips_weight": 15.0,
+    "min_true_ndcg_lift": 0.03,
+    "min_tail_ndcg_lift": 0.0
+  },
+  "headline": {
+    "model": "ips_debiased",
+    "metric": "true_unbiased_ndcg_lift_at_10",
+    "value": 0.0425,
+    "ci_95": [
+      0.0383,
+      0.0459
+    ],
+    "ci_method": "paired_query_bootstrap_percentile"
+  },
+  "gate": {
+    "rule": "Pass only if all three hold for the candidate Inverse Propensity Scoring ranker (ips_debiased), fixed before results as the headline: (1) the True Unbiased NDCG@10 lift over the baseline production ranker is at least +0.030 (with 95% bootstrap CI lower bound strictly greater than 0); (2) the True NDCG@10 lift on tail queries is non-negative (>= 0.000), ensuring head query popularity does not mask tail query degradation; (3) the offline IPS-counterfactual NDCG lift directionally agrees with true unbiased NDCG lift (sign matching), confirming that the offline metric does not vanish once position bias is removed.",
+    "headline_model": "ips_debiased",
+    "true_ndcg_lift": 0.04246549228763208,
+    "true_ndcg_lift_ci_95": [
+      0.03829623124920789,
+      0.04594942046462129
+    ],
+    "tail_ndcg_lift": 0.02545209478086352,
+    "ips_ndcg_lift": 0.0033863727675603195,
+    "checks": {
+      "unbiased_ndcg_lift_meets_threshold": true,
+      "ci_lower_bound_positive": true,
+      "no_tail_query_degradation": true,
+      "debiased_agreement_ratio": true
+    },
+    "passed": true
+  },
+  "models": {
+    "prod_baseline": {
+      "overall": {
+        "true_ndcg": 0.8339886333181464,
+        "click_ndcg": 0.46493666050709886,
+        "ips_ndcg": 0.43362353032719086
+      },
+      "segments": {
+        "head": {
+          "count": 248,
+          "true_ndcg": 0.8505550649753488,
+          "click_ndcg": 0.4961318824886941,
+          "ips_ndcg": 0.45962410785300434
+        },
+        "torso": {
+          "count": 443,
+          "true_ndcg": 0.8505803610456041,
+          "click_ndcg": 0.5157457470312521,
+          "ips_ndcg": 0.48221334966394147
+        },
+        "tail": {
+          "count": 309,
+          "true_ndcg": 0.7969057516539072,
+          "click_ndcg": 0.367056918171709,
+          "ips_ndcg": 0.34309462031883403
+        }
+      }
+    },
+    "naive_click": {
+      "overall": {
+        "true_ndcg": 0.8316122348073796,
+        "click_ndcg": 0.4650252746800387,
+        "ips_ndcg": 0.43403993183388206
+      },
+      "segments": {
+        "head": {
+          "count": 248,
+          "true_ndcg": 0.8567256862242878,
+          "click_ndcg": 0.4977585549215559,
+          "ips_ndcg": 0.461561630751824
+        },
+        "torso": {
+          "count": 443,
+          "true_ndcg": 0.8572879549366903,
+          "click_ndcg": 0.5165811583340556,
+          "ips_ndcg": 0.483250907407157
+        },
+        "tail": {
+          "count": 309,
+          "true_ndcg": 0.7746462802161889,
+          "click_ndcg": 0.3648404528074636,
+          "ips_ndcg": 0.34139966157300716
+        }
+      },
+      "lift_vs_prod": {
+        "true_ndcg": -0.002376398510766875,
+        "click_ndcg": 8.8614172939816e-05,
+        "ips_ndcg": 0.0004164015066911997
+      }
+    },
+    "ips_debiased": {
+      "overall": {
+        "true_ndcg": 0.8764541256057785,
+        "click_ndcg": 0.46728930538529834,
+        "ips_ndcg": 0.4370099030947512
+      },
+      "segments": {
+        "head": {
+          "count": 248,
+          "true_ndcg": 0.9037855059841107,
+          "click_ndcg": 0.49625174773058306,
+          "ips_ndcg": 0.46064012822996153
+        },
+        "torso": {
+          "count": 443,
+          "true_ndcg": 0.8988865588563767,
+          "click_ndcg": 0.523291488783202,
+          "ips_ndcg": 0.4912335529959806
+        },
+        "tail": {
+          "count": 309,
+          "true_ndcg": 0.8223578464347707,
+          "click_ndcg": 0.36375644795195866,
+          "ips_ndcg": 0.3403064314449881
+        }
+      },
+      "lift_vs_prod": {
+        "true_ndcg": 0.04246549228763208,
+        "click_ndcg": 0.0023526448781994724,
+        "ips_ndcg": 0.0033863727675603195
+      }
+    }
+  },
+  "traps": {
+    "position_bias_decay": {
+      "top3_click_share": 0.8563300142247511,
+      "bottom_click_share": 0.05405405405405406,
+      "ratio_top3_to_bottom": 15.842105263157894,
+      "description": "Clicks are overwhelmingly concentrated at top positions due to examination bias, with the top 3 positions capturing the vast majority of clicks."
+    },
+    "offline_gain_vanishes": {
+      "naive_biased_click_lift": 8.8614172939816e-05,
+      "naive_true_ndcg_lift": -0.002376398510766875,
+      "ips_true_ndcg_lift": 0.04246549228763208,
+      "gain_vanished": true,
+      "description": "Naive rankers trained on raw clicks appear competitive on biased click metrics, but their apparent offline gain vanishes or reverses on true relevance."
+    },
+    "tail_query_degradation": {
+      "naive_head_lift": 0.006170621248938968,
+      "naive_tail_lift": -0.022259471437718337,
+      "ips_tail_lift": 0.02545209478086352,
+      "description": "Historical popularity features cause naive rankers to degrade tail and niche queries by promoting irrelevant brand distractors, while IPS debiasing preserves tail relevance."
+    }
+  },
+  "caveats": [
+    "Impressions and clicks are generated by a simulated cascade position-examination model.",
+    "Real search users display multi-click sessions, query reformulation, and satisfaction abandonments.",
+    "Position bias eta is assumed known; production deployments estimate propensities via randomization or dual learning.",
+    "Relevance grades reflect static document utility rather than dynamic personalized intent."
+  ]
+}
