@@ -23,6 +23,7 @@ Key: **main** means start here for this domain, **also** means useful second, **
 | [15 Credit scorecard](../15-credit-scorecard) |  | domain project |  |  |  |  |  |
 | [16 Claims frequency and severity](../16-claims-frequency-severity) |  | domain project |  |  |  |  |  |
 | [17 Marketing mix model](../17-marketing-mix-model) |  |  | domain project |  |  |  |  |
+| [18 Multi-touch attribution](../18-multi-touch-attribution) |  |  | domain project |  |  |  |  |
 
 ## Domain guides
 

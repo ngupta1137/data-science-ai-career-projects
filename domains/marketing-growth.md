@@ -9,6 +9,7 @@ This page routes you to projects in this repository. Every project describes a s
 These projects use a simulation shaped around this domain's own decision.
 
 - [Marketing mix model](../17-marketing-mix-model): Reallocate advertising budget across TV, Search, and Social using an adstock-saturation model.
+- [Multi-touch attribution](../18-multi-touch-attribution): Allocate marketing credit across Display, Social, Paid Search, and Email using a first-order Markov chain removal model.
 
 ## Start here
 
