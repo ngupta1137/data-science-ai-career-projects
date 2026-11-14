@@ -1,0 +1,80 @@
+{
+  "project": "21-clinical-risk-score",
+  "fast_mode": false,
+  "decision_curve_analysis": {
+    "threshold_grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4
+    ],
+    "calibrated_net_benefit": [
+      0.1747,
+      0.1377,
+      0.099,
+      0.0763,
+      0.056,
+      0.042,
+      0.0341,
+      0.0256
+    ],
+    "uncalibrated_net_benefit": [
+      0.1745,
+      0.1299,
+      0.0851,
+      0.0404,
+      0.0006,
+      -0.0352,
+      -0.069,
+      -0.0947
+    ],
+    "treat_all_net_benefit": [
+      0.1744,
+      0.1285,
+      0.0773,
+      0.0196,
+      -0.0458,
+      -0.1205,
+      -0.2067,
+      -0.3072
+    ],
+    "avoided_unnecessary_outreach_per_100": [
+      0.6,
+      8.3,
+      12.3,
+      22.7,
+      30.5,
+      37.9,
+      44.7,
+      49.9
+    ]
+  },
+  "site_calibration_breakdown": {
+    "tertiary_academic": {
+      "observed_prevalence": 0.2786,
+      "calibrated_predicted_risk": 0.2727,
+      "unadjusted_predicted_risk": 0.2113,
+      "uncalibrated_predicted_risk": 0.5425
+    },
+    "community_regional": {
+      "observed_prevalence": 0.1853,
+      "calibrated_predicted_risk": 0.1824,
+      "unadjusted_predicted_risk": 0.2151,
+      "uncalibrated_predicted_risk": 0.4141
+    },
+    "rural_access": {
+      "observed_prevalence": 0.1096,
+      "calibrated_predicted_risk": 0.0961,
+      "unadjusted_predicted_risk": 0.1972,
+      "uncalibrated_predicted_risk": 0.2594
+    }
+  },
+  "post_hoc_study": {
+    "status": "designed_after_results_does_not_change_verdict",
+    "observation": "Uncalibrated models falsely appear competitive when evaluated solely on AUC, but Decision Curve Analysis reveals that using uncalibrated probabilities harms clinical efficiency by triggering excessive low-yield coordinator outreach."
+  }
+}
