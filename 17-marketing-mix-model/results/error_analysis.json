@@ -1,0 +1,72 @@
+{
+  "quarterly_segments": [
+    {
+      "segment": "Q1",
+      "weeks": 13,
+      "actual_mean_revenue": 163763.3,
+      "headline_rmse": 3119.01,
+      "naive_rmse": 5801.93,
+      "headline_r2": 0.8636
+    },
+    {
+      "segment": "Q2",
+      "weeks": 13,
+      "actual_mean_revenue": 167329.8,
+      "headline_rmse": 4658.56,
+      "naive_rmse": 5217.85,
+      "headline_r2": 0.1764
+    },
+    {
+      "segment": "Q3",
+      "weeks": 13,
+      "actual_mean_revenue": 148685.3,
+      "headline_rmse": 5319.89,
+      "naive_rmse": 4917.95,
+      "headline_r2": 0.4428
+    },
+    {
+      "segment": "Q4",
+      "weeks": 13,
+      "actual_mean_revenue": 156497.6,
+      "headline_rmse": 10347.62,
+      "naive_rmse": 9768.72,
+      "headline_r2": 0.2432
+    }
+  ],
+  "seasonal_segments": [
+    {
+      "segment": "holiday_weeks_q4",
+      "weeks": 8,
+      "actual_mean_revenue": 162212.5,
+      "headline_rmse": 13034.55,
+      "naive_rmse": 12134.38,
+      "headline_r2": -0.2718
+    },
+    {
+      "segment": "non_holiday_weeks",
+      "weeks": 44,
+      "actual_mean_revenue": 158497.5,
+      "headline_rmse": 4288.64,
+      "naive_rmse": 5153.53,
+      "headline_r2": 0.8464
+    }
+  ],
+  "spend_intensity_segments": [
+    {
+      "segment": "high_total_spend_weeks",
+      "weeks": 26,
+      "actual_mean_revenue": 159563.1,
+      "headline_rmse": 5482.38,
+      "naive_rmse": 5806.89,
+      "headline_r2": 0.6886
+    },
+    {
+      "segment": "low_total_spend_weeks",
+      "weeks": 26,
+      "actual_mean_revenue": 158575.0,
+      "headline_rmse": 7303.83,
+      "naive_rmse": 7518.73,
+      "headline_r2": 0.6451
+    }
+  ]
+}
